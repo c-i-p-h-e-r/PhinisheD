@@ -1,0 +1,51 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% bnmisc.mf: METAFONT file that defines some special symbols
+% Created by: Abhijit Das (Barda) IISc Bangalore
+% Last modified: Nov 24 1998
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Copyright (C) 1998-2002 by Abhijit Das [ad_rab@yahoo.com]
+%
+% This file is part of BWTI.
+%
+% BWTI is free software; you can redistribute it and/or modify
+% it under the terms of the GNU General Public License as published by
+% the Free Software Foundation; either version 2 of the License, or
+% (at your option) any later version.
+%
+% BWTI is distributed in the hope that it will be useful,
+% but WITHOUT ANY WARRANTY; without even the implied warranty of
+% MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+% GNU General Public License for more details.
+%
+% You should have received a copy of the GNU General Public License
+% along with BWTI; if not, write to the Free Software
+% Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+beginchar(95,0stwd#,stht#,stdp#); "hasanta";
+z1 = (w-0.9pt,-1/2d); z2 = (w+1pt,-5/4d);
+pickup pencircle scaled penth#; draw z1..z2;
+endchar;
+
+beginchar(14,0.30stwd#,stht#,stdp#); "ja-fala";
+pickup pencircle scaled penth#;
+z1 = (0,3/4h); z2=(w,3/4h); draw z1..z2;
+z3 = (5/6w,3/4h); z4 = (1/2w,1/2h); lft z5 = (1/10w,0);
+pickup pencircle xscaled 0.6pt yscaled 0.3pt;
+draw z3{dir -180}..tension 1.5 ..{dir -85}z4{dir -85}..{dir -170}z5;
+endchar;
+
+beginchar(94,0stwd#,stht#,stdp#); "ref";
+z1l + (0.5pt,0) = z1r - (0.5pt,0) = z1 = (-1.4pt,13/16h);
+z2l + (0.3pt,0) = z2r - (0.3pt,0) = z2 = (2.5pt,9/8h);
+penstroke z1e..z2e;
+endchar;
+
+beginchar(15,0stwd#,stht#,stdp#); "ra-fala";
+z1 = (w-0.9pt,1/10h); z2 = (w-0.9pt,-d/3); z3 = (w-2.5pt,-1/6d); 
+z4 = (w-4.4pt,-1/6d); z5 = (w-5.6pt,1/8h);
+pickup pencircle xscaled 0.3pt yscaled 0.6pt;
+draw z1--z2{dir 135}..{left}z3..z4{left}..{up}z5;
+endchar;
+
+%%% End of bnmisc.mf

@@ -1,0 +1,116 @@
+% Author: Dhiman Saha
+% For support on this mail to crypto(at)dhimans(dot)in
+
+\makeheadrule{headings}{\textwidth}{\normalrulethickness}
+\nouppercaseheads
+\pagestyle{headings}
+
+\makeevenhead{headings}{\thepage}{}{\leftmark}
+\makeoddhead{headings}{\rightmark}{}{\thepage}
+
+
+% For defining lower case mathcal fonts
+\DeclareFontFamily{OT1}{pzc}{}
+\DeclareFontShape{OT1}{pzc}{m}{it}{<-> s * [1.10] pzcmi7t}{}
+\DeclareMathAlphabet{\mathpzc}{OT1}{pzc}{m}{it}
+
+%The \part page Hack with quotations using epigraph
+ \setlength\epigraphwidth{0.6\linewidth}
+    \newbool{withepi}
+    \NewEnviron{PartEpigraph}
+    {\global\let\mypartepigraph\BODY}%
+    \newcommand\thispartepigraph[2]{%
+    \setbool{withepi}{true}%
+    \begin{PartEpigraph}
+      \epigraph{#1}{#2}
+    \end{PartEpigraph}}%
+
+    \setlength\fboxrule{0.6pt}
+    \colorlet{titlecolour}{black!40}
+    \newlength\labelframewd
+    \settowidth{\labelframewd}{~\footnotesize\textsc{part}~}
+
+    \newsavebox\partlabelbox%
+
+    \newcommand\partlabel{%
+    \makebox[0pt]{\fcolorbox{titlecolour}{titlecolour}{%
+    \raisebox{8.4ex}[0pt]{\rlap{\hspace{-\fboxsep}\resizebox*{\dimexpr\labelframewd+2\fboxsep\relax}{!}{\scshape\scriptsize{part}}}}%
+    \usebox{\partlabelbox}}}
+    \hskip-\fboxsep\color{titlecolour}{\raisebox{-9ex}{\fbox{\phantom{\usebox{\partlabelbox}}}}}
+    }%
+
+    \titleformat{\part}[display]{}
+    {%
+    \sbox{\partlabelbox}{\raisebox{0pt}[7ex][37ex]{\resizebox{\labelframewd}{12mm}{\hfill\color{white}{\thepart}\hfill}}}
+    \smash{\partlabel}}%
+    {10ex}
+    {\thispagestyle{empty}\filleft\fontsize{26}{34}\selectfont\sffamily}
+    [\ifbool{withepi}{\vspace{3.4\baselineskip}\mypartepigraph\global\setbool{withepi}{false}}{}]
+
+    \titlespacing{\part}{0pt}{1.25\baselineskip}{10\baselineskip}
+%    \renewcommand*\thepart{\arabic{part}}
+
+%Hyperlink setup Source: IACR Trans 
+\hypersetup{
+    colorlinks,
+    linkcolor={red!50!black},
+    citecolor={blue!50!black},
+    urlcolor={blue!80!black}
+}
+
+%Subsection numbering + toc 
+\setsecnumdepth{subsection}
+\maxtocdepth{subsection}
+
+%Double line surrounding Part titles in toc
+\renewcommand{\cftpartafterpnum}{\par %
+	\vspace{-2\baselineskip} \hskip -\memRTLleftskip\protect\mbox{}\protect\hrulefill\par%
+	\vspace{0.31\baselineskip} \hskip -\memRTLleftskip\protect\mbox{}\protect\hrulefill\par}
+
+%Modified Veelo
+\makeatletter
+\newlength{\numberheight}
+\setlength{\numberheight}{\beforechapskip}
+
+\makechapterstyle{myveelo}{
+  \setlength{\afterchapskip}{40pt}
+  \renewcommand*{\chapterheadstart}{\vspace*{40pt}}
+  \renewcommand*{\afterchapternum}{\par\nobreak\vskip 25pt}
+  \renewcommand*{\chapnamefont}{\normalfont\LARGE\flushright}
+  \renewcommand*{\chapnumfont}{\normalfont\HUGE}
+  \renewcommand*{\chaptitlefont}{\normalfont\HUGE\bfseries\flushright}
+  \renewcommand*{\printchaptername}{%
+    \chapnamefont\MakeUppercase{\@chapapp}}
+  \renewcommand*{\chapternamenum}{}
+  \setlength{\beforechapskip}{18mm}
+
+\renewcommand*{\printchapternum}{%
+     \makebox[0pt][l]{%
+       \enspace%
+       \resizebox{!}{\numberheight}{\chapnumfont\thechapter}%
+     }%
+   }%
+
+  \makeoddfoot{plain}{}{}{\thepage}%
+}
+\makeatother
+
+
+%To get rid of black box beside chap num in veelo + bold chap num
+\makeatletter
+\addtodef\chs@veelo{}{
+\renewcommand*{\chapnumfont}{\normalfont\HUGE\bfseries}
+\renewcommand*{\printchapternum}{%
+     \makebox[0pt][l]{%
+       \enspace%
+       \resizebox{!}{\numberheight}{\chapnumfont\thechapter}%
+%       Uncomment for black box after chapter number
+%       \hspace{.8em}% 
+%       \rule{\midchapskip}{\beforechapskip}%
+     }%
+   }%
+}
+\makeatother
+
+%Alternative bold face tty font
+\newcommand*{\ttbold}{\fontfamily{lmtt}\selectfont}

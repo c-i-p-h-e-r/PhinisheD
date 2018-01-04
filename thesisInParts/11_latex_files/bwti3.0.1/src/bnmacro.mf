@@ -1,0 +1,686 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% bnbanjon.mf: METAFONT file that defines various macros
+%              for use in bnjuk.mf
+% Created by: Abhijit Das (Barda) IISc Bangalore
+% Last modified: Jun 19 1997
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Copyright (C) 1998-2002 by Abhijit Das [ad_rab@yahoo.com]
+%
+% This file is part of BWTI.
+%
+% BWTI is free software; you can redistribute it and/or modify
+% it under the terms of the GNU General Public License as published by
+% the Free Software Foundation; either version 2 of the License, or
+% (at your option) any later version.
+%
+% BWTI is distributed in the hope that it will be useful,
+% but WITHOUT ANY WARRANTY; without even the implied warranty of
+% MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+% GNU General Public License for more details.
+%
+% You should have received a copy of the GNU General Public License
+% along with BWTI; if not, write to the Free Software
+% Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+def newchar(expr code, char_width, char_descr) = 
+beginchar(code,char_width*stwd#,stht#,stdp#); char_descr;
+enddef;
+
+def matra(expr w,h) = 
+pickup dflt_pen;
+draw (0,3/4h)..(w,3/4h);
+enddef;
+
+def rtbar(expr w,h) =
+pickup dflt_pen;
+draw (w-0.9pt,0)..(w-0.9pt,3/4h);
+enddef;
+
+def na(expr xoff, yoff, w, h, overshoot) = 
+begingroup
+save z; pair z[];
+z1 = (xoff + w, yoff + (overshoot + 1)*h); z2 = (xoff + w, yoff);
+z3 = (xoff + 0.040w, yoff + 2/3h);
+pickup dflt_pen; draw z1..z2;
+pickup pencircle xscaled 0.3pt yscaled 0.6pt;
+draw z3{dir 25}..{down}z2;
+fill fullcircle scaled 0.5h shifted (z3 + (0.062w,-0.152h));
+endgroup
+enddef;
+
+def na_(expr xoff, yoff, w, h) = 
+begingroup
+save z, currenttransform; pair z[]; transform currenttransform;
+currenttransform = identity shifted (xoff,yoff) slanted slantval;
+z2 = (1/5w,4/9h); z3 = (11/15w,0); top z4 = (15/16w,h);
+pickup pencircle xscaled 0.3pt yscaled 0.6pt rotated 30;
+draw z2{right}..{right}z3{right}..{dir 105}z4;
+fill fullcircle scaled 1.4pt shifted (z2 + (-0.02w,-0.19h));
+endgroup
+enddef;
+
+def ma(expr xoff, yoff, w, h, overshoot, another) = 
+begingroup
+save z; pair z[];
+z1 = (xoff + w, yoff + (overshoot + 1)*h); z2 = (xoff + w, yoff);
+z3 = (xoff - 0.25w, yoff + 4/5h); z4 = (xoff, yoff + h + another);
+pickup dflt_pen; draw z1..z2; draw z4{dir -80}..{dir -100}(z3 + (0.25w,0));
+pickup pencircle xscaled 0.3pt yscaled 0.6pt;
+draw z3{right}..{down}z2;
+fill fullcircle scaled 1.5pt shifted (z3 + (-0.02w,-0.152h));
+endgroup
+enddef;
+
+def la(expr xoff, yoff, w, h, overshoot) = 
+begingroup
+save z, currenttransform; pair z[]; transform currenttransform;
+currenttransform = identity shifted (xoff,yoff) slanted slantval;
+z1 = (w,(overshoot + 1)*h); z2 = (w,0);
+z3 = (w,1/2h); z4 = (3/4w,4/5h); z5 = (20/33w,11/20h);
+z6 = (7/24w,5/6h); z7 = (0,1/2h); z8 = (1/8w,4/15h);
+pickup dflt_pen; draw z1..z2;
+pickup pencircle xscaled 0.3pt yscaled 0.5pt;
+draw z3{dir 135}..{left}z4{left}..{dir -75}z5{dir 105}..{left}z6{left}
+     ..{down}z7{down}..{dir -15}z8;
+fill fullcircle scaled 1.2pt shifted (z8 + (0.042w,0.110h));
+endgroup
+enddef;
+
+def ds_(expr xoff, yoff, w, h) =
+begingroup
+save z, currenttransform; pair z[]; transform currenttransform;
+currenttransform = identity shifted (xoff,yoff) slanted slantval;
+z1 = (0,1/6h); z2 = (1/8w,0); z3 = (6/15w,h);
+z4 = (17/20w,0); z5 = (9/10w,h);
+pickup pencircle xscaled 0.3pt yscaled 0.6pt rotated 60;
+draw z1..{right}z2{right}..{dir 75}z3{dir -75}..{right}z4{right}..{dir 135}z5;
+endgroup
+enddef;
+
+def ga(expr xoff, yoff, w, h, overshoot) =
+begingroup
+save z, currenttransform; pair z[]; transform currenttransform;
+currenttransform = identity shifted (xoff,yoff) slanted slantval;
+z1 = (w,h+0.3pt); z2 = (w,-overshoot*h);
+pickup dflt_pen; draw z1..z2;
+rt z4 = (w,4/7h); z5 = (9/20w,h); rt z6 = (0,5/9h);
+z7 = (17/40w,11/40h); z8 = (16/50w,1/20h);
+pickup pencircle xscaled 0.3pt yscaled 0.6pt rotated 45;
+draw z4{dir 120}..{left}z5{left}..{down}z6{dir 30}
+                                     ..{down}z7{down}..{dir -135}z8;
+endgroup
+enddef;
+
+def ba(expr xoff, yoff, w, h) =
+begingroup
+save z, currenttransform; pair z[]; transform currenttransform;
+currenttransform = identity shifted (xoff,yoff) slanted slantval;
+top z1 = (w,h); z2 = (w,0); z3 = 1/8[z1,z2] - (0.015w,0); z4 = (0,1/2h);
+pickup dflt_pen; draw z1..z2;
+pickup pencircle scaled 0.5pt;
+draw z3{z4-z3 rotated -8}..z4;
+draw z4{right}.. tension 1.5 .. (z2 - (0.015w,0));
+endgroup
+enddef;
+
+def ba_(expr xoff, yoff, w, h) =
+begingroup
+save z, currenttransform; pair z[]; transform currenttransform;
+currenttransform = identity shifted (xoff,yoff) slanted slantval;
+top z1 = (w,h); z2 = (w,0); z3 = 1/8[z1,z2] - (0.015w,0);
+z4 = (0,8/24h); z5 = (1/3w,0);
+pickup dflt_pen; draw z1..z2;
+pickup pencircle scaled 0.5pt;
+draw z3{z4-z3 rotated -8}..z4;
+draw z4..z5;
+endgroup
+enddef;
+
+def ma_(expr xoff, yoff, w, h) =
+begingroup
+save z, currenttransform; pair z[]; transform currenttransform;
+currenttransform = identity shifted (xoff,yoff) slanted slantval;
+top z1 = (1/7w,h); z2 = (1/5w,4/9h); z3 = (11/15w,0); top z4 = (15/16w,h);
+pickup pencircle xscaled 0.3pt yscaled 0.6pt rotated 30;
+draw z1..{dir -120}z2{right}..{right}z3{right}..{dir 135}z4;
+fill fullcircle scaled 1.4pt shifted (z2 + (-0.10w,-0.12h));
+endgroup
+enddef;
+
+def pa(expr xoff, yoff, w, h, overshoot) =
+begingroup
+save z, currenttransform; pair z[]; transform currenttransform;
+currenttransform = identity shifted (xoff,yoff) slanted slantval;
+z1 = (w,h+0.3pt); z2 = (w, -h * overshoot);
+pickup pencircle scaled 0.4pt; draw z1..z2;
+rt z4 = (w,19/40h); z5 = (9/20w,h); rt z6 = (0,2/3h);
+z7 = (1/5w,0); z8 = (19/24w,3/4h);
+pickup pencircle xscaled 0.3pt yscaled 0.5pt rotated 45;
+draw z4--z8{z8-z4}..{left}z5{left}..{dir -140}z6{dir 30}..{dir -140}z7;
+pickup pencircle xscaled 0pt yscaled 0.6pt rotated 50;
+draw z7--z8;
+endgroup
+enddef;
+
+def sha(expr xoff, yoff, w, h, overshoot) =
+begingroup
+save z, currenttransform; pair z[]; transform currenttransform;
+currenttransform = identity shifted (xoff,yoff) slanted slantval;
+z1 = (w,h+0.3pt); z2 = (w,0); z3 = (w,-overshoot * h);
+pickup pencircle xscaled 0.56pt yscaled 0pt rotated -45; draw z1..z3;
+top z4 = (0,h+0.13pt); z5 = (11/30w,16/24h);
+top z6 = (16/25w,h); z7 = 1/2[z1,z2];
+pickup pencircle xscaled 0.3pt yscaled 0.6pt rotated 30;
+draw z4{right}..{dir -60}z5{dir 60}..{right}z6{right}..{z7-z6}z7;
+fill fullcircle xscaled 1.3pt yscaled 2.3pt rotated -45 shifted (z5 + (-0.50pt,-0.62pt));
+fill fullcircle xscaled 1.3pt yscaled 2.3pt rotated  45 shifted (z5 + (0.50pt,-0.62pt));
+endgroup
+enddef;
+
+def cha(expr xoff, yoff, w, h) =
+begingroup
+save z, currenttransform; pair z[]; transform currenttransform;
+currenttransform = identity shifted (xoff,yoff) slanted slantval;
+top z3 = (0,h); z4 = (0,1/3h);
+z5 = (1/4w,1/16h); z6 = (w,16/27h);
+pickup pencircle xscaled 0.3pt yscaled 0.6pt rotated 30;
+draw z3--z4{down}..z5{dir 30}..{up}z6{dir 165}..{dir 100}z3;
+endgroup
+enddef;
+
+def chha(expr xoff, yoff, w, h) =
+begingroup
+save z, currenttransform; pair z[]; transform currenttransform;
+currenttransform = identity shifted (xoff,yoff) slanted slantval;
+top z3 = (0,h); z4 = (0,5/9h); z5 = (1/8w,1/2h);
+z6 = (11/20w,3/4h); z7 = (26/40w,3/4h); z8 = (w,17/27h);
+z9 = (1/5w,1/3h); z10 = (w,0);
+pickup pencircle xscaled 0.3pt yscaled 0.6pt rotated 45;
+draw z3..z4{down}..{right}z5{right}..{dir 80}z6{left}..{up}z3;
+draw z6{right}..z7..{down}z8{down}..{left}z9;
+draw z9{dir -25}..{dir -45}z10;
+endgroup
+enddef;
+
+def ta(expr xoff, yoff, w, h, overshoot) =
+begingroup
+save z, currenttransform; pair z[]; transform currenttransform;
+currenttransform = identity shifted (xoff,yoff) slanted slantval;
+z3 = (2/3w,h); lft z4 = (w,7/15h);
+z5 = (3/4w,0); z6 = (1/4w,11/20h); z7 = (0,(1 + overshoot)*h);
+pickup pencircle xscaled 0.3pt yscaled 0.6pt;
+draw z3{dir 28}..{down}z4{down}..{left}z5{left}..z6..z7;
+fill fullcircle scaled 1.5pt shifted (z3 + (0.24pt,-0.44pt));
+endgroup
+enddef;
+
+def ta_(expr xoff, yoff, w, h) =
+begingroup
+save z, currenttransform; pair z[]; transform currenttransform;
+currenttransform = identity shifted (xoff,yoff) slanted slantval;
+z3 = (3/5w,4/5h); lft z4 = (w,7/15h);
+z5 = (3/4w,0); z6 = (1/6w,1/2h); top z7 = (0,7/8h);
+pickup pencircle xscaled 0.3pt yscaled 0.6pt;
+draw z3{dir 28}..{down}z4{down}..{left}z5{left}..z6..z7;
+fill fullcircle scaled 1.5pt shifted (z3 + (0.24pt,-0.44pt));
+endgroup
+enddef;
+
+def dha(expr xoff, yoff, w, h) =
+begingroup
+save z, currenttransform; pair z[]; transform currenttransform;
+currenttransform = identity shifted (xoff,yoff) slanted slantval;
+ba(xoff,yoff,2/3w,h);
+z1 = (2/3w,6/7h); z2 = (41/40w,5/6h); z3 = (w,1/25h);
+pickup pencircle xscaled 0.35pt yscaled 0.5pt;
+draw z1--z2{dir -95}..tension 1.5..{dir -85}z3;
+endgroup
+enddef;
+
+def ka(expr xoff, yoff, w, h, pos) =
+begingroup
+save z, currenttransform; pair z[]; transform currenttransform;
+currenttransform = identity shifted (xoff,yoff) slanted slantval;
+ba(xoff,yoff,2/3w,h);
+z1 = (2/3w,4/5h); z2 = (w,pos * h);
+draw z1{right}..{dir -120}z2;
+fill fullcircle scaled 1.1pt shifted (z2 + (-0.25pt,0.16pt));
+endgroup
+enddef;
+
+def ka_(expr xoff, yoff, w, h, pos) =
+begingroup
+save z, currenttransform; pair z[]; transform currenttransform;
+currenttransform = identity shifted (xoff,yoff) slanted slantval;
+ba_(xoff,yoff,2/3w,h);
+z1 = (2/3w,4/5h); z2 = (w,pos * h);
+draw z1{right}..{dir -120}z2;
+fill fullcircle scaled 1.1pt shifted (z2 + (-0.25pt,0.16pt));
+endgroup
+enddef;
+
+def da(expr xoff, yoff, w, h, overshoot) =
+begingroup
+save z, currenttransform; pair z[]; transform currenttransform;
+currenttransform = identity shifted (xoff,yoff) slanted slantval;
+z3 = (0,(1 + overshoot)*h); z4 = (0,17/50h);
+pickup dflt_pen; draw z3..z4;
+z5 = (9/8w,3/4h); z2 = 1/2[z4,z5] + (0,0.25pt);
+z6 = (w,0);
+pickup pencircle xscaled 0pt yscaled 0.5pt rotated 45;
+draw z4{z2-z4}..z2..{z5-z2}z5;
+pickup dflt_pen; draw z5{dir -105}..{dir -80}z6;
+endgroup
+enddef;
+
+def da_(expr xoff, yoff, w, h) =
+begingroup
+save z, currenttransform; pair z[]; transform currenttransform;
+currenttransform = identity shifted (xoff,yoff) slanted slantval;
+z1 = (0,h); z2 = (0,0); z3 = (7/8w,1/2h); z4 = (w,1/3h); z5 = (w,0);
+z6 = 1/2[z2,z3] + (0,0.35pt);
+pickup dflt_pen; draw z1--z2{z6-z2}..{z3-z6}z3--z4--z5;
+endgroup
+enddef;
+
+def tiki(expr w,h,offshoot) =
+begingroup
+save z; pair z[];
+z1 = (w-0.7pt,3/4h); z2 = ((1 + offshoot)/2*w,31/32h);
+z3 = (offshoot*w,11/10h);
+pickup pencircle xscaled 0.2pt yscaled 0.4pt;
+draw z1{dir 60}..{left}z2{left}..z3;
+endgroup
+enddef;
+
+def shnur(expr xoff, yoff, w, h) =
+begingroup
+save z, currenttransform; pair z[]; transform currenttransform;
+currenttransform = identity shifted (xoff,yoff) slanted slantval;
+z1 = (0,1/2h); z2 = (1/2w,h); z3 = (5/6w,0);
+pickup dflt_pen;
+draw z1..{right}z2{right}..{dir -120}z3;
+fill fullcircle scaled (3/5w) shifted (z3 + (-0.17*w,0.11*h));
+endgroup
+enddef;
+
+def ha(expr xoff, yoff, w, h) =
+begingroup
+save z, currenttransform; pair z[]; transform currenttransform;
+currenttransform = identity shifted (xoff,yoff) slanted slantval;
+z4 = (1/4w,4/5h); z5 = (5/6w,2/3h);
+z6 = (1/10w,11/24h); z7 = (w,0);
+pickup pencircle xscaled 0.6pt yscaled 0.3pt rotated -45;
+draw z4{dir 30}..{down}z5{down}..{dir 150}z6;
+pickup pencircle scaled 0.3pt;
+draw z6{dir -30}..{dir -45}z7;
+fill fullcircle xscaled 1.5pt yscaled 1pt rotated 30 shifted (z4 + (0,-0.20pt));
+endgroup
+enddef;
+
+def ha_(expr xoff, yoff, w, h) =
+begingroup
+save z, currenttransform; pair z[]; transform currenttransform;
+currenttransform = identity shifted (xoff,yoff) slanted slantval;
+z3 = (2/10w,h); z4 = (1/4w,4/5h); z5 = (5/6w,2/3h);
+z6 = (1/10w,11/24h); z7 = (w,0);
+pickup pencircle xscaled 0.6pt yscaled 0.3pt rotated -45;
+draw z4{dir 30}..{down}z5{down}..{dir 150}z6;
+pickup pencircle scaled 0.3pt;
+draw z3{dir -20}..{dir -75}(z4 + (0.5pt,0));
+draw z6{dir -30}..{dir -45}z7;
+fill fullcircle xscaled 1.5pt yscaled 1pt rotated 30 shifted (z4 + (0,-0.20pt));
+endgroup
+enddef;
+
+def mna(expr xoff, yoff, w, h, overshoot) =
+begingroup
+save z, currenttransform; pair z[]; transform currenttransform;
+currenttransform = identity shifted (xoff,yoff) slanted slantval;
+z1 = (w,(overshoot + 1)*h); z2 = (w,0);
+z4 = (8/16w,h); z3 = (0.040w,4/9h); rt z5 = (w,2/3h);
+pickup dflt_pen; draw z1..z2;
+pickup pencircle xscaled 0.3pt yscaled 0.6pt rotated 45;
+draw z3{dir 100}..{right}z4{right}..{dir -55}z5;
+fill fullcircle scaled 0.4h shifted (z3 + (0.120w,0.050h));
+endgroup
+enddef;
+
+def tra(expr xoff, yoff, w, h) =
+begingroup
+save z, currenttransform; pair z[]; transform currenttransform;
+currenttransform = identity shifted (xoff,yoff) slanted slantval;
+z1 = (9/20w,8/15h); z2 = (4/5w,h); z3 = (w,8/9h);
+z4 = (w,0); z5 = (1/2w,1/7h); 
+z6 = (1/6w,1/5h); z7 = (0,1/2h); z8 = (1/18w,5/7h);
+pickup pencircle xscaled 0.3pt yscaled 0.6pt rotated 45;
+draw z1{dir 135}..tension 1.2..{right}z2{right}..z3{down}..z4;
+pickup pencircle xscaled 0.3pt yscaled 0.6pt;
+draw (z4+(0,0.2pt)){up}...{left}z5{left}..z6..{up}z7{up}..z8;
+fill fullcircle scaled 0.263h shifted (z1 + (0.0887w,0.0713h));
+endgroup
+enddef;
+
+def Dha(expr xoff, yoff, w, h) =
+begingroup
+save z, currenttransform; pair z[]; transform currenttransform;
+currenttransform = identity shifted (xoff,yoff) slanted slantval;
+top lft z3 = (0,h); lft z4 = (0,3/16h);
+z5 = (2/5w,1/20h); z6 = (w,16/27h);
+pickup pencircle xscaled 0.3pt yscaled 0.6pt rotated 30;
+draw z3--z4{down}..z5{dir 30}..{up}z6;
+fill fullcircle scaled 1.2pt shifted (z6 - (0.43pt,0.15pt));
+endgroup
+enddef;
+
+def bha(expr xoff, yoff, w, h) =
+begingroup
+save z, currenttransform; pair z[]; transform currenttransform;
+currenttransform = identity shifted (xoff,yoff) slanted slantval;
+z3 = (1/3w,5/8h); z4 = (6/7w,5/6h); z5 = (w,15/32h);
+z6 = (3/5w,0); z8 = (0,13/15h); z7 = (3/25w,7/16h);
+pickup pencircle xscaled 0.3pt yscaled 0.6pt rotated 15;
+draw z3{dir -29}..{dir 60}z4{dir -50}..{down}z5{down}..{left}z6{left}..z7..z8;
+fill fullcircle scaled 1.4pt shifted (z3 + (0.36pt,0.38pt));
+endgroup
+enddef;
+
+def Da(expr xoff, yoff, w, h) =
+begingroup
+save z, currenttransform; pair z[]; transform currenttransform;
+currenttransform = identity shifted (xoff,yoff) slanted slantval;
+top z3 = (1/2w,h); z4 = (1/2w,6/11h); z5 = (11/20w,1/2h);
+z6 = (8/9w,7/10h); lft z7 = (w,5/12h);
+z8 = (23/40w,1/10h); z9 = (0,8/15h); z10 = (1/10w,1/3h);
+pickup pencircle xscaled 0.3pt yscaled 0.6pt;
+draw z3{down}..{down}z4{dir -60}..{dir -60}z5{dir 30}..{dir60}z6{dir -60}
+     ..{down}z7{down}..{left}z8{left}..z10..z9;
+endgroup
+enddef;
+
+def ms_(expr xoff, yoff, w, h) =
+begingroup
+save z, currenttransform; pair z[]; transform currenttransform;
+currenttransform = identity shifted (xoff,yoff) slanted slantval;
+top z1 = (4/5w,h); z2 = (0,1/4h); z3 = (1/5w,0); z4 = (w,3/4h);
+pickup pencircle xscaled 0.3pt yscaled 0.5pt rotated 45;
+draw z1{left}..{down}z2{down}..{right}z3{right}..{up}z4{up}..{left}z1;
+z5 = (1/3w,2/3h); z6 = (2/3w,3/10h); draw z5..z6;
+endgroup
+enddef;
+
+def pha_(expr xoff, yoff, w, h) = 
+begingroup
+save z, currenttransform; pair z[]; transform currenttransform;
+currenttransform = identity shifted (xoff,yoff) slanted slantval;
+z3 = (7/10w,4/5h); z4 = (7/10w,0); draw z3..z4;
+top rt z5 = (0,h); z6 = (1/3w,43/60h); z7 = (1/10w,4/9h);
+pickup pencircle xscaled 0.3pt yscaled 0.6pt rotated 50;
+draw z5{right}.. tension 2 ..z6--z7;
+draw z7{right}..tension 1.5 ..{dir -75}(z4 - (0.08pt,0));
+lft z8 = (41/40w,14/27h); z9 = (w,1/4h);
+pickup pencircle xscaled 0.3pt yscaled 0.6pt;
+draw z3{right}..{down}z8{down}..z9;
+fill fullcircle scaled 1pt shifted (z9 + (-0.20pt,0.20pt));
+endgroup
+enddef;
+
+def pha(expr xoff, yoff, w, h, overshoot) = 
+begingroup
+save z, currenttransform; pair z[]; transform currenttransform;
+currenttransform = identity shifted (xoff,yoff) slanted slantval;
+z3 = (7/10w,4/5*(1+overshoot)*h); z4 = (7/10w,0); draw z3..z4;
+top rt z5 = (1/7w,h); z6 = (11/40w,48/60h); z7 = (0w,4/9h);
+pickup pencircle xscaled 0.3pt yscaled 0.6pt rotated 50;
+draw z5{right}.. tension 2 ..z6--z7;
+draw z7{right}..tension 1.5 ..{dir -75}(z4 - (0.08pt,0));
+lft z8 = (41/40w,(14/27+overshoot*3/4)*h); z9 = (w,(1/4+overshoot*3/4)*h);
+pickup pencircle xscaled 0.3pt yscaled 0.6pt;
+draw z3{right}..{down}z8{down}..z9;
+fill fullcircle scaled 1pt shifted (z9 + (-0.20pt,0.20pt));
+endgroup
+enddef;
+
+def ds(expr xoff, yoff, w, h) = 
+begingroup
+save z, currenttransform; pair z[]; transform currenttransform;
+currenttransform = identity shifted (xoff,yoff) slanted slantval;
+pickup dflt_pen;
+top z3 = (w,h); z4 = (w,0); draw z3..z4;
+top z5 = (1/20w,h); rt z10 = (w,3/7h);
+z7 = (0,2/5h); z8 = (1/7w,14/50h);
+z9 - z10 = (z7 - z8); rt bot z6 = 3/5[z8,z9];
+pickup pencircle xscaled 0.3pt yscaled 0.6pt;
+draw z5{right}..{down}z6;
+pickup pencircle xscaled 0.3pt yscaled 0.6pt rotated 45;
+draw z7..z8..z9..tension 1.4..z10;
+endgroup
+enddef;
+
+def _ds(expr xoff, yoff, w, h) = 
+begingroup
+save z, currenttransform; pair z[]; transform currenttransform;
+currenttransform = identity shifted (xoff,yoff) slanted slantval;
+pickup dflt_pen;
+top z3 = (w,h); z4 = (w,0); draw z3..z4;
+top z5 = (1/20w,h); rt z10 = (w,3/7h);
+z7 = (0,2/5h); z8 = (1/7w,14/50h);
+z9 - z10 = (z7 - z8); rt bot z6 = 3/5[z8,z9];
+pickup pencircle xscaled 0.3pt yscaled 0.6pt rotated 45;
+draw z7..z8..z9..tension 1.4..z10;
+endgroup
+enddef;
+
+def _Dha(expr xoff, yoff, w, h) = 
+begingroup
+save z, currenttransform; pair z[]; transform currenttransform;
+currenttransform = identity shifted (xoff,yoff) slanted slantval;
+top lft z3 = (2/5w,h); lft z4 = (0,3/6h);
+z5 = (1/2w,0); z6 = (w,20/27h);
+pickup pencircle xscaled 0.3pt yscaled 0.6pt rotated 30;
+draw z3..tension 2..z4{down}..z5..{up}z6;
+fill fullcircle scaled 1.2pt shifted (z6 - (0.43pt,0.15pt));
+endgroup
+enddef;
+
+def Tha(expr xoff, yoff, w, h) = 
+begingroup
+save z, currenttransform; pair z[]; transform currenttransform;
+currenttransform = identity shifted (xoff,yoff) slanted slantval;
+z3 = (1/2w,h); z4 = (0,3/10h); z5 = (6/16w,1/12h);
+z6 = (w,1/2h); z7 = (3/8w,3/2h); z8 = (9/19w,19/12h);
+pickup pencircle xscaled 0.3pt yscaled 0.6pt rotated 45;
+draw z3{dir -75}..{dir -150}z4{down}..{right}z5{right}..{up}z6{up}
+     ..{dir 120}z3..{up}z7{up}..{dir 45}z8;
+endgroup
+enddef;
+
+def tta(expr xoff, yoff, w, h) = 
+begingroup
+save z, currenttransform; pair z[]; transform currenttransform;
+currenttransform = identity shifted (xoff,yoff) slanted slantval;
+z1 = (1/5w,3/4h); z2 = (3/4w,h);
+z3 = (w,64/75h); z4 = (4/5w,3/5h); z5 = (w,28/75h);
+z6 = (3/5w,1/9h); z8 = (0,13/15h); z7 = (3/25w,4/9h);
+pickup pencircle xscaled 0.3pt yscaled 0.6pt rotated 30;
+draw z1{dir 75}..{right}z2{right}..{down}z3{down}..{dir -135}z4
+{dir -40}..{down}z5{down}..{left}z6{left}..z7..z8;
+fill fullcircle scaled 1.3pt shifted (z4 + (-0.37pt,0));
+fill fullcircle scaled 1.1pt shifted (z1 + (0.39pt,0));
+endgroup
+enddef;
+
+def gha(expr xoff, yoff, w, h) = 
+begingroup
+save z, currenttransform; pair z[]; transform currenttransform;
+currenttransform = identity shifted (xoff,yoff) slanted slantval;
+top z3 = (w,h); z4 = (w,0); pickup dflt_pen; draw z3..z4;
+z5 = (1/7w,h-0.05pt); z6 = (0,4/5h);
+z7 = (15/25w,7/10h); z8 = (1/9w,4/10h);
+pickup pencircle xscaled 0.3pt yscaled 0.6pt rotated 45;
+draw z5{dir -120}..{down}z6{down}..{dir 30}z7--z8;
+draw z8{right}..tension 1.5 ..{dir -75}z4;
+endgroup
+enddef;
+
+def una(expr xoff, yoff, w, h) = 
+begingroup
+save z, currenttransform; pair z[]; transform currenttransform;
+currenttransform = identity shifted (xoff,yoff) slanted slantval;
+z1 = (1/10w,h); z2 = (19/40w,76/93h); z3 = (25/29w,92/93h);
+z4 = (1/2w,h); z5 = (4/9w,1/2h); z6 = (19/40w,64/135h);
+z7 = (8/9w,2/3h); lft z8 = (w,11/25h); z9 = (23/40w,1/9h);
+z10 = (6/50w,4/9h); z11 = (0,13/15h);
+pickup pencircle xscaled 0.3pt yscaled 0.6pt rotated 30;
+draw z1..tension 1.2..{right}z2{right}..tension 1.2..
+{up}z3{up}..{dir -130}z4{dir -130}..
+tension 2..z5--z6{dir 0}..{dir 60}z7{dir -60}..{down}z8{down}
+..{left}z9{left}..z10..z11;
+endgroup
+enddef;
+
+def khiyo_base(expr xoff, yoff, w, h) =
+begingroup
+save z, currenttransform; pair z[]; transform currenttransform;
+currenttransform = identity shifted (xoff,yoff) slanted slantval;
+top z1 = (1/15w,h); z2 = (1/7w,4/5h); z3 = (1/2w,2/5h); 
+z4 = (w-0.01pt,0.2pt); z5 = (w,h); z6 = (w,0);
+pickup dflt_pen; draw z5..z6;
+pickup pencircle xscaled 0.3pt yscaled 0.55 pt rotated 45;
+draw z1..{down}z2{dir 20}..{dir -130}z3{right}..{down}z4;
+fill fullcircle scaled 1.4pt shifted (z2 + (-0.055w,-0.07h));
+fill fullcircle scaled 1.4pt shifted (z3 + (-0.07w,-0.04h));
+endgroup
+enddef;
+
+def khiyo(expr xoff, yoff, w, h) =
+begingroup
+save z, currenttransform; pair z[]; transform currenttransform;
+currenttransform = identity shifted (xoff,yoff) slanted slantval;
+khiyo_base(xoff,yoff,2/3w,h);
+top z1 = (17/40w,h); z2 = (2/3w,29/40h); z3 = (w,9/20h);
+pickup pencircle xscaled 0.3pt yscaled 0.6 pt;
+draw z1{dir -120}..{dir 15}z2{dir 15}..{dir -120}z3;
+fill fullcircle scaled 1.3pt shifted (z3 + (-0.090w,-0.00h));
+endgroup
+enddef;
+
+def bhra(expr xoff, yoff, w, h) =
+begingroup
+save z, currenttransform; pair z[]; transform currenttransform;
+currenttransform = identity shifted (xoff,yoff) slanted slantval;
+z3 = (1/3w,9/15h); z4 = (6/7w,6/7h); z5 = (w,8/11h); z6 = (w,0);
+z8 = (w,0); z9 = (1/2w,1/6h); 
+z10 = (11/30w,1/6h); z11 = (1/15w,6/8h);
+pickup pencircle xscaled 0.3pt yscaled 0.6pt rotated 15;
+draw z3{dir -29}..{dir 60}z4..tension 3.5..z5--z6;
+pickup pencircle xscaled 0.3pt yscaled 0.6pt;
+draw z8{dir 90}..{left}z9..z10{left}..z11;
+fill fullcircle scaled 1.4pt shifted (z3 + (0.36pt,0.38pt));
+endgroup
+enddef;
+
+def ja(expr xoff, yoff, w, h) =
+begingroup
+save z, currenttransform; pair z[]; transform currenttransform;
+currenttransform = identity shifted (xoff,yoff) slanted slantval;
+top z3 = (8/20w,h); z4 = (4/21w,2/3h); z5 = (8/20w,1/2h);
+z6 = (23/36w,35/60h); z7 = (12/16w,19/50h); z8 = (1/2w,1/6h);
+rt z9 = (0,3/4h);
+pickup pencircle xscaled 0.3pt yscaled 0.6pt;
+draw z3{dir -135}..{down}z4{down}..{right}z5{right}..{dir30}z6
+     {dir -60}..{down}z7{down}..{left}z8{left}..{up}z9;
+endgroup
+enddef;
+
+def jaleg(expr xoff, yoff, w, h) =
+begingroup
+save z, currenttransform; pair z[]; transform currenttransform;
+currenttransform = identity shifted (xoff,yoff) slanted slantval;
+top z3 = (0,h);
+rt z11 = (w,3/4h);
+z12 =  (7/8w,0);
+pickup pencircle xscaled 0.25pt yscaled 0.5pt;
+draw z3{dir -90}..{dir 15}z11;
+pickup pencircle xscaled 0.2pt yscaled 0.45pt rotated 45;
+draw z11{dir -120}..tension 1.8..z12;
+endgroup
+enddef;
+
+def hump(expr xoff, yoff, w, h) =
+begingroup
+save z, currenttransform; pair z[]; transform currenttransform;
+currenttransform = identity shifted (xoff,yoff) slanted slantval;
+z9 = (0,2/5h); z13 = (0,3/5h); z11 = (8/9w,1/2h);
+z10 = (w,0); z12 = (w,h);
+pickup pencircle xscaled 0.25pt yscaled 0.45pt;
+draw z9{dir -60}..z10..z11;
+pickup pencircle xscaled 0.25pt yscaled 0.45pt;
+draw z13{dir 60}..z12..z11;
+fill fullcircle scaled 1.0pt shifted (z11 + (-0.15pt,0));
+endgroup
+enddef;
+
+def ina(expr xoff, yoff, w, h) =
+begingroup
+save z, currenttransform; pair z[]; transform currenttransform;
+currenttransform = identity shifted (xoff,yoff) slanted slantval;
+tra(xoff,yoff,3/5w,h);
+hump(xoff+3/5w,yoff+1/3h,2/5w,3/5h);
+endgroup
+enddef;
+
+def jha(expr xoff, yoff, w, h, fract) =
+begingroup
+save z, currenttransform; pair z[]; transform currenttransform;
+currenttransform = identity shifted (xoff,yoff) slanted slantval;
+ba(xoff,yoff,7/10w,h);
+z1 = (7/10w,2/5h); z2 = (w,1/20h); z3 = (w,fract*h);
+pickup dflt_pen; draw z2..z3;
+draw z1{z2-z1 rotated -8}..z2;
+endgroup
+enddef;
+
+def dha_(expr xoff, yoff, w, h) =
+begingroup
+save z, currenttransform; pair z[]; transform currenttransform;
+currenttransform = identity shifted (xoff,yoff) slanted slantval;
+ba(xoff,yoff,w,h);
+z8 = (1/2w,22/30h); z9 = (1/9w,9/10h); bot z10 = (9/30w,h);
+pickup pencircle scaled 0.35pt;
+draw z8{left}..{up}z9{up}..{right}z10;
+fill fullcircle scaled 1.0pt shifted (z10 + (0.1pt,-0.33pt));
+endgroup
+enddef;
+
+def gu(expr xoff, yoff, w, h) =
+begingroup
+save z, currenttransform; pair z[],z[]'; transform currenttransform;
+currenttransform = identity shifted (xoff,yoff) slanted slantval;
+z1 = (7/10w,3/5h); z2 = (74/100w,76/100h);
+z4 = (19/25w,8/20h); z5 = (7/8w,12/50h);
+z6 = (24/40w,1/18h); z8 = (1/10w,13/20h); z7 = (9/50w,1/3h);
+pickup pencircle xscaled 0.3pt yscaled 0.6pt rotated 30;
+draw z1--z2{dir -60}..{dir -135}z4
+     {dir -30}..{down}z5{down}..{left}z6{left}..z7..z8;
+fill fullcircle scaled 1.4pt shifted (z4 + (-0.37pt,0));
+z2' = (9/20w,3/4h); z3' = (9/40w,12/20h);
+z4' = (18/40w,11/20h); z5' = (7/20w,8/20h);
+draw z1{dir 120}..{left}z2'{left}..{down}z3'{dir 30}..{down}z4'{down}..z5';
+endgroup
+enddef;
+
+def ha_ma(expr xoff, yoff, w, h) =
+begingroup
+save z, currenttransform; pair z[]; transform currenttransform;
+currenttransform = identity shifted (xoff,yoff) slanted slantval;
+khiyo_base(xoff,yoff,3/4w,h);
+z2 = (3/8w,3/4h); z3 = (3/4w,3/4h);
+z4 = (w,27/40h); z5 = (w,1/10h);
+pickup pencircle scaled 0.5pt;
+draw z2{dir -15}..{dir 15}z3{dir 15}..z4{dir -95}..{dir -85}z5;
+endgroup
+enddef;
+
+%%% End of bnmacro.mf

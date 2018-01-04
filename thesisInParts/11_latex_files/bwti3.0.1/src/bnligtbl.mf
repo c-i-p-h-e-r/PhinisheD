@@ -1,0 +1,54 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% bnligtbl.mf: METAFONT file that defines the ligature tables
+% Created by: Abhijit Das (Barda) IISc Bangalore
+% Last modified: Nov 25 1998
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Copyright (C) 1998-2002 by Abhijit Das [ad_rab@yahoo.com]
+%
+% This file is part of BWTI.
+%
+% BWTI is free software; you can redistribute it and/or modify
+% it under the terms of the GNU General Public License as published by
+% the Free Software Foundation; either version 2 of the License, or
+% (at your option) any later version.
+%
+% BWTI is distributed in the hope that it will be useful,
+% but WITHOUT ANY WARRANTY; without even the implied warranty of
+% MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+% GNU General Public License for more details.
+%
+% You should have received a copy of the GNU General Public License
+% along with BWTI; if not, write to the Free Software
+% Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+ligtable "a": "a" =: "A";  %% a + a = A
+ligtable "e": "e" =: "I";  %% e + e = I
+ligtable "i": "i" =: "I";  %% i + i = I
+ligtable "o": "o" =: "U", "i" =: "E", "u" =: "O";
+                           %% o + o = U, o + i = E, o + u = O
+ligtable "u": "u" =: "U";  %% u + u = U
+ligtable "`": "`" =: oct"134";  %% ` + ` = ``
+ligtable "'": "'" =: oct"42";   %% ' + ' = "
+ligtable "-": "-" =: oct"173";  %% - + - = endash
+ligtable oct"173": "-" =: oct"174";  %% endash + - = emdash
+ligtable "r": "u" =: oct"31", "U" =: oct"32";  %% r + u = ru, r + U = rU
+ligtable "h": "u" =: oct"33", "W" =: oct"34";  %% h + u = hu, h + W = hW
+ligtable "g": "u" =: oct"35";  %% g + u = gu
+ligtable "S": "u" =: oct"36";  %% S + u = Su
+ligtable ".": "." =: oct"74";  %% . + . = ..
+ligtable "k": oct"17" =: oct"205"; %% k + \rafala = \kr
+ligtable "t": oct"17" =: oct"262"; %% t + \rafala = \tr
+ligtable oct"262": "u" =: oct"263";  %% \tr + u = \tru
+ligtable oct"271": oct"17" =: oct"272";  %% \dv + \rafala = \dvr
+ligtable oct"300": "u" =: oct"301",  %% \nt + u = \ntu
+               oct"17" =: oct"303";  %% \nt + \rafala = \ntr
+ligtable "v": oct"17" =: oct"327";   %% v + \rafala = \vr
+ligtable oct"335": oct"17" =: oct"336";  %% \mv + \rafala = \mvr
+ligtable oct"342": "u" =: oct"343";  %% \lg + u = \lgu
+ligtable oct"360": oct"17" =: oct"361";  %% \ssk + \rafala = \sskr
+ligtable oct"370": oct"17" =: oct"371";  %% \sk + \rafala = \skr
+ligtable oct"375": "u" =: oct"376",  %% \st + u = \stu
+               oct"17" =: oct"377";  %% \st + \rafala = \str
+
+%%% End of bnligtbl.mf

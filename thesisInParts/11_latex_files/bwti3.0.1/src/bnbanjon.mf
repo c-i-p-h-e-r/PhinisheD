@@ -1,0 +1,511 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% bnbanjon.mf: METAFONT file that defines the Bengali consonants
+% Created by: Abhijit Das (Barda) IISc Bangalore
+% Last modified: Jul 24 1997
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Copyright (C) 1998-2002 by Abhijit Das [ad_rab@yahoo.com]
+%
+% This file is part of BWTI.
+%
+% BWTI is free software; you can redistribute it and/or modify
+% it under the terms of the GNU General Public License as published by
+% the Free Software Foundation; either version 2 of the License, or
+% (at your option) any later version.
+%
+% BWTI is distributed in the hope that it will be useful,
+% but WITHOUT ANY WARRANTY; without even the implied warranty of
+% MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+% GNU General Public License for more details.
+%
+% You should have received a copy of the GNU General Public License
+% along with BWTI; if not, write to the Free Software
+% Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+beginchar("k",0.70stwd#,stht#,stdp#); "The letter ka";
+pickup pencircle scaled penth#;
+z1 = (0,3/4h); z2=(w,3/4h);
+draw z1..z2;
+z5 = (5/8w,13/20h);
+z5r = z5 + (0,penth#/2); z5l = z5 - (0,penth#/2);
+z6 = (1/8w,8/21h);
+numeric len; len = 1/2(penth#/(sqrt 2));
+z6l = z6 + (len,-len); z6r = z6 - (len,-len);
+penstroke z5e{z6-z5 rotated -8}..z6e;
+bot z4 = (5/8w,0);
+draw z6{dir -20}..z4;
+top z3 = (5/8w,3/4h);
+draw z3..z4;
+z8 = (7/8w,2/7h); z8r = z8 + (len/2,-len/2); z8l = z8 - (len/2,-len/2);
+penstroke z5e{right}..z8e;
+fill fullcircle scaled 1.1pt shifted (z8 - (0.44pt,-0.2pt));
+endchar;
+
+beginchar("K",0.62stwd#,stht#,stdp#); "The letter kha";
+z1 = (w-0.9pt,3/4h+0.3pt); z1' = (w-0.9pt,3/4h); z2 = (w-0.9pt,0); z3 = (w,3/4h);
+pickup pencircle xscaled 0.56pt yscaled 0pt rotated -45; draw z1..z2;
+pickup pencircle scaled 0.4pt; draw z1'..z3;
+rt z4 = (1/6w,14/25h); z5 = (1/2w,3/4h);
+z6 = (2/3w,3/5h); z7 = (1/4w,11/30h);
+pickup pencircle xscaled 0.3pt yscaled 0.6pt rotated 30;
+draw z4{right}..{dir 30}z5{dir -45}..{down}z6{down}..{dir -165}z7;
+draw z7{dir -10}..{dir -65}z2;
+fill fullcircle scaled 1.3pt shifted (z4 + (0.15pt,0.39pt));
+endchar;
+
+beginchar("g",0.56stwd#,stht#,stdp#); "The letter ga";
+z1 = (w-0.9pt,3/4h+0.3pt); z1' = (w-0.9pt,3/4h); z2 = (w-0.9pt,0); z3 = (w,3/4h);
+pickup pencircle xscaled 0.56pt yscaled 0pt rotated -45; draw z1..z2;
+pickup pencircle scaled 0.4pt; draw z1'..z3;
+rt z4 = (5/6w,4/7h); top z5 = (9/20w,3/4h); rt z6 = (1/7w,11/21h);
+z7 = (1/2w,19/40h); z8 = (17/50w,4/15h);
+pickup pencircle xscaled 0.3pt yscaled 0.6pt rotated 45;
+draw z4{dir 120}..{left}z5{left}..{down}z6{dir 30}..{down}z7{down}..{dir -125}z8;
+endchar;
+
+beginchar("G",0.56stwd#,stht#,stdp#); "The letter gha";
+pickup pencircle scaled penth#;
+z1 = (0,3/4h); z2=(w,3/4h); draw z1..z2;
+top z3 = (w-0.9pt,3/4h); z4 = (w-0.9pt,0); draw z3..z4;
+z5 = (1/5w,3/4h-0.05pt); z6 = (1/8w,14/23h);
+z7 = (14/25w,21/40h); z8 = (2/9w,3/10h);
+pickup pencircle xscaled 0.3pt yscaled 0.6pt rotated 45;
+draw z5{dir -120}..{down}z6{down}..{dir 30}z7--z8;
+pickup pencircle scaled 0.4pt;
+draw z8{right}..tension 1.5 ..{dir -75}z4;
+endchar;
+
+beginchar("q",0.62stwd#,stht#,stdp#); "The letter una";
+z1 = (1/5w,3/4h); z2 = (19/40w,19/31h); z3 = (23/29w,23/31h);
+z4 = (1/2w,3/4h); z5 = (4/9w,3/8h); z6 = (19/40w,16/45h);
+z7 = (4/5w,1/2h); lft z8 = (7/8w,5/16h); z9 = (23/40w,1/12h);
+z10 = (9/50w,1/3h); z11 = (1/10w,13/20h);
+pickup pencircle xscaled 0.3pt yscaled 0.6pt rotated 30;
+draw z1..tension 1.2..{right}z2{right}..tension 1.2..
+{up}z3{up}..{dir -130}z4{dir -130}..
+tension 2..z5--z6{dir 0}..{dir 60}z7{dir -60}..{down}z8{down}
+..{left}z9{left}..z10..z11;
+endchar;
+
+beginchar("c",0.48stwd#,stht#,stdp#); "The letter cha";
+pickup pencircle scaled penth#;
+z1 = (0,3/4h); z2=(w,3/4h);
+draw z1..z2;
+top lft z3 = (1/6w,3/4h); lft z4 = (1/6w,1/4h);
+z5 = (2/5w,1/16h); z6 = (5/6w,4/9h);
+pickup pencircle xscaled 0.3pt yscaled 0.6pt rotated 30;
+draw z3--z4{down}..z5{dir 30}..{up}z6{dir 165}..{dir 100}z3;
+endchar;
+
+beginchar("C",0.55stwd#,stht#,stdp#); "The letter chha";
+pickup pencircle scaled penth#;
+z1 = (0,3/4h); z2=(w,3/4h);
+draw z1..z2;
+top z3 = (1/6w,3/4h); z4 = (1/6w,5/12h); z5 = (1/5w,3/8h);
+z6 = (11/20w,9/16h); z7 = (13/20w,9/16h); z8 = (5/6w,4/9h);
+z9 = (1/5w,9/40h); z10 = (w,-1/3d);
+pickup pencircle xscaled 0.3pt yscaled 0.6pt rotated 45;
+draw z3..z4{down}..{right}z5{right}..{dir 80}z6{left}..{up}z3;
+draw z6{right}..z7..{down}z8{down}..{left}z9;
+pickup pencircle scaled 0.37pt;
+draw z9{right}..{dir -45}z10;
+endchar;
+
+beginchar("j",0.70stwd#,stht#,stdp#); "The letter ja";
+pickup pencircle scaled penth#;
+z1 = (0,3/4h); z2=(w,3/4h); draw z1..z2;
+top z3 = (8/20w,3/4h); z4 = (5/21w,1/2h); z5 = (8/20w,9/24h);
+z6 = (21/36w,37/80h); z7 = (11/16w,3/10h); z8 = (1/2w,1/8h);
+rt z9 = (1/10w,5/8h);
+pickup pencircle xscaled 0.3pt yscaled 0.6pt;
+draw z3{dir -135}..{down}z4{down}..{right}z5{right}..{dir30}z6
+     {dir -60}..{down}z7{down}..{left}z8{left}..{up}z9;
+rt z11 = (11/12w,3/5h);
+z12 = (8/9w,0);
+pickup pencircle xscaled 0.2pt yscaled 0.4pt;
+draw z3{dir -90}..{dir 15}z11;
+pickup pencircle scaled 0.36pt;
+draw z11{dir -120}..{dir -75}z12;
+endchar;
+
+beginchar("J",0.68stwd#,stht#,stdp#); "The letter jha";
+z1 = (w-0.9pt,3/4h); z2 = (w-0.9pt,1/11h);
+z3 = (5/8w,3/4h); bot z4 = (5/8w,0); lft z5 = 4/7[z3,z4];
+pickup pencircle scaled penth#; draw (z1+(0,0.3pt))..z2; draw z3..z4;
+draw (0,3/4h)..z3; draw z1..(w,3/4h);
+draw z5{dir -45}..{dir -75}z2;
+rt z6 = (5/8w,13/20h); z7 = (1/7w,8/21h);
+pickup pencircle scaled 0.4pt;
+draw z6{z7-z6 rotated -8}..z7;
+z4 + (0,0.2pt) = z4l + (0.15pt,0) = z4r - (0.15pt,0);
+pickup pencircle scaled 0.4pt;
+draw z7{dir -20}..z4;
+endchar;
+
+beginchar("Q",0.90stwd#,stht#,stdp#); "The letter ina";
+numeric wd; wd = 17/24w;
+z1 = (9/20wd,2/5h); z2 = (19/25wd,3/4h); z3 = (6/7wd,2/3h);
+z4 = (6/7wd,0); z5 = (1/2wd,1/6h); 
+z6 = (1/5wd,1/5h); z7 = (1/8wd,3/8h); z8 = (1/6wd,1/2h);
+pickup pencircle xscaled 0.3pt yscaled 0.6pt rotated 45;
+draw z1{dir 135}..tension 1.2..{right}z2{right}..z3{down}..z4;
+pickup pencircle xscaled 0.3pt yscaled 0.6pt;
+draw (z4+(0,0.2pt)){up}...{left}z5{left}..z6..{up}z7{up}..z8;
+fill fullcircle scaled 1.4pt shifted (z1 + (0.47pt,0.38pt));
+z9 = 9/20[z3,z4] + (0,0.4pt); z13 = 11/20[z3,z4] + (0,0.4pt); z10 = (8/9w,13/24h) + (0,0.4pt);
+z11 = (5/6w,1/3h) + (0,0.4pt); z12 = (8/9w,3/24h) + (0,0.4pt);
+pickup pencircle xscaled 0.6pt yscaled 0.3pt rotated 60;
+draw z9{dir 75}..z10..z11;
+pickup pencircle xscaled 0.6pt yscaled 0.3pt rotated -60;
+draw z13{dir -75}..z12..z11;
+fill fullcircle scaled 1.1pt shifted (z11 + (-0.1pt,0));
+endchar;
+
+beginchar("T",0.48stwd#,stht#,stdp#); "The letter Ta";
+pickup pencircle scaled penth#;
+z1 = (0,3/4h); z2=(w,3/4h);
+draw z1..z2;
+top lft z3 = (1/6w,3/4h); lft z4 = (1/6w,1/4h);
+z5 = (2/5w,1/16h); z6 = (5/6w,4/9h);
+pickup pencircle xscaled 0.3pt yscaled 0.6pt rotated 30;
+draw z3--z4{down}..z5{dir 30}..{up}z6;
+fill fullcircle scaled 1.2pt shifted (z6 - (0.43pt,0.15pt));
+z7 = (w-0.7pt,3/4h); z8 = (1/2w,31/32h); z9 = (-1/8w,11/10h);
+pickup pencircle xscaled 0.2pt yscaled 0.4pt;
+draw z7{dir 60}..{left}z8{left}...z9{dir 75};
+endchar;
+
+beginchar("Z",0.5stwd#,stht#,stdp#); "The letter Tha";
+pickup pencircle scaled penth#;
+z1 = (0,3/4h); z2=(w,3/4h);
+draw z1..z2;
+z3 = (4/7w,3/4h); z4 = (1/6w,9/40h); z5 = (7/16w,1/16h);
+z6 = (5/6w,3/8h); z7 = (1/3w,9/8h); z8 = (2/5w,19/16h);
+pickup pencircle xscaled 0.3pt yscaled 0.6pt rotated 45;
+draw z3{dir -75}..{dir -150}z4{down}..{right}z5{right}..{up}z6{up}
+     ..{dir 120}z3..{up}z7{up}..{dir 45}z8;
+endchar;
+
+beginchar("D",0.60stwd#,stht#,stdp#); "The letter Da";
+pickup pencircle scaled penth#;
+z1 = (0,3/4h); z2=(w,3/4h); draw z1..z2;
+top z3 = (1/2w,3/4h); z4 = (1/2w,9/22h); z5 = (11/20w,3/8h);
+z6 = (41/50w,21/40h); lft z7 = (8/9w,5/16h);
+z8 = (23/40w,1/12h); z9 = (1/10w,13/20h); z10 = (9/50w,1/3h);
+pickup pencircle xscaled 0.3pt yscaled 0.6pt;
+draw z3{down}..{down}z4{dir -60}..{dir -60}z5{dir 30}..{dir60}z6{dir -60}
+     ..{down}z7{down}..{left}z8{left}..z10..z9;
+endchar;
+
+beginchar("X",0.48stwd#,stht#,stdp#); "The letter Dha";
+pickup pencircle scaled penth#;
+z1 = (0,3/4h); z2=(w,3/4h);
+draw z1..z2;
+top lft z3 = (1/6w,3/4h); lft z4 = (1/6w,1/4h);
+z5 = (2/5w,1/16h); z6 = (5/6w,4/9h);
+pickup pencircle xscaled 0.3pt yscaled 0.6pt rotated 30;
+draw z3--z4{down}..z5{dir 30}..{up}z6;
+fill fullcircle scaled 1.2pt shifted (z6 - (0.43pt,0.15pt));
+endchar;
+
+beginchar("N",0.52stwd#,stht#,stdp#); "The letter murdhanya Na";
+z1 = (w-0.9pt,3/4h+0.3pt); z1' = (w-0.9pt,3/4h); z2 = (w-0.9pt,0); z3 = (w,3/4h);
+pickup pencircle xscaled 0.56pt yscaled 0pt rotated -45; draw z1..z2;
+pickup pencircle scaled 0.4pt; draw z1'..z3;
+rt z4 = 1/4[z1,z2]; z5 = (7/16w,3/4h); rt z6 = (1/6w,9/16h); z7 = (3/8w,27/64h);
+pickup pencircle xscaled 0.6pt yscaled 0.3pt rotated -30;
+draw z4{dir 130}..{left}z5{left}..{down}z6{down}...{dir 20}z7;
+fill fullcircle scaled 1.1pt shifted (z7+(0.08pt,0.37pt));
+endchar;
+
+beginchar("t",0.60stwd#,stht#,stdp#); "The letter ta";
+pickup pencircle scaled penth#;
+z1 = (0,3/4h); z2=(w,3/4h); draw z1..z2;
+z3 = (1/2w,5/9h); lft z4 = (6/7w,7/20h);
+z5 = (3/5w,1/12h); rt z6 = (1/10w,13/20h); z7 = (1/5w,1/3h);
+pickup pencircle xscaled 0.3pt yscaled 0.6pt;
+draw z3{dir 28}..{down}z4{down}..{left}z5{left}..z7..z6;
+fill fullcircle scaled 1.5pt shifted (z3 + (0.24pt,-0.44pt));
+endchar;
+
+beginchar("z",0.58stwd#,stht#,stdp#); "The letter tha";
+z1 = (w-0.9pt,3/4h+0.3pt); z1' = (w-0.9pt,3/4h); z2 = (w-0.9pt,0); z3 = (w,3/4h);
+pickup pencircle xscaled 0.56pt yscaled 0pt rotated -45; draw z1..z2;
+pickup pencircle scaled 0.4pt; draw z1'..z3;
+z4 = (1/7w,5/8h); z5 = (3/8w,3/4h);
+z6 = (3/5w,5/8h); z7 = (1/5w,3/8h);
+pickup pencircle xscaled 0.3pt yscaled 0.5pt rotated 45;
+draw z4{dir 90}...{right}z5{right}..{down}z6{down}..{dir -160}z7;
+z2l + (0.1pt,-0.4pt) = z2r - (0.1pt,0.4pt) = z2;
+z7r + (0.1pt,-0.24pt) = z7l - (0.1pt,-0.24pt) = z7;
+penstroke z7e{right}..tension1.2..{dir -75}z2e;
+fill fullcircle scaled 1pt shifted (z4 + (0.33pt,0pt));
+endchar;
+
+beginchar("d",0.47stwd#,stht#,stdp#); "The letter da";
+pickup pencircle scaled penth#;
+z1 = (0,3/4h); z2=(w,3/4h); draw z1..z2;
+pickup pencircle scaled 0.45pt;
+z3 = (1/6w,3/4h-0.05pt); z4 = (1/6w,3/10h); draw z3..z4;
+z5 = (6/7w,4/7h); z4' = 1/2[z4,z5] + (0,0.25pt);
+pickup pencircle xscaled 0.2pt yscaled 0.5pt rotated 45;
+draw z4{z4'-z4}..z4'..{z5-z4'}z5;
+z6 = z6l + (0.17pt,0) = z6r - (0.17pt,0) = (3/4w,0);
+z5l + (0.2pt,-0.2pt) = z5r - (0.2pt,-0.2pt) = z5;
+draw z5{dir -120}..{dir -75}z6;
+endchar;
+
+beginchar("x",0.52stwd#,stht#,stdp#); "The letter dha";
+pickup pencircle scaled penth#;
+z1 = (w-0.9pt,3/4h); z2=(w,3/4h);
+draw z1..z2;
+z5 = (w-0.9pt,13/20h);
+z5r = z5 + (0,penth#/2); z5l = z5 - (0,penth#/2);
+z6 = (1/6w,8/21h);
+numeric len; len = 1/2(penth#/(sqrt 2));
+z6l = z6 + (len,-len); z6r = z6 - (len,-len);
+penstroke z5e{z6-z5 rotated -8}..z6e;
+bot z4  = (w-0.9pt,0);
+draw z6{dir -20}..z4;
+top z3 = (w-0.9pt,3/4h);
+draw z3..z4;
+z8 = 9/20[z5,z6] + (0,0.2pt); z9 = (1/4w,27/40h); bot z10 = (11/30w,3/4h);
+pickup pencircle scaled 0.3pt;
+draw z8{left}..{up}z9{up}..{right}z10;
+fill fullcircle scaled 1.0pt shifted (z10 + (0.1pt,-0.33pt));
+endchar;
+
+beginchar("n",0.52stwd#,stht#,stdp#); "The letter na";
+pickup pencircle scaled penth#;
+z1 = (0,3/4h); z2=(w,3/4h); top z3 = (w-0.9pt,3/4h); z4 = (w-0.9pt,0);
+draw z1..z2; draw z3..z4;
+z5 = (1/4w,5/12h); bot z6 = z4;
+pickup pencircle xscaled 0.3pt yscaled 0.6pt;
+draw z5{dir 20}..{down}z6;
+fill fullcircle scaled 1.5pt shifted (z5 - (-0.14pt,0.485pt));
+endchar;
+
+beginchar("p",0.60stwd#,stht#,stdp#); "The letter pa";
+z1 = (w-0.9pt,3/4h+0.3pt); z1' = (w-0.9pt,3/4h); z2 = (w-0.9pt,0); z3 = (w,3/4h);
+pickup pencircle xscaled 0.56pt yscaled 0pt rotated -45; draw z1..z2;
+pickup pencircle scaled 0.4pt; draw z1'..z3;
+rt z4 = (5/6w,5/9h); top z5 = (8/19w,3/4h); rt z6 = (1/8w,17/28h);
+z7 = (2/7w,3/8h); z8 = (17/24w,5/8h);
+pickup pencircle xscaled 0.3pt yscaled 0.5pt rotated 45;
+draw z4--z8{z8-z4}..{left}z5{left}..{dir -140}z6{dir 30}..{dir -140}z7;
+pickup pencircle xscaled 0pt yscaled 0.6pt rotated 50;
+draw z7--z8;
+endchar;
+
+beginchar("f",0.67stwd#,stht#,stdp#); "The letter pha";
+pickup pencircle scaled penth#;
+z1 = (0,3/4h); z2=(w,3/4h); draw z1..z2;
+z3 = (13/20w,3/5h); z4 = (13/20w,0); draw z3..z4;
+top rt z5 = (1/10w,3/4h); z6 = (2/5w,43/80h); z7 = (1/6w,1/3h);
+pickup pencircle xscaled 0.32pt yscaled 0.6pt rotated 50;
+draw z5{right}.. tension 2 ..z6--z7;
+pickup pencircle scaled 0.4pt;
+draw z7{right}..tension 1.5 ..{dir -75}z4;
+lft z8 = (7/8w,4/9h); z9 = (5/6w,1/3h);
+pickup pencircle xscaled 0.3pt yscaled 0.6pt;
+draw z3{right}..{down}z8{down}..z9;
+fill fullcircle scaled 1.2pt shifted (z9 + (-0.18pt,0.30pt));
+endchar;
+
+beginchar("b",0.51stwd#,stht#,stdp#); "The letter ba";
+pickup pencircle scaled penth#;
+z1 = (0,3/4h); z2=(w,3/4h);
+draw z1..z2;
+z5 = (w-0.9pt,13/20h);
+z5r = z5 + (0,penth#/2); z5l = z5 - (0,penth#/2);
+z6 = (1/8w,8/21h);
+numeric len; len = 1/2(penth#/(sqrt 2));
+z6l = z6 + (len,-len); z6r = z6 - (len,-len);
+penstroke z5e{z6-z5 rotated -8}..z6e;
+bot z4 = (w-0.9pt,0);
+draw z6{dir -20}..z4;
+top z3 = (w-0.9pt,3/4h);
+draw z3..z4;
+endchar;
+
+beginchar("v",0.63stwd#,stht#,stdp#); "The letter bha";
+pickup pencircle scaled penth#;
+z1 = (0,3/4h); z2=(w,3/4h);
+draw z1..z2;
+z3 = (2/5w,3/7h); z4 = (4/5w,1/2h); lft z5 = (7/8w,5/16h);
+z6 = (17/30w,1/12h); rt z7 = (1/10w,13/20h); z8 = (9/50w,1/3h);
+pickup pencircle xscaled 0.3pt yscaled 0.6pt rotated 15;
+draw z3{dir -29}..{dir 60}z4{dir -50}..{down}z5{down}..{left}z6{left}..z8..z7;
+fill fullcircle scaled 1.65pt shifted (z3 + (0.36pt,0.48pt));
+endchar;
+
+beginchar("m",0.55stwd#,stht#,stdp#); "The letter ma";
+pickup pencircle scaled penth#;
+z1 = (0,3/4h); z2=(w,3/4h); top z3 = (w-0.9pt,3/4h); z4 = (w-0.9pt,0);
+draw z1..z2; draw z3..z4;
+z5 = (1/6w,3/4h-0.04pt); z6 = (13/32w,1/4h);
+pickup pencircle xscaled 0.6pt yscaled 0.3pt rotated -45;
+draw z5{dir -135}..z6{dir -142};
+z4l + (0.1pt,0) = z4r - (0.1pt,0) = z4;
+z6l + (0,0.23pt) = z6r - (0,0.23pt) = z6 + (0,0.27pt);
+penstroke z6e{right}..{down}z4e;
+fill fullcircle scaled 1.5pt shifted (z6 - (0.21pt,-0.03pt));
+endchar;
+
+beginchar("Y",0.55stwd#,stht#,stdp#); "The letter antashthya ja";
+pickup pencircle scaled penth#;
+z1 = (0,3/4h); z2=(w,3/4h); draw z1..z2;
+top z3 = (w-0.9pt,3/4h); z4 = (w-0.9pt,0); draw z3..z4;
+top rt z5 = (1/10w,3/4h); z6 = (1/2w,43/80h); z7 = (1/6w,1/3h);
+pickup pencircle xscaled 0.32pt yscaled 0.6pt rotated 50;
+draw z5{right}.. tension 2 ..z6--z7;
+pickup pencircle scaled 0.4pt;
+draw z7{right}..tension 1.5 ..{dir -75}z4;
+endchar;
+
+beginchar("r",0.51stwd#,stht#,stdp#); "The letter ra";
+pickup pencircle scaled penth#;
+z1 = (0,3/4h); z2=(w,3/4h);
+draw z1..z2;
+z5 = (w-0.9pt,13/20h);
+z5r = z5 + (0,penth#/2); z5l = z5 - (0,penth#/2);
+z6 = (1/8w,8/21h);
+numeric len; len = 1/2(penth#/(sqrt 2));
+z6l = z6 + (len,-len); z6r = z6 - (len,-len);
+penstroke z5e{z6-z5 rotated -8}..z6e;
+bot z4 = (w-0.9pt,0);
+draw z6{dir -20}..z4;
+top z3 = (w-0.9pt,3/4h);
+draw z3..z4;
+fill fullcircle scaled 1.2pt shifted (2/5w,1/20h);
+endchar;
+
+beginchar("l",0.62stwd#,stht#,stdp#); "The letter la";
+pickup pencircle scaled penth#;
+z1 = (0,3/4h); z2=(w,3/4h); top z3 = (w-0.9pt,3/4h); z4 = (w-0.9pt,0);
+draw z1..z2; draw z3..z4;
+z5 = (5/6w,9/20h); z6 = (16/24w,5/9h); z7 = (9/16w,2/5h);
+z8 = (1/3w,5/9h); z9 = (1/8w,13/32h); z10 = (3/8w,4/15h);
+pickup pencircle xscaled 0.3pt yscaled 0.5pt;
+draw z5{dir 135}..{left}z6{left}..{dir -75}z7{dir 105}..{left}z8{left}
+     ..{down}z9{down}..{dir 14.5}z10;
+fill fullcircle scaled 1.2pt shifted (z10 + (-0.09pt,0.32pt));
+endchar;
+
+beginchar("S",0.58stwd#,stht#,stdp#); "The letter talabya sha";
+z1 = (w-0.9pt,3/4h+0.3pt); z1' = (w-0.9pt,3/4h); z2 = (w-0.9pt,0); z3 = (w,3/4h);
+pickup pencircle xscaled 0.56pt yscaled 0pt rotated -45; draw z1..z2;
+pickup pencircle scaled 0.4pt; draw z1'..z3;
+z4 = (0,3/4h); z5 = (5/16w,19/32h);
+top z6 = (14/25w,3/4h); z7 = 2/7[z1,z2];
+pickup pencircle xscaled 0.3pt yscaled 0.6pt rotated 30;
+draw z4{right}..{dir -60}z5{dir 60}..{right}z6{right}..{z7-z6}z7;
+fill fullcircle xscaled 1.4pt yscaled 2.5pt rotated -45 shifted (z5 + (-0.50pt,-0.62pt));
+fill fullcircle xscaled 1.4pt yscaled 2.5pt rotated  45 shifted (z5 + (0.50pt,-0.62pt));
+endchar;
+
+beginchar("F",0.55stwd#,stht#,stdp#); "The letter murdhanya sa";
+pickup pencircle scaled penth#;
+z1 = (0,3/4h); z2=(w,3/4h); draw z1..z2;
+top z3 = (w-0.9pt,3/4h); z4 = (w-0.9pt,0); draw z3..z4;
+top rt z5 = (1/10w,3/4h); z6 = (1/2w,43/80h); z7 = (1/6w,1/3h); rt z8 = (5/6w,8/20h);
+pickup pencircle xscaled 0.32pt yscaled 0.6pt rotated 50;
+draw z5{right}.. tension 2 ..z6--z7; draw (z6+(0,0.1pt))--z8;
+pickup pencircle scaled 0.4pt;
+draw z7{right}..tension 1.5 ..{dir -75}z4;
+endchar;
+
+beginchar("s",0.60stwd#,stht#,stdp#); "The letter danto sa";
+pickup pencircle scaled penth#;
+z1 = (0,3/4h); z2=(w,3/4h); top z3 = (w-0.9pt,3/4h); z4 = (w-0.9pt,0);
+draw z1..z2; draw z3..z4;
+top z5 = (1/9w,3/4h); rt z10 = (w-0.9pt,5/13h); z7 = (1/6w,1/3h); z8 = (1/4w,3/11h);
+z9 - z10 = 3/2(z7 - z8); rt z6 = 5/8[z8,z9];
+pickup pencircle xscaled 0.3pt yscaled 0.6pt;
+draw z5{right}..{down}z6;
+pickup pencircle xscaled 0.3pt yscaled 0.6pt rotated 45;
+draw z7..z8..z9...{dir -45}z10;
+endchar;
+
+beginchar("h",0.5stwd#,stht#,stdp#); "The letter ha";
+pickup pencircle scaled penth#;
+z1 = (0,3/4h); z2=(w,3/4h);
+draw z1..z2;
+z3 = (3/10w,3/4h); z4 = (1/3w,3/5h); z5 = (5/6w,1/2h);
+lft z6 = (1/8w,5/16h); z7 = (w,-1/3d);
+pickup pencircle xscaled 0.6pt yscaled 0.3pt rotated -45;
+draw z4{dir 30}..{down}z5{down}..{dir 150}z6;
+pickup pencircle scaled 0.3pt;
+draw z3{dir -20}..{dir -75}(z4 + (0.5pt,0));
+pickup pencircle scaled 0.35pt;
+draw z6{dir -30}..{dir -45}z7;
+fill fullcircle xscaled 1.5pt yscaled 1pt rotated 30 shifted (z4 + (0,-0.20pt));
+endchar;
+                                                                                    
+beginchar("R",0.60stwd#,stht#,stdp#); "The letter Da-e bindu ra";
+pickup pencircle scaled penth#;
+z1 = (0,3/4h); z2=(w,3/4h); draw z1..z2;
+top z3 = (1/2w,3/4h); z4 = (1/2w,9/22h); z5 = (11/20w,3/8h);
+z6 = (41/50w,21/40h); lft z7 = (8/9w,5/16h);
+z8 = (23/40w,1/12h); z9 = (1/10w,13/20h); z10 = (9/50w,1/3h);
+pickup pencircle xscaled 0.3pt yscaled 0.6pt;
+draw z3{down}..{down}z4{dir -60}..{dir -60}z5{dir 30}..{dir60}z6{dir -60}
+     ..{down}z7{down}..{left}z8{left}..z10..z9;
+fill fullcircle scaled 1.2pt shifted (23/40w,-2/5d);
+endchar;
+
+beginchar("V",0.48stwd#,stht#,stdp#); "The letter Dha-e bindu ra";
+pickup pencircle scaled penth#;
+z1 = (0,3/4h); z2=(w,3/4h);
+draw z1..z2;
+top lft z3 = (1/6w,3/4h); lft z4 = (1/6w,1/4h);
+z5 = (2/5w,1/16h); z6 = (5/6w,4/9h);
+pickup pencircle xscaled 0.3pt yscaled 0.6pt rotated 30;
+draw z3--z4{down}..z5{dir 30}..{up}z6;
+fill fullcircle scaled 1.2pt shifted (z6 - (0.43pt,0.15pt));
+fill fullcircle scaled 1.2pt shifted (3/8w,-2/5d);
+endchar;
+
+beginchar("y",0.55stwd#,stht#,stdp#); "The letter antashthya ya";
+pickup pencircle scaled penth#;
+z1 = (0,3/4h); z2=(w,3/4h); draw z1..z2;
+top z3 = (w-0.9pt,3/4h); z4 = (w-0.9pt,0); draw z3..z4;
+top rt z5 = (1/10w,3/4h); z6 = (1/2w,43/80h); z7 = (1/6w,1/3h);
+pickup pencircle xscaled 0.32pt yscaled 0.6pt rotated 50;
+draw z5{right}.. tension 2 ..z6--z7;
+pickup pencircle scaled 0.4pt;
+draw z7{right}..tension 1.5 ..{dir -75}z4;
+fill fullcircle scaled 1.2pt shifted (11/25w,1/20h);
+endchar;
+
+beginchar("B",0.52stwd#,stht#,stdp#); "The letter khanda-ta";
+z1 = (17/60w,28/40h); z2 = (1/2w,4/7h); z3 = (2/3w,52/80h);
+z4 = (1/2w,3/4h); z5 = (1/7w,21/40h); z6 = (9/10w,0);
+pickup pencircle xscaled 0.5pt yscaled 0.3pt rotated 60;
+%pickup pencircle scaled 0.4pt;
+draw z1..{right}z2{right}..{up}z3{up}..{left}z4{left} ..z1..
+{down}z5{down}..{down}z6;
+endchar;
+
+beginchar("M",0.40stwd#,stht#,stdp#); "The letter anuswar";
+pickup pencircle xscaled 0.3pt yscaled 0.5pt rotated 45;
+z1 = (1/2w,3/4h); z2 = (1/2w,3/4h-17/40w); draw z1..z2..cycle;
+z3 = z3l - (0,0.40pt) = z3r + (0,0.40pt) = (1/4w,17/40h);
+z4 = z4l - (0,0.30pt) = z4r + (0,0.30pt) = (9/10w,0);
+penstroke z3e{dir -45}...{dir -75}z4e;
+endchar;
+
+beginchar("H",0.35stwd#,stht#,stdp#); "The letter bisarga";
+z1 = (1/2w,3/4h); z4 = (1/2w,1/10h); z2 = (1/2w,3/4h-1/2w); z3 = (1/2w,1/10h+1/2w);
+pickup pencircle xscaled 0.3pt yscaled 0.5pt rotated 45;
+draw z1..z2..cycle; draw z3..z4..cycle;
+endchar;
+
+beginchar("w",0stwd#,stht#,stdp#); "chandrabindu";
+pickup pencircle xscaled 0.3pt yscaled 0.6pt;
+z1 = (w-2.6pt,h+0.8pt); z2 = (w-1pt,3/4h+1.2pt); z3 = (w+0.6pt,h+0.8pt);
+draw z1..{right}z2{right}..z3;
+fill fullcircle scaled 1.1pt shifted (-1pt,h+0.8pt);
+endchar;
+
+%%% End of bnbanjon.mf

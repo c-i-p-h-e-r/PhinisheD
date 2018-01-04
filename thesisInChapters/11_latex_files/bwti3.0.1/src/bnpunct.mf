@@ -1,0 +1,233 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% bnpunct.mf: METAFONT file that defines the Bengali punctuation symbols
+% Created by: Abhijit Das (Barda) IISc Bangalore
+% Last modified: Nov 24 1998
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Copyright (C) 1998-2002 by Abhijit Das [ad_rab@yahoo.com]
+%
+% This file is part of BWTI.
+%
+% BWTI is free software; you can redistribute it and/or modify
+% it under the terms of the GNU General Public License as published by
+% the Free Software Foundation; either version 2 of the License, or
+% (at your option) any later version.
+%
+% BWTI is distributed in the hope that it will be useful,
+% but WITHOUT ANY WARRANTY; without even the implied warranty of
+% MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+% GNU General Public License for more details.
+%
+% You should have received a copy of the GNU General Public License
+% along with BWTI; if not, write to the Free Software
+% Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+beginchar(".",0.5stwd#,stht#,stdp#); "dnari (period)";
+z1 = (4/5w,3/4h); z2 = (4/5w,0);
+pickup pencircle xscaled 0.56pt yscaled 0pt rotated -45; draw z1..z2;
+endchar;
+
+beginchar(32,0.40stwd#,stht#,stdp#); "dot (decimal point)";
+fill fullcircle scaled 1.5pt shifted (1/2w,0);
+endchar;
+
+beginchar(60,0.75stwd#,stht#,stdp#); "double dnari";
+z1 = (8/15w,3/4h); z2 = (8/15w,0);
+z3 = (13/15w,3/4h); z4 = (13/15w,0);
+pickup pencircle xscaled 0.56pt yscaled 0pt rotated -45;
+draw z1..z2; draw z3..z4;
+endchar;
+
+beginchar("!",0.6stwd#,stht#,stdp#); "exclamation mark (bang)";
+pickup pencircle scaled 0.4pt;
+z1 = (3/4w,5/6h); z2 = (3/4w,1/6h); z3 = (3/4w,-1/4d);
+z1l + (0.2pt,0.1pt) = z1r + (-0.2pt,0.1pt) = z1;
+z2l + (0.1pt,-0.1pt) = z2r + (-0.1pt,-0.1pt) = z2;
+filldraw  z1l..tension 5..z2l..z2..z2r..tension 5..z1r..z1..cycle;
+fill fullcircle scaled 1.3pt shifted z3;
+endchar;
+
+beginchar(",",0.36stwd#,stht#,stdp#); "comma";
+pickup pencircle scaled 0.5pt;
+z1 = (13/18w,1/9h); z2 = (1/2w,-d);
+draw z1{dir -60}..{dir -130}z2;
+fill fullcircle scaled 1.5pt shifted (z1 + (-0.50pt,-0.22pt));
+endchar;
+
+beginchar(";",0.36stwd#,stht#,stdp#); "semi colon";
+pickup pencircle scaled 0.5pt;
+z1 = (13/18w,1/9h); z2 = (1/2w,-d);
+draw z1{dir -60}..{dir -130}z2;
+fill fullcircle scaled 1.5pt shifted (z1 + (-0.50pt,-0.22pt));
+fill fullcircle scaled 1.5pt shifted (z1 + (-0.50pt,1.8pt));
+endchar;
+
+beginchar(":",0.4stwd#,stht#,stdp#); "colon";
+z1 = (5/8w,1/6h); z2 = (5/8w,(3/4-1/6)*h);
+fill fullcircle scaled 1.5pt shifted z1;
+fill fullcircle scaled 1.5pt shifted z2;
+endchar;
+
+beginchar("`",0.3stwd#,stht#,stdp#); "backquote";
+pickup pencircle scaled 0.5pt;
+z1 = (1/3w,(3/4-1/9)*h); z2 = (3/5w,h);
+draw z1{dir 120}..{dir 50}z2;
+fill fullcircle scaled 1.5pt shifted (z1 + (0.50pt,0.22pt));
+endchar;
+
+beginchar("'",0.3stwd#,stht#,stdp#); "quote";
+pickup pencircle scaled 0.5pt;
+z1 = (2/3w,24/25h); z2 = (2/5w,(3/4-1/9-1/25)*h);
+draw z1{dir -60}..{dir -130}z2;
+fill fullcircle scaled 1.5pt shifted (z1 + (-0.50pt,-0.22pt));
+endchar;
+
+beginchar(34,0.45stwd#,stht#,stdp#); "double quote";
+pickup pencircle scaled 0.5pt;
+z1 = (2/5w,29/30h); z2 = (1/5w,(3/4-1/9-1/30)*h);
+z1' = (4/5w,29/30h); z2' = (3/5w,(3/4-1/9-1/30)*h);
+draw z1{dir -60}..{dir -130}z2;
+draw z1'{dir -60}..{dir -130}z2';
+fill fullcircle scaled 1.5pt shifted (z1 + (-0.50pt,-0.22pt));
+fill fullcircle scaled 1.5pt shifted (z1' + (-0.50pt,-0.22pt));
+endchar;
+
+beginchar(92,0.45stwd#,stht#,stdp#); "double backquote";
+pickup pencircle scaled 0.5pt;
+z1 = (1/5w,(3/4-1/9)*h); z2 = (2/5w,h);
+z1' = (3/5w,(3/4-1/9)*h); z2' = (4/5w,h);
+draw z1{dir 120}..{dir 50}z2;
+draw z1'{dir 120}..{dir 50}z2';
+fill fullcircle scaled 1.5pt shifted (z1 + (0.50pt,0.22pt));
+fill fullcircle scaled 1.5pt shifted (z1' + (0.50pt,0.22pt));
+endchar;
+
+beginchar("#",0.55stwd#,stht#,stdp#); "hash";
+pickup pencircle scaled 0.5pt;
+z1 = (1/2w,3/4h); z2 = (1/4w,-2/3d);
+z1' = (3/4w,3/4h); z2' = (1/2w,-2/3d);
+draw z1--z2; draw z1'--z2';
+z3 = (1/8w,(1/4-1/30)*h); z4 = (7/8w,(1/4-1/30)*h);
+z3' = (1/8w,(1/2-1/10)*h); z4' = (7/8w,(1/2-1/10)*h);
+draw z3--z4; draw z3'--z4';
+endchar;
+
+beginchar("/",0.3stwd#,stht#,stdp#); "forward slash";
+pickup pencircle scaled 0.5pt;
+z1 = (7/8w,3/4h); z2 = (1/8w,-2/3d);
+draw z1--z2;
+endchar;
+
+beginchar("=",0.7stwd#,stht#,stdp#); "equality sign";
+pickup pencircle scaled 0.5pt;
+z3 = (1/10w,(1/4-1/30)*h); z4 = (9/10w,(1/4-1/30)*h);
+z3' = (1/10w,(1/2-1/100)*h); z4' = (9/10w,(1/2-1/100)*h);
+draw z3--z4; draw z3'--z4';
+endchar;
+
+beginchar("[",0.20stwd#,stht#,stdp#); "left square bracket";
+pickup pencircle scaled 0.1pt;
+z1=(w,h); z2 = (1/3w,h); z3 = (1/3w,-d); z4 = (w,-d);
+z1 - z1' = (0,0.5pt); z2 - z2' = (-0.5pt,0.5pt);
+z4 - z4' = (0,-0.5pt); z3 - z3' = (-0.5pt,-0.5pt);
+filldraw z1--z2--z3--z4--z4'--z3'--z2'--z1'--cycle;
+endchar;
+
+beginchar("]",0.20stwd#,stht#,stdp#); "right square bracket";
+pickup pencircle scaled 0.1pt;
+z1=(0,h); z2 = (2/3w,h); z3 = (2/3w,-d); z4 = (0,-d);
+z1 - z1' = (0,0.5pt); z2 - z2' = (0.5pt,0.5pt);
+z4 - z4' = (0,-0.5pt); z3 - z3' = (0.5pt,-0.5pt);
+filldraw z1--z2--z3--z4--z4'--z3'--z2'--z1'--cycle;
+endchar;
+
+beginchar("(",0.28stwd#,stht#,stdp#); "left parenthesis";
+pickup pencircle scaled 0.1pt;
+z1 = (8/9w,h); z3 = (8/9w,-d);
+z2 = (1/4w,1/3h); z2' = z2 + (0.5pt,0);
+filldraw z2'{up}..{dir 60}z1{dir -130}..{down}z2{down}
+               ..{dir -50}z3{dir 120}..cycle;
+endchar;
+
+beginchar(")",0.28stwd#,stht#,stdp#); "right parenthesis";
+pickup pencircle scaled 0.1pt;
+z1 = (1/9w,h); z3 = (1/9w,-d);
+z2 = (3/4w,1/3h); z2' = z2 - (0.5pt,0);
+filldraw z2'{up}..{dir 120}z1{dir -50}..{down}z2{down}
+               ..{dir -130}z3{dir 60}..cycle;
+endchar;
+
+beginchar("*",0.48stwd#,stht#,stdp#); "asterisk";
+numeric frac; frac = 1/8h;
+z1 = (1/2w,h); z2 = (1/2w,3/7h);
+z3 = (1/6w,h-frac); z4 = (5/6w,3/7h + frac);
+z5 = (1/6w,3/7h+frac); z6 = (5/6w,h - frac);
+pickup pencircle scaled 0.5pt;
+draw z1--z2; draw z3--z4; draw z5--z6;
+endchar;
+
+beginchar("+",0.68stwd#,stht#,stdp#); "plus sign";
+z1 = (1/12w,3/8h); z2 = (11/12w,3/8h);
+z3 = (1/2w,3/4h); z4 = (1/2w,0);
+pickup pencircle scaled 0.5pt;
+draw z1--z2; draw z3--z4;
+endchar;
+
+beginchar("-",0.35stwd#,stht#,stdp#); "hyphen";
+z1 = (1/11w,3/8h); z2 = (10/11w,3/8h);
+z1 - z3 = (0,0.5pt); z2 - z4 = (0,0.5pt);
+pickup pencircle scaled 0.1pt;
+filldraw z1--z2--z4--z3--cycle;
+endchar;
+
+beginchar(123,0.60stwd#,stht#,stdp#); "endash";
+z1 = (0,3/8h); z2 = (w,3/8h);
+pickup pencircle scaled 0.25pt;
+draw z1--z2;
+endchar;
+
+beginchar(124,1.10stwd#,stht#,stdp#); "emdash";
+z1 = (0,3/8h); z2 = (w,3/8h);
+pickup pencircle scaled 0.25pt;
+draw z1--z2;
+endchar;
+
+beginchar("%",0.70stwd#,stht#,stdp#); "percent sign";
+z1 = (5/6w,h); z2 = (1/6w,-1/3d);
+pickup pencircle scaled 0.5pt;
+draw z1--z2;
+pickup pencircle xscaled 0.4pt yscaled 0.2pt;
+draw fullcircle xscaled 11/40w yscaled 1/2h shifted (1/4w,3/4h);
+draw fullcircle xscaled 11/40w yscaled 1/2h shifted (3/4w,-1/3d + 1/4h);
+z3 = (11/40w,h);
+pickup pencircle scaled 0.25pt;
+draw z3{dir -45}..{dir 45}z1;
+endchar;
+
+beginchar("?",0.80stwd#,stht#,stdp#); "Question mark";
+z1=(1/2w,3/5h+0.7pt); z2=(7/10w,3/4h+0.7pt); z3=(9/10w,3/5h+0.6pt);
+z4=(3/4w,11/30h+0.5pt); z5=(7/10w,1/7h+0.4pt);
+pickup pencircle xscaled 0.5pt yscaled 0.25pt rotated -25;
+draw z1{up}..{right}z2{right}..{down}z3{down}..{dir -135}z4..{down}z5;
+fill fullcircle scaled 1.3pt shifted (z5 - (0,1.5pt));
+fill fullcircle scaled 1.3pt shifted (z1 + (0.43pt,-0.0pt));
+endchar;
+
+beginchar("$",0.65stwd#,stht#,stdp#); "bucks";
+z1 = (4/7w,h); z2 = (1/7w,-1/3d);
+pickup pencircle scaled 0.5pt;
+draw z1--z2;
+z3 = (4/7w,3/7h); z4 = (8/9w,3/7h);
+draw z3--z4;
+endchar;
+
+beginchar("~",0.65stwd#,stht#,stdp#); "tilde";
+z1 = (1/12w,3/8h - 0.3pt); z2 = (9/30w,39/80h);
+z5 = (21/30w,21/80h); z4 = (11/12w,3/8h + 0.3pt);
+z6 = z2 + (-0.0pt,-0.5pt); z5 = z3 + (-0.0pt,-0.5pt);
+pickup pencircle scaled 0.05pt;
+filldraw z1{dir 65}..{right}z2{right}..{right}z3{right}..{dir 40}z4{dir -115}
+   ..{left}z5{left}..{left}z6{left}..{dir -140}z1..cycle;
+endchar;
+
+%%% End of bnpunct.mf

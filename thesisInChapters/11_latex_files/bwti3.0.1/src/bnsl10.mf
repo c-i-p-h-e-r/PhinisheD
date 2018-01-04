@@ -1,0 +1,48 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% bnsl10.mf: METAFONT file that defines the Bengali alphabet (slanted)
+% Created by: Abhijit Das (Barda) IISc Bangalore
+% Last modified: Jun 24 1997
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Copyright (C) 1998-2002 by Abhijit Das [ad_rab@yahoo.com]
+%
+% This file is part of BWTI.
+%
+% BWTI is free software; you can redistribute it and/or modify
+% it under the terms of the GNU General Public License as published by
+% the Free Software Foundation; either version 2 of the License, or
+% (at your option) any later version.
+%
+% BWTI is distributed in the hope that it will be useful,
+% but WITHOUT ANY WARRANTY; without even the implied warranty of
+% MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+% GNU General Public License for more details.
+%
+% You should have received a copy of the GNU General Public License
+% along with BWTI; if not, write to the Free Software
+% Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+mode_setup;
+font_size 10pt#;
+u# = 3/9pt#;
+s# = 1/3pt#;
+em# := 20pt#; cap# := 20pt#;
+thin# := 1/3pt#; thick# := 5/6pt#;
+o# := 1/5pt#;
+define_pixels(em,cap);
+define_blacker_pixels(thin,thick);
+define_corrected_pixels(o);
+numeric stwd, stht, stdp, penth;
+stwd# = 10pt#; stht# = 8pt#; stdp# = 2pt#;
+penth# = 0.4pt; dflt_pen := savepen;
+numeric slantval; slantval = 1/4;
+currenttransform := identity slanted slantval;
+font_quad 18u#+2s#;
+font_normal_space 9u#+3s#;
+font_normal_stretch 3u#;
+font_normal_shrink 2u#;
+
+input bn;
+end;
+
+%%% End of bnsl10.mf

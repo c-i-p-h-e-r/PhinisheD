@@ -1,0 +1,101 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% bnkaar.mf: METAFONT file that defines the Bengali vowel forms
+% Created by: Abhijit Das (Barda) IISc Bangalore
+% Last modified: Nov 24 1998
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Copyright (C) 1998-2002 by Abhijit Das [ad_rab@yahoo.com]
+%
+% This file is part of BWTI.
+%
+% BWTI is free software; you can redistribute it and/or modify
+% it under the terms of the GNU General Public License as published by
+% the Free Software Foundation; either version 2 of the License, or
+% (at your option) any later version.
+%
+% BWTI is distributed in the hope that it will be useful,
+% but WITHOUT ANY WARRANTY; without even the implied warranty of
+% MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+% GNU General Public License for more details.
+%
+% You should have received a copy of the GNU General Public License
+% along with BWTI; if not, write to the Free Software
+% Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+beginchar("A",0.30stwd#,stht#,stdp#); "aa-kar";
+z1 = (1/2w,3/4h+0.3pt); z1' = (1/2w,3/4h); z2 = (1/2w,0); z3 = (w,3/4h);
+pickup pencircle xscaled 0.56pt yscaled 0pt rotated -45; draw z1..z2;
+pickup pencircle scaled 0.4pt; draw z1'..z3;
+z5 = (1/10w,3/4h); lft z6 = (17/40w,19/32h); draw z5{dir -30}..{dir -60}z6;
+z7 = (0,3/4h); pickup pencircle scaled 0.4pt; draw z5..z7;
+endchar;
+
+beginchar("i",0.27stwd#,stht#,stdp#); "hraswa i-kar";
+pickup pencircle scaled penth#;
+z1 = (0,3/4h); z2=(w,3/4h); draw z1..z2;
+z3 = (11/20w,3/4h); z4=(11/20w,0); draw z3..z4;
+z5 = (1/4w,7/8h); z6 = (w,9/8h); z7 = (2.3w,7/8h);
+pickup pencircle xscaled 0.3pt yscaled 0.6pt rotated 45;
+draw z3..z5..{right}z6{right}..z7;
+endchar;
+
+beginchar("I",0.25stwd#,stht#,stdp#); "dirgha i-kar";
+z1 = (1/5w,3/4h); z2 = (w,3/4h); z3 = (3/5w,3/4h); z4 = (3/5w,0);
+z5 = (-3/4w,9/8h); z6 = (-9/5w,h); z7 = (-3/4w,7/8h); z8 = (-1/5w,3/4h);
+pickup pencircle scaled penth#;
+draw z1..z2; draw z3..z4;
+pickup pencircle xscaled 0.3pt yscaled 0.5pt;
+draw z3{up}..{left}z5{left}..{down}z6{down}..{right}z7{right}..{dir -120}z8;
+endchar;
+
+beginchar("u",0stwd#,stht#,stdp#); "hraswa-u-kar";
+z1 = (w-0.9pt,0); z2 = (w-0.9pt,-9/20d); z3 = (w-1.8pt,-4/5d);
+z4 = (w-2.8pt,-1/2d); z5 = (w-2.0pt,-1/5d); z6 = (w+1.2pt,-7/5d);
+pickup pencircle xscaled 0.3pt yscaled 0.5pt rotated 30;
+draw z1{down}..z2..{left}z3{left}..{up}z4{up}..{right}z5{right}..z2..tension 2..z6;
+endchar;
+
+beginchar("U",0stwd#,stht#,stdp#); "dirgha-u-kar";
+z1 = (w-0.9pt,0); z2 = (w-2.6pt,-9/20d);
+z3 = (w-0.7pt,-2/3d); z4 = (w+1.5pt,-7/5d);
+pickup pencircle xscaled 0.3pt yscaled 0.5pt rotated 30;
+draw z1{left}..{down}z2{down}..{dir 20}z3--z4;
+endchar;
+
+beginchar("W",0stwd#,stht#,stdp#); "ri-kar";
+z1 = (w-0.9pt,0); z2 = (w-2.1pt,-4/9d); z3 = (w,-d);
+pickup pencircle xscaled 0.3pt yscaled 0.6pt rotated 30;
+draw z1--z2--z3;
+endchar;
+
+beginchar("e",0.32stwd#,stht#,stdp#); "e-kar";
+pickup pencircle scaled penth#;
+z1 = (0,3/4h); z2=(w,3/4h);
+draw z1..z2;
+z4 = (1pt,3/8h); z3 = (w-0.4pt,3/4h); z5 = (w-0.1pt,0);
+draw z3..z4..{dir 15}z5;
+fill fullcircle scaled 1pt shifted (z5 + (-0.12pt,0.3pt));
+endchar;
+
+beginchar("E",0.32stwd#,stht#,stdp#); "oi-kar";
+pickup pencircle scaled penth#;
+z1 = (0,3/4h); z2=(w,3/4h);
+draw z1..z2;
+z4 = (1pt,3/8h); z3 = (w-0.4pt,3/4h); z5 = (w-0.1pt,0);
+draw z3..z4..{dir 15}z5;
+fill fullcircle scaled 1pt shifted (z5 + (-0.12pt,0.3pt));
+z6 = (1/8w,31/32h); z7 = (-1/3w,11/10h);
+pickup pencircle xscaled 0.3pt yscaled 0.5pt;
+draw z3{dir 60}..{left}z6{left}...z7{dir 75};
+endchar;
+
+beginchar("O",0.25stwd#,stht#,stdp#); "ou-kar";
+z1 = (1/5w,3/4h); z2 = (w,3/4h); z3 = (3/5w,3/4h); z4 = (3/5w,0);
+pickup pencircle scaled 0.4pt;
+draw z1..z2; draw z3..z4;
+z7' = (3/5w,3/4h); z8' = (-3/4w,31/32h); z9' = (-9/5w,11/10h);
+pickup pencircle xscaled 0.2pt yscaled 0.4pt;
+draw z7'{dir 60}..{left}z8'{left}...z9'{dir 75};
+endchar;
+
+%%% End of bnkaar.mf

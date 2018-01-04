@@ -1,0 +1,1011 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% bnjuk.mf: METAFONT file that defines the Bengali conjunct consonants
+% Created by: Abhijit Das (Barda) IISc Bangalore
+% Last modified: Nov 24 1998
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Copyright (C) 1998-2002 by Abhijit Das [ad_rab@yahoo.com]
+%
+% This file is part of BWTI.
+%
+% BWTI is free software; you can redistribute it and/or modify
+% it under the terms of the GNU General Public License as published by
+% the Free Software Foundation; either version 2 of the License, or
+% (at your option) any later version.
+%
+% BWTI is distributed in the hope that it will be useful,
+% but WITHOUT ANY WARRANTY; without even the implied warranty of
+% MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+% GNU General Public License for more details.
+%
+% You should have received a copy of the GNU General Public License
+% along with BWTI; if not, write to the Free Software
+% Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+input bnmacro;
+
+newchar(128,0.70,"k + k");
+matra(w,h);
+ka_(1/7w,1/3h,6/7w-0.9pt,(3/4-1/3)*h,3/10);
+ka(4/17w,0,(6/7-4/17)*w-0.25pt,11/20h,3/10);
+endchar;
+
+newchar(129,0.55,"k + T");
+matra(w,h); tiki(w,h,0);
+ka(1/7w,11/40h,13/20w,(3/4-11/40)*h,3/8);
+_Dha(3/10w,0,7/10w-0.9pt,3/10h);
+endchar;
+
+newchar(130,0.75,"k + t");
+matra(w,h);
+tta(1/11w,0,(16/25-1/11)*w,3/4h-0.8pt);
+shnur(15/25w,3/8h,10/25w-0.4pt,11/60h);
+endchar;
+
+newchar(131,0.70,"k + b");
+matra(w,h);
+ka_(1/7w,1/3h,6/7w-0.9pt,(3/4-1/3)*h,1/10);
+ba(4/17w,0,(5/7-4/17)*w-0.6pt,11/20h);
+endchar;
+
+newchar(132,0.68,"k + m");
+matra(w,h);
+ka(1/10w,3/10h,15/26w,(3/4 - 3/10)*h,3/10);
+ma(29/50w,0,21/50w-0.9pt,1/3h,1.2,-0.5pt);
+endchar;
+
+newchar(133,0.84,"k + r");
+matra(w,h);
+tra(1/11w,0,(16/25-1/11)*w,2/3h);
+shnur(16/25w,3/8h,9/25w-0.4pt,11/60h);
+endchar;
+
+newchar(134,0.65,"k + l");
+matra(w,h);
+ka(1/4w,3/10h,3/4w-0.9pt,(3/4-3/10)*h,3/10);
+la(1/10w,0,(3/4-1/10)*w-0.6pt,3/10h,0);
+endchar;
+
+newchar(135,0.82,"k + s");
+matra(w,h);
+khiyo(1/10w,0,9/10w-0.9pt,3/4h);
+endchar;
+
+newchar(136,0.75,"k + s + n");
+matra(w,h);
+khiyo(1/9w,1/16h,8/9w-0.9pt,(3/4-1/16)*h);
+na(1/4w,-11/30d,5/12w-0.32pt,11/32h,0);
+endchar;
+
+newchar(137,0.85,"k + s + m");
+matra(w,h);
+khiyo(1/10w,1/16h,17/24w,(3/4-1/16)*h);
+ma(575/1000w,-3/4d,425/1000w-0.9pt,39/100h,1.35,0);
+endchar;
+
+newchar(138,0.67,"k + ss");
+matra(w,h); rtbar(w,h);
+ka(1/8w,3/11h,11/20w,(3/4-3/11)*h,3/8);
+_ds(1/5w,0,4/5w-0.9pt,3/5h);
+endchar;
+
+newchar(139,0.65,"g + dh");
+pickup dflt_pen;
+draw ((1/6+9/16)*w-0.18pt,3/4h)..(w,3/4h);
+ga(1/6w,3/8h,9/16w-0.18pt,3/8h,0);
+dha(3/8w,0,5/8w-0.9pt,3/7h);
+endchar;
+
+newchar(140,0.56,"g + n");
+pickup dflt_pen;
+draw (w-0.9pt,3/4h)..(w,3/4h);
+ga(1/6w,3/8h,5/6w-0.9pt,3/8h,0);
+na(1/4w,0,3/4w-0.9pt,3/8h,1/9);
+endchar;
+
+newchar(141,0.56,"g + b");
+pickup dflt_pen;
+draw (w-0.9pt,3/4h)..(w,3/4h);
+ga(1/6w,3/8h,5/6w-0.9pt,3/8h,0);
+ba(4/9w,0,5/9w-0.9pt,3/7h);
+endchar;
+
+newchar(142,0.70,"g + m");
+pickup dflt_pen;
+draw (2/3w,3/4h)..(w,3/4h);
+ga(1/9w,3/8h,5/9w,3/8h,0);
+ma(2/3w,0,1/3w-0.9pt,3/10h,1.4,(3/8-3/10)*h);
+endchar;
+
+newchar(143,0.59,"g + l");
+pickup dflt_pen;
+draw (w-0.9pt,3/4h)..(w,3/4h);
+ga(1/5w,3/8h,4/5w-0.9pt,3/8h,0);
+la(1/7w,0,6/7w-0.9pt,7/20h,1/9);
+endchar;
+
+newchar(144,0.52,"gh + n");
+matra(w,h);
+gha(1/6w,3/20h,5/6w-0.9pt,(3/4-3/20)*h);
+na(1/3w,-1/4d,2/3w-0.9pt,3/8h,0);
+endchar;
+
+newchar(145,0.60,"una + k");
+matra(w,h);
+na(1/7w,2/5h,31/61w,(3/4-3/7)*h,-1);
+ka(1/5w,0,4/5w-0.9pt,31/60h,3/10);
+z1 = (11/20w,3/4h); z3 = (19/20w,3/4h); z2 = 3/5[z1,z3] - (0,1/7h);
+pickup dflt_pen; draw z1{dir -45}..z2..z3;
+endchar;
+
+newchar(146,1.22,"una + k + s");
+una(1/14w,1/8h,(5/12-1/12)*w,(3/4-1/8)*h);
+khiyo(5/12w,0,7/12w-0.9pt,3/4h);
+pickup dflt_pen; draw (4/11w,3/4h)..(w,3/4h);
+endchar;
+
+newchar(147,0.80,"una + kh");
+una(1/9w,1/5h,(1/2-1/60)*w,(3/4-1/5)*h);
+rtbar(w,21/20h); matra(1/7w,h);
+pickup dflt_pen; draw (w-0.9pt,3/4h)..(w,3/4h);
+z1 = (29/50w,21/40h); z2 = (7/10w,18/50h); z3 = (29/50w,1/5h); z4 = (w-0.9pt,0);
+draw z1{dir -45}..{down}z2{down}..{dir -135}z3{dir -15}..z4;
+endchar;
+
+newchar(148,0.58,"una + g");
+pickup pencircle scaled penth#;
+z1 = (0,3/4h); z2=(w,3/4h);
+draw z1..z2;
+z3 = (1/10w,3/4h); z4 = (1/6w,3/5h); z5 = (1/8w,17/80h);
+z6 = (1/5w,1/5h); z7 = 1/3[z6,z8];
+z8 = (8/9w,11/19h); z9 = (5/6w,0);
+pickup pencircle xscaled 0.2pt yscaled 0.6pt rotated 45;
+draw z4{dir 30}..z7..tension 2..z6..z5;
+draw z7..{dir 35}z8{dir -120}..{dir -75}z9;
+pickup pencircle scaled 0.3pt;
+draw z3{dir -20}..{dir -75}(z4 + (0.5pt,0));
+fill fullcircle scaled 1.2pt shifted (z4 + (0.19pt,-0.25pt));
+z1' = (9/20w,3/4h); z3' = (17/20w,3/4h); z2' = 3/5[z1',z3'] - (0,1/7h);
+pickup dflt_pen; draw z1'{dir -45}..z2'..z3';
+endchar;
+
+newchar(149,0.90,"una + gh");
+una(1/12w,1/8h,(1/2-1/18)*w,(3/4-1/8)*h);
+gha(1/2w,0,1/2w-0.9pt,3/4h);
+pickup dflt_pen; draw (9/19w,3/4h)..(w,3/4h);
+endchar;
+
+newchar(150,0.65,"una + m");
+una(1/9w,1/5h,(2/3-1/15)*w,(3/4-1/5)*h);
+ma(3/5w,0,2/5w-0.9pt,31/120h,1.8,-0.5pt);
+pickup dflt_pen; draw (19/30w,3/4h)..(w,3/4h);
+endchar;
+
+newchar(151,0.75,"ch + ch");
+matra(w,h);
+cha(1/8w,1/5h,(17/40-1/8)*w,(3/4-1/5)*h);
+cha(19/40w,0,21/40w-0.9pt,3/4h);
+endchar;
+
+newchar(152,0.75,"ch + chh");
+matra(w,h);
+cha(1/8w,1/5h,(17/40-1/8)*w,(3/4-1/5)*h);
+chha(19/40w,0,21/40w-0.9pt,3/4h);
+endchar;
+
+newchar(153,0.73,"ch + chh + b");
+matra(w,h);
+cha(1/8w,1/4h,(17/40-1/8)*w,(3/4-1/4)*h);
+chha(19/40w,1/15h,21/40w-0.9pt,(3/4-1/15)*h);
+ba(5/9w,-17/40d,1/4w,1/4h);
+endchar;
+
+newchar(154,0.65,"ch + ina");
+matra(w,h);
+cha(1/5w,3/9h,3/10w,(3/4-3/9)*h);
+ina(1/8w,0,7/8w-0.9pt,3/7h);
+endchar;
+
+newchar(155,0.95,"j + j");
+matra(w,h);
+ja(1/12w,11/50h,2/5w,(3/4-11/50)*h);
+ja(21/50w,0,23/50w,31/50h);
+jaleg(31/50w,0,19/50w-0.8pt,31/50h);
+top z1 = (12/50w,3/4h); z2 = (62/100w,31/50h);
+pickup pencircle xscaled 0.25pt yscaled 0.5pt;
+draw z1{dir -60}..{dir 15}z2;
+endchar;
+
+newchar(156,0.95,"j + j + b");
+matra(w,h);
+ja(1/12w,11/50h,2/5w,(3/4-11/50)*h);
+ja(21/50w,0,23/50w,31/50h);
+jaleg(31/50w,-1/30d,19/50w-0.6pt,1/30d + 31/50h);
+top z1 = (12/50w,3/4h); z2 = (62/100w,31/50h);
+pickup pencircle xscaled 0.25pt yscaled 0.5pt;
+draw z1{dir -60}..{dir 15}z2;
+z3 = (w-1.15pt,1/8h); z4 = (27/40w,-1/30h); z5 = (w-0.95pt,-3/5d);
+pickup dflt_pen;
+draw z3{z4-z3 rotated -3}..z4;
+draw z4{z5-z4 rotated -5}..{z5-z4 rotated 5}z5--z3;
+endchar;
+
+newchar(157,1.20,"j + jha");
+matra(79/100w,h);
+pickup dflt_pen; draw (w-0.9pt,3/4h)..(w,3/4h);
+ja(1/12w,0,(1/2-1/12)*w,3/4h);
+jaleg(13/50w,0,(1/2-1/4)*w,3/4h);
+jha(1/2w,0,1/2w-0.9pt,3/4h,1.05);
+endchar;
+
+newchar(158,0.75,"j + ina");
+matra(w,h);
+ja(1/10w,0,11/16w,3/4h);
+hump(59/100w,9/38h,2/5w-0.9pt,1/3h);
+top z1 = (2/5w,3/4h); z2 = (23/40w,4/9h);
+pickup dflt_pen; draw z1..z2;
+endchar;
+
+newchar(159,0.72,"j + b");
+matra(w,h);
+ja(1/10w,0,11/16w,3/4h);
+jaleg(2/5w,-3/8d,3/5w-0.7pt,3/8d + 3/4h);
+z1 = (w-1.5pt,1/5h); z2 = (1/2w,1/30h); z3 = (w-1.15pt,-1/2d);
+pickup dflt_pen; draw z1{z2-z1 rotated -4}..z2; draw z2{z3-z2 rotated -6}..z3;
+endchar;
+
+beginchar(80,0.80stwd#,stht#,stdp#); "ina + ch";
+numeric wd; wd = 11/20w+0.9pt;
+z1 = (wd-0.9pt,3/4h+0.3pt); z2 = (wd-0.9pt,0);
+pickup pencircle xscaled 0.56pt yscaled 0pt rotated -45; draw z1..z2;
+z4 = (1/7wd,5/8h); z5 = (3/8wd,3/4h);
+z6 = (3/5wd,5/8h); z7 = (1/5wd,3/8h);
+pickup pencircle xscaled 0.3pt yscaled 0.5pt rotated 45;
+draw z4{dir 90}...{right}z5{right}..{down}z6{down}..{dir -160}z7;
+pickup pencircle scaled 0.4pt;
+draw z7{right}..tension1.2..{dir -75}z2;
+fill fullcircle scaled 1pt shifted (z4 + (0.33pt,0pt));
+hump(11/20w,1/4h,9/20w-1.1pt,9/20h);
+endchar;
+
+newchar(161,0.60,"ina + chh");
+z1 = (1/8w,13/20h); bot z2 = (3/10w,3/4h); z3 = (9/20w,13/20h);
+z4 = (1/8w,7/20h); z5 = (11/20w,8/20h); z5' = (26/40w,14/40h);
+z6 = (1/8w,1/8h); z7 = (w-0.5pt,-2/3d);
+pickup pencircle xscaled 0.3pt yscaled 0.6pt rotated 45;
+draw z1{up}..{right}z2{right}..{down}z3{down}..{down}z4{down}..{dir 60}z5
+     {dir -20}..z5'..{left}z6{right}..tension 1.5..z7;
+hump(9/20w,1/2h,11/20w-0.9pt,(3/4-1/2)*h);
+fill fullcircle scaled 1.1pt shifted (z1 + (0.34pt,0.06pt));
+endchar;
+
+newchar(162,0.69,"ina + j");
+ja(1/10w,0,13/17w,3/5h);
+hump(9/20w,1/2h,11/20w-0.9pt,(3/4-1/2)*h);
+z1 = (1/7w,12/19h); z2 = (1/3w,3/4h); z3 = (1/3w+0.48pt,3/5h);
+pickup pencircle xscaled 0.3pt yscaled 0.6pt;
+draw z1{up}..{right}z2{right}..{dir -135}z3;
+z4 = (5/6w,9/20h); z5 = (4/5w,0);
+pickup dflt_pen;
+draw z4{dir -120}..tension 1.8..z5;
+fill fullcircle scaled 1.1pt shifted (z1 + (0.45pt,-0.18pt));
+endchar;
+
+newchar(163,0.62,"ina + jh");
+ina(1/8w,3/8h,73/100w,3/8h);
+jha(1/5w,0,53/100w,3/7h,5/6);
+endchar;
+
+newchar(164,0.57,"T + T");
+matra(w,h);
+Dha(1/4w,1/15h,3/4w-0.9pt,(3/4-1/15)*h);
+tiki(w,h,0);
+z1 = (7/10w,1/5h); z2 = (1/2w,-1/3d); z3 = (1/8w,1/8h);
+pickup pencircle xscaled 0.3pt yscaled 0.6pt;
+draw z1{dir -30}..{left}z2{left}..{dir 125}z3;
+endchar;
+
+newchar(165,0.50,"T + b");
+matra(w,h);
+Dha(1/6w,1/10h,5/6w-0.9pt,(3/4-1/10)*h);
+tiki(w,h,-1/12);
+ba(6/13w,-1/2d,1/2w-0.9pt,3/10h);
+endchar;
+
+newchar(166,0.90,"D + D");
+matra(w,h);
+Da(1/11w,1/4h,(2/5-1/12)*w,(3/4-1/4)*h);
+Da(21/50w,0,29/50w-0.9pt,3/4h);
+endchar;
+
+newchar(167,0.78,"N + T");
+pickup dflt_pen; draw ((6/13+1/35)*w,3/4h)..(w,3/4h);
+mna(1/11w,3/8h,(6/13-1/16)*w,3/8h,0);
+Dha(6/13w,0,7/13w-0.9pt,3/4h); tiki(w,h,1/4);
+endchar;
+
+newchar(168,0.61,"N + Th");
+mna(1/7w,39/80h,41/100w,(3/4-35/80)*h,-1);
+Tha(1/4w,0,3/4w-0.9pt,3/4h);
+endchar;
+
+beginchar(169,0.63stwd#,stht#,stdp#); "N + D";
+z1 = (1/5w,61/100h); z1' = (39/100w,3/4h);
+z2' = (60/100w,3/5h); z2 = (74/100w,76/100h);
+z4 = (18/25w,8/20h); z5 = (7/8w,12/50h);
+z6 = (23/40w,1/18h); z8 = (1/10w,13/20h); z7 = (9/50w,1/3h);
+pickup pencircle xscaled 0.3pt yscaled 0.6pt rotated 30;
+draw z1{dir 100}..{right}z1'{right}..{dir -60}z2'{dir 60}..
+     {dir 45}z2{dir -35}..{dir -135}z4
+     {dir -30}..{down}z5{down}..{left}z6{left}..z7..z8;
+fill fullcircle scaled 1.4pt shifted (z4 + (-0.37pt,0));
+fill fullcircle scaled 1.2pt shifted (z1 + (0.40pt,0.2pt));
+endchar;
+
+newchar(170,0.52,"N + N");
+pickup dflt_pen; draw (w-0.9pt,3/4h)..(w,3/4h);
+mna(1/6w,3/8h,5/6w-0.9pt,3/8h,1/9);
+mna(1/6w,0,5/6w-0.9pt,3/8h,0);
+endchar;
+
+newchar(171,0.65,"N + m");
+pickup dflt_pen; draw (5/8w,3/4h)..(w,3/4h);
+mna(1/8w,3/8h,1/2w,3/8h,1/9);
+ma(5/8w,0,3/8w-0.9pt,3/8h,1,0);
+endchar;
+
+newchar(172,0.57,"t + t");
+matra(w,h);
+tta(1/7w,0,6/7w-0.9pt,3/4h-0.8pt);
+endchar;
+
+newchar(173,0.55,"t + t + b");
+matra(w,h);
+tta(1/7w,1/9h,6/7w-0.9pt,(3/4-1/9)*h-0.7pt);
+ba(5/11w,-1/3d,1/3w,3/10h);
+endchar;
+
+beginchar(174,0.62stwd#,stht#,stdp#); "t + th";
+z1 = (w-0.9pt,3/4h+0.3pt); z1' = (w-0.9pt,3/4h); z2 = (w-0.9pt,0); z3 = (w,3/4h);
+pickup pencircle xscaled 0.56pt yscaled 0pt rotated -45; draw z1..z2;
+pickup pencircle scaled 0.4pt; draw z1'..z3;
+z4 = (1/7w,3/5h); z4' = (7/25w,3/4h);
+z5 = (9/20w,3/5h); z5' = (11/20w,3/4h);
+z6 = (13/20w,5/8h); z7 = (1/4w,3/8h);
+pickup pencircle xscaled 0.3pt yscaled 0.5pt rotated 45;
+draw z4{dir 100}...{right}z4'{right}..{dir -60}z5{dir 60}..
+     {dir 45}z5'{dir -50}..{down}z6{down}..{dir -160}z7;
+z2l + (0.1pt,-0.4pt) = z2r - (0.1pt,0.4pt) = z2;
+z7r + (0.1pt,-0.24pt) = z7l - (0.1pt,-0.24pt) = z7;
+penstroke z7e{right}..tension1.2..{dir -75}z2e;
+fill fullcircle scaled 1pt shifted (z4 + (0.33pt,0.2pt));
+endchar;
+
+newchar(175,0.58,"t + n");
+matra(w,h);
+ta_(1/10w,1/3h,9/10w-0.9pt,(3/4-1/3)*h);
+na(7/24w,0,17/24w-1.2pt,29/80h,0);
+endchar;
+
+newchar(176,0.60,"t + b");
+matra(w,h);
+ta_(1/10w,3/10h,9/10w-0.9pt,(3/4-3/10)*h);
+ba(4/9w,0,1/2w-0.9pt,3/8h);
+endchar;
+
+newchar(177,0.74,"t + m");
+matra(w,h);
+ta_(1/12w,1/3h,3/5w,(3/4 - 1/3)*h);
+ma(3/5w,0,2/5w-0.9pt,1/3h,1.2,-0.5pt);
+endchar;
+
+newchar(178,0.66,"t + r");
+matra(w,h);
+tra(1/8w,0,7/8w-0.9pt,2/3h);
+endchar;
+
+newchar(179,0.80,"t + r + u");
+matra(w,h);
+tra(1/10w,0,11/20w,2/3h);
+z1' = (13/20w,2/5h); z2' = (w-0.4pt,47/100h); z3' = (17/20w,3/5h);
+pickup pencircle scaled penth#;
+draw z1'{dir -60}..{up}z2'{up}..{left}z3';
+fill fullcircle scaled 1.3pt shifted (z3' + (-0.1pt,-0.46pt));
+endchar;
+
+newchar(38,0.48,"th + b");
+ha(1/10w,1/4h+0.2pt,2/3w+0.1pt,3/5h-0.1pt);
+pickup pencircle scaled 0.4pt;
+draw (5/6w,1/4h)..(5/6w,3/4h+0.2pt);
+draw(5/6w,3/4h)..(w,3/4h);
+ba(1/3w,-1/3d,1/2w,33/80h);
+endchar;
+
+newchar(180,0.87,"d + g");
+matra(21/50w,h);
+pickup dflt_pen; draw (w-0.9pt,3/4h)..(w,3/4h);
+da(1/10w,0,(19/50-1/10)*w,3/4h,0);
+ga(23/50w,3/9h,27/50w-0.9pt,(3/4-3/9)*h,0.8);
+endchar;
+
+newchar(181,0.84,"d + gh");
+matra(w,h);
+da(1/10w,0,(19/50-1/11)*w,3/4h,0);
+gha(23/50w,0,27/50w-0.9pt,3/4h);
+endchar;
+
+newchar(182,0.58,"d + d");
+matra(w,h)
+da(1/8w,11/40h,(9/20-1/8)*w,(3/4-11/40)*h,0);
+da(9/20w+0.1pt,0,1/2w-1.0pt,(3/4-1/40)*h,-33/50);
+endchar;
+
+newchar(183,0.62,"d + dh");
+matra(w,h);
+da_(1/7w,3/8h,(2/3-1/7)*w-0.07pt,3/8h);
+dha(1/4w,0,3/4w-0.9pt,1/2h);
+endchar;
+
+newchar(184,0.53,"d + b");
+matra(w,h);
+da_(1/6w,3/8h,5/6w-0.9pt,3/8h);
+ba(1/3w,0,2/3w-0.9pt,1/2h);
+endchar;
+
+newchar(185,0.62,"d + bh");
+matra(w,h);
+da(1/6w,7/25h,1/3w,(3/4-7/25)*h,0);
+bha(1/8w,0,7/8w-0.9pt,8/19h);
+endchar;
+
+newchar(186,0.62,"d + bh + r");
+matra(w,h);
+da(1/6w,7/25h,1/3w,(3/4-7/25)*h,0);
+bhra(1/8w,0,7/8w-0.9pt,8/19h);
+endchar;
+
+newchar(187,0.56,"d + m");
+matra(w,h)
+da(1/8w,1/7h,(23/40-1/8)*w,(3/4-1/7)*h,0);
+ma(23/40w-0.1pt,0,17/40w-0.8pt,1/4h,2.0,0);
+endchar;
+
+newchar(188,0.50,"dh + n");
+dha_(9/40w,3/14h,31/40w-0.9pt,(3/4-3/14)*h);
+na(1/6w,-1/4d,5/6w-0.9pt,3/8h,0);
+pickup dflt_pen; draw (w-0.9pt,3/4h)..(w,3/4h);
+endchar;
+
+newchar(189,0.92,"dh + b");
+dha_(1/11w,0,(1/2-1/10)*w,3/4h);
+ba(1/2w,0,1/2w-0.9pt,3/4h);
+pickup dflt_pen; draw (1/2w,3/4h)..(w,3/4h);
+endchar;
+
+newchar(190,0.78,"n + T");
+matra(w,h);
+na(1/8w,3/10h,(6/13-19/180)*w,3/8h,1/9);
+Dha(6/13w,0,7/13w-0.9pt,3/4h); tiki(w,h,1/4);
+endchar;
+
+newchar(191,0.63,"n + D");
+matra(w,h);
+na(1/10w,7/18h,(2/5-1/14)*h,1/3h,1/12);
+Da(1/8w,0,7/8w-0.9pt,3/4h);
+endchar;
+
+newchar(192,0.62,"n + t");
+matra(w,h);
+na_(1/5w,11/25h,4/5w-0.7pt,(3/4-11/25)*h);
+ta(1/10w,0,11/12w-0.9pt,3/8h,0.4);
+endchar;
+
+newchar(193,0.60,"n + t + u");
+matra(w,h);
+na_(1/10w,12/25h,4/5w-0.7pt,(3/4-12/25)*h);
+tta(1/5w,-11/20d,4/5w-0.9pt,4/7h);
+endchar;
+
+newchar(194,0.60,"n + t + b");
+matra(w,h);
+na_(1/5w,12/25h,4/5w-0.7pt,(3/4-12/25)*h);
+ta(1/10w,1/8h,11/12w-0.9pt,3/10h,0.4);
+ba(17/30w,-2/5d,1/4w,1/4h);
+endchar;
+
+newchar(195,0.62,"n + t + r");
+matra(w,h);
+na_(1/5w,12/25h,4/5w-0.7pt,(3/4-12/25)*h);
+tra(1/7w,-1/4d,6/7w-0.9pt,21/40h);
+endchar;
+
+newchar(196,0.60,"n + th");
+matra(w,h);
+na_(1/10w,12/25h,4/5w-0.7pt,(3/4-12/25)*h);
+ha(3/10w,-1/3d,7/10w-0.3pt,5/8h);
+endchar;
+
+newchar(197,0.68,"n + d");
+matra(w,h);
+na(1/10w,3/10h,(1/2-1/10)*w,3/8h,0.2);
+da(1/2w,0,1/2w-0.9pt,3/4h,0);
+endchar;
+
+newchar(64,0.66,"n + d + b");
+matra(w,h);
+na(1/10w,(3/10+1/16)*h,(1/2-1/10)*w,5/16h,0.2);
+da(1/2w,1/5h,1/2w-0.9pt,3/7h,0);
+ba(21/40w+0.03pt,-1/4d,1/3w,8/20h);
+endchar;
+
+newchar(198,0.62,"n + dh");
+matra(w,h);
+na(1/6w,3/9h,9/16w-0.38pt,3/8h,0.1);
+dha(5/17w,0,12/17w-0.9pt,19/39h);
+endchar;
+
+newchar(199,0.52,"n + n");
+matra(w,h);
+na(1/6w,3/10h,5/6w-0.9pt,3/8h,1/9);
+na(1/6w,0,5/6w-0.9pt,3/8h,1/9);
+endchar;
+
+newchar(200,0.55,"n + b");
+matra(w,h);
+na(1/7w,7/24h,6/7w-0.9pt,3/8h,1/6);
+ba(4/9w,0,5/9w-0.9pt,3/7h);
+endchar;
+
+newchar(201,0.65,"n + m");
+matra(w,h);
+na(1/8w,7/20h,1/2w,3/8h,1/15);
+ma(5/8w,0,3/8w-0.9pt,7/20h,1.1,0);
+endchar;
+
+newchar(202,0.70,"n + ss");
+matra(w,h);
+na(1/8w,9/28h,7/20w,3/12h,-1);
+ds(1/5w,0,4/5w-0.9pt,3/4h);
+endchar;
+
+newchar(203,0.80,"p + T");
+pickup dflt_pen; draw ((8/17+1/35)*w,3/4h)..(w,3/4h);
+pa(1/11w,9/20h,(8/17-1/16)*w,1/4*h,-1/10);
+Dha(8/17w,0,9/17w-0.9pt,3/4h); tiki(w,h,1/4);
+endchar;
+
+newchar(204,0.65,"p + t");
+pickup dflt_pen; draw ((4/5 + 1/7)*w-0.9pt,3/4h)..(w,3/4h);
+pa(1/7w,3/7h,4/5w-0.9pt,(3/4-3/7)*h,0.28);
+ta(1/11w,0,9/10w-0.9pt,3/8h,0.4);
+endchar;
+
+newchar(205,0.60,"p + n");
+pa(1/7w,7/17h,6/7w-0.9pt,(3/4-7/17)*h,0.3);
+na(1/3w,0,2/3w-0.9pt,3/8h,0.3);
+pickup dflt_pen; draw (w-0.9pt,3/4h)..(w,3/4h);
+endchar;
+
+newchar(206,0.60,"p + p");
+pa(1/7w,3/7h,6/7w-0.9pt,(3/4-3/7)*h,0.3);
+pa(1/7w,0,6/7w-0.9pt,(3/4-3/7)*h,0.05);
+pickup dflt_pen; draw (w-0.9pt,3/4h)..(w,3/4h);
+endchar;
+
+newchar(207,0.60,"p + l");
+pa(1/7w,7/17h,6/7w-0.9pt,(3/4-7/17)*h,0.3);
+la(1/5w,0,4/5w-0.9pt,3/8h,0.3);
+pickup dflt_pen; draw (w-0.9pt,3/4h)..(w,3/4h);
+endchar;
+
+newchar(208,0.70,"p + ss");
+matra(w,h);
+pa(1/8w,23/60h,33/100w,1/5h,-1.15);
+ds(1/5w,0,4/5w-0.9pt,3/4h);
+endchar;
+
+newchar(209,0.68,"ph + l");
+matra(w,h);
+pha_(9/40w,1/5h,31/40w-0.9pt,(3/4-1/5)*h);
+la(1/8w,-1/5d,5/9w-0.05pt,1/3h,1/3);
+endchar;
+
+beginchar(210,0.69stwd#,stht#,stdp#); "b + j";
+matra(w,h);
+top z3 = (8/20w,3/4h); z5 = (8/20w,9/24h);
+z6 = (21/36w,37/80h); z7 = (11/16w,3/10h); z8 = (1/2w,1/8h);
+rt z9 = (1/10w,4/8h);
+pickup pencircle xscaled 0.3pt yscaled 0.6pt;
+draw z3--z5{right}..{dir30}z6
+     {dir -60}..{down}z7{down}..{left}z8{left}..{up}z9;
+rt z11 = z11l + (0.2pt,-0.2pt) = z11r - (0.2pt,-0.2pt) = (11/12w,3/5h);
+z12 = z12l + (0.15pt,0) = z12r - (0.15pt,0) = (8/9w,0);
+pickup pencircle xscaled 0.2pt yscaled 0.4pt;
+draw z3{dir -90}..{dir 15}z11;
+penstroke z11e{dir -120}..{dir -75}z12e;
+ba(1/8w,3/8h,(2/5-1/8)*w,3/8h);
+endchar;
+
+newchar(211,0.65,"b + d");
+matra(w,h);
+ba(1/10w,3/10h,(19/40-1/10)*w,3/7h);
+da(19/40w,0,21/40w-0.9pt,3/4h,0);
+endchar;
+
+newchar(212,0.65,"b + dh");
+matra(w,h);
+ba_(1/8w,3/8h,9/16w-0.22pt,3/8*h);
+dha(4/17w,0,13/17w-0.9pt,4/7h);
+endchar;
+
+newchar(213,0.54,"b + b");
+matra(w,h);
+ba_(1/7w,3/8h,6/7w-0.9pt,3/8*h);
+ba(4/17w,0,13/17w-0.9pt,4/7h);
+endchar;
+
+newchar(214,0.54,"b + l");
+matra(w,h);
+ba(1/4w,5/18h,3/4w-0.9pt,(3/4 - 5/18)*h);
+la(1/7w,0,6/7w-0.9pt,7/20h,1/9);
+endchar;
+
+newchar(215,0.70,"bh + r");
+matra(w,h);
+bhra(1/8w,0,7/8w-0.9pt,2/3h);
+endchar;
+
+newchar(216,0.60,"bh + l");
+matra(w,h);
+bha(1/8w,1/3h,7/8w-0.9pt,3/8h);
+la(4/25w,-1/5d,4/5w-0.9pt,3/9h,1/3);
+endchar;
+
+newchar(217,0.56,"m + n");
+matra(w,h);
+ma_(1/7w,11/25h,6/7w-0.7pt,(3/4-11/25)*h);
+na(1/5w,0,4/5w-0.9pt,3/8h,0.3);
+endchar;
+
+newchar(218,1.00,"m + p");
+ma_(1/12w,1/2h,(3/7-1/10)*w,(3/4-13/25)*h);
+pa(4/9w,3/8h,5/9w-0.9pt,3/8h,1);
+pickup dflt_pen; draw (w-0.9pt,3/4h)..(w,3/4h);
+draw (0,3/4h)..(37/100w,3/4h);
+endchar;
+
+newchar(219,0.95,"m + ph");
+matra(w,h);
+ma_(1/11w,12/25h,(2/5-1/30)*w,(3/4-12/25)*h);
+pha(3/7w,0,4/7w-0.9pt,14/25h,0.38);
+endchar;
+
+newchar(220,0.56,"m + b");
+matra(w,h);
+ma_(1/7w,11/25h,6/7w-0.65pt,(3/4-11/25)*h);
+ba(1/3w,0,2/3w-0.9pt,29/60h);
+endchar;
+
+newchar(221,0.64,"m + bh");
+matra(w,h);
+ma_(1/6w,11/25h,5/6w-1.2pt,(3/4-11/25)*h);
+bha(1/8w,0,7/8w-0.9pt,8/17h);
+endchar;
+
+newchar(222,0.62,"m + bh + r");
+matra(w,h);
+ma_(1/6w,11/24h,5/6w-1.2pt,(3/4-11/24)*h);
+bhra(1/8w,0,7/8w-0.9pt,19/40h);
+endchar;
+
+newchar(223,0.70,"m + m");
+matra(w,h);
+ma_(1/9w,11/25h,18/30w,(3/4-11/25)*h);
+ma(2/3w,0,1/3w-0.9pt,3/8h,1,1/15h);
+endchar;
+
+newchar(224,0.58,"m + l");
+matra(w,h);
+ma_(1/7w,11/25h,6/7w-0.7pt,(3/4-11/25)*h);
+la(1/6w,0,5/6w-0.9pt,3/8h,0.3);
+endchar;
+
+newchar(225,0.65,"l + k");
+matra(w,h);
+la(1/10w,3/10h,(3/4-1/10)*w-0.6pt,3/8h,0.2);
+ka(1/4w,0,3/4w-0.9pt,1/2h,3/10);
+endchar;
+
+newchar(226,0.60,"l + g");
+matra(w,h);
+la(1/8w,3/10h,7/8w-0.9pt,3/8h,1/9);
+ga(1/4w,0,3/4w-0.9pt,3/8h,0);
+endchar;
+
+newchar(227,0.60,"l + g + u");
+matra(w,h);
+la(1/8w,1/3h,7/8w-1.2pt,3/8h,1/10);
+gu(1/10w,-1/2d,19/20w,2/3h);
+endchar;
+
+newchar(228,0.80,"l + T");
+matra(w,h);
+la(1/11w,3/10h,(8/17-1/14)*w,3/8h,1/9);
+Dha(8/17w,0,9/17w-0.9pt,3/4h); tiki(w,h,1/4);
+endchar;
+
+newchar(229,0.72,"l + D");
+matra(w,h);
+la(1/10w,7/18h,(1/2-1/14)*h,1/3h,1/12);
+Da(1/4w,0,3/4w-0.9pt,3/4h);
+endchar;
+
+newchar(230,0.60,"l + p");
+matra(w,h);
+la(1/6w,9/26h,5/6w-0.9pt,3/8h,0);
+pa(1/7w,1/25h,6/7w-0.9pt,(3/4-7/17-1/25)*h,0.13);
+endchar;
+
+newchar(231,0.60,"l + b");
+matra(w,h);
+la(1/8w,1/4h,7/8w-0.9pt,3/8h,1/4);
+ba(4/9w,0,5/9w-0.9pt,3/7h);
+endchar;
+
+newchar(232,0.70,"l + m");
+matra(w,h);
+la(1/9w,3/10h,5/9w,3/8h,1/9);
+ma(2/3w,0,1/3w-0.9pt,3/10h,1.4,0);
+endchar;
+
+newchar(233,0.62,"l + l");
+matra(w,h);
+la(1/8w,3/10h,7/8w-0.9pt,3/8h,1/9);
+la(1/8w,0,7/8w-0.9pt,3/8h,1/9);
+endchar;
+
+newchar(234,0.85,"sh + ch");
+pickup dflt_pen; draw (11/20w,3/4h)..(w,3/4h);
+draw (0,3/4h)..(1/10w,3/4h);
+sha(1/10w,7/17h,(21/40 - 1/10)*w,(3/4-7/17)*h,0);
+cha(21/40w,0,19/40w-0.9pt,3/4h);
+endchar;
+
+newchar(235,0.88,"sh + chh");
+pickup dflt_pen; draw (11/20w,3/4h)..(w,3/4h);
+draw (0,3/4h)..(1/10w,3/4h);
+sha(1/10w,7/17h,(11/20 - 1/10)*w,(3/4-7/17)*h,0);
+chha(11/20w,0,9/20w-0.9pt,3/4h);
+endchar;
+
+newchar(236,0.60,"sh + n");
+sha(1/7w,7/17h,6/7w-0.9pt,(3/4-7/17)*h,0.3);
+na(1/3w,0,2/3w-0.9pt,3/8h,0.3);
+pickup dflt_pen; draw (w-0.9pt,3/4h)..(w,3/4h);
+draw (0,3/4h)..(1/7w,3/4h);
+endchar;
+
+newchar(237,0.72,"sh + m");
+pickup dflt_pen;
+draw (2/3w,3/4h)..(w,3/4h);
+draw (0,3/4h)..(1/9w,3/4h);
+sha(1/9w,7/17h,(2/3 - 1/9)*w,(3/4-7/17)*h,0.38);
+ma(2/3w,0,1/3w-0.9pt,3/10h,1.4,0);
+endchar;
+
+newchar(238,0.60,"sh + l");
+sha(1/7w,7/17h,6/7w-0.9pt,(3/4-7/17)*h,0.3);
+la(1/5w,0,4/5w-0.9pt,3/8h,0.3);
+pickup dflt_pen; draw (w-0.9pt,3/4h)..(w,3/4h);
+draw (0,3/4h)..(1/7w,3/4h);
+endchar;
+
+newchar(239,0.60,"sh + b");
+pickup dflt_pen;
+draw (w-0.9pt,3/4h)..(w,3/4h);
+draw (0,3/4h)..(1/7w,3/4h);
+sha(1/7w,7/17h,6/7w-0.9pt,(3/4-7/17)*h,0.5);
+ba(4/9w,0,5/9w-0.9pt,3/7h);
+endchar;
+
+newchar(240,0.60,"s + k");
+matra(w,h);
+ms_(1/7w,3/7h,1/2w,(3/4-3/7)*h);
+ka(1/7w,0,6/7w-0.9pt,59/100h,2/5);
+endchar;
+
+newchar(241,0.82,"s + k + r");
+matra(w,h);
+ms_(1/9w,3/7h,(1/2-1/8)*w,(3/4-3/7)*h);
+tra(1/6w,-1/4d,(2/3-1/6)*w,23/40h);
+shnur(2/3w,1/4h,1/3w-0.3pt,1/9h);
+endchar;
+
+newchar(242,0.54,"s + T");
+matra(w,h); tiki(w,h,0);
+ms_(1/7w,3/8h,12/20w,(3/4-3/8)*h);
+_Dha(1/6w,0,5/6w-0.9pt,3/7h);
+endchar;
+
+newchar(243,0.61,"s + Th");
+matra(w,h);
+ms_(1/7w,31/80h,21/50w,(3/4-31/80)*h);
+Tha(1/4w,0,3/4w-0.9pt,3/4h);
+endchar;
+
+beginchar(244,0.80stwd#,stht#,stdp#); "s + N";
+pickup pencircle scaled penth#;
+numeric wd; wd = 11/20w + 0.9pt;
+z1 = (0,3/4h); z2=(wd-0.9pt,3/4h); draw z1..z2;
+top z3 = (wd-0.9pt,3/4h); z4 = (wd-0.9pt,0); draw z3..z4;
+top rt z5 = (1/10w,3/4h); z6 = (1/2wd,43/80h); z7 = (1/6wd,1/3h); rt z8 = (5/6wd,8/20h);
+pickup pencircle xscaled 0.32pt yscaled 0.6pt rotated 50;
+draw z5{right}.. tension 2 ..z6--z7; draw (z6+(0,0.1pt))--z8;
+pickup pencircle scaled 0.4pt;
+draw z7{right}..tension 1.5 ..{dir -75}z4;
+hump(11/20w,1/4h,9/20w-1.1pt,9/20h);
+endchar;
+
+newchar(245,0.88,"s + p");
+matra(3/10w,h);
+pickup dflt_pen; draw (w-0.9pt,3/4h)..(w,3/4h);
+ms_(1/11w,3/7h+0.19pt,(5/12-1/8)*w,(3/4-3/7)*h);
+pa(5/12w,3/8h,7/12w-0.9pt,(3/4-3/8)*h,1);
+endchar;
+
+newchar(246,0.82,"s + ph");
+matra(w,h)
+ms_(1/11w,3/7h,5/15w,(3/4-3/7)*h);
+pha(7/19w,0,12/19w-0.9pt,14/25h,0.38);
+endchar;
+
+newchar(247,0.60,"s + m");
+matra(w,h);
+ms_(1/7w,3/7h,1/2w,(3/4-3/7)*h);
+ma(21/40w,0,19/40w-0.9pt,2/5h,0.8,0.8pt);
+endchar;
+
+newchar(248,0.75,"ss + k");
+matra(w,h);
+ds_(1/10w,1/2h,2/3w,1/4h);
+ka(3/8w,0,5/8w-0.9pt,22/40h,3/10);
+endchar;
+
+newchar(249,0.84,"ss + k + r");
+matra(w,h);
+ds_(1/9w,13/25h,(2/3-1/9)*w,(3/4-13/25)*h);
+tra(1/6w,-1/4d,(2/3-1/6)*w,11/20h);
+shnur(2/3w,1/4h,1/3w-0.3pt,1/9h);
+endchar;
+
+newchar(250,0.75,"ss + k + l");
+matra(w,h);
+ds_(1/10w,1/2h,2/3w,1/4h);
+ka(2/5w,1/15h,3/5w-0.9pt,9/20h,3/10);
+la(9/41w,-13/20d,1/2w,1/3h,0);
+endchar;
+
+newchar(251,0.80,"ss + kh");
+matra(21/40w,h);
+ds_(1/10w,3/6h,19/40w,(3/4-3/6)*h);
+rtbar(w,21/20h);
+pickup dflt_pen; draw (w-0.9pt,3/4h)..(w,3/4h);
+z1 = (9/20w,3/10h); z2 = (3/5w,1/2h); z3 = (72/100w,18/50h);
+z4 = (27/50w,18/100h); z5 = (w-0.9pt,0);
+draw z1{right}..{up}z2{dir -45}..{down}z3{down}..{dir -135}z4{dir -15}..z5;
+fill fullcircle scaled 1.2pt shifted (z1 + (0,0.4pt));
+endchar;
+
+newchar(252,0.83,"ss + T");
+matra(w,h); tiki(w,h,1/4);
+ds(1/11w,1/6h,(11/20-1/11)*w,(3/4-1/6)*h);
+Dha(11/20w-0.25pt,0,9/20w-0.7pt,3/4h);
+endchar;
+
+newchar(253,0.68,"ss + t");
+matra(w,h);
+ds_(1/6w,9/19h,5/6w-0.6pt,(3/4-9/19)*h);
+ta(1/11w,0,10/11w-0.9pt,11/25h,0.2);
+endchar;
+
+newchar(254,0.60,"ss + t + u");
+matra(w,h);
+ds_(1/10w,12/25h,8/9w-0.9pt,(3/4-12/25)*h);
+tta(1/5w,-11/20d,4/5w-0.9pt,4/7h);
+endchar;
+
+newchar(255,0.65,"ss + t + r");
+matra(w,h);
+ds_(1/7w,13/25h,4/5w-0.5pt,(3/4-13/25)*h);
+tra(1/7w,-1/4d,6/7w-0.9pt,11/20h);
+endchar;
+
+newchar(16,0.60,"ss + th");
+matra(w,h);
+ds_(1/10w,12/25h,8/9w-0.9pt,(3/4-12/25)*h);
+ha(3/10w,-1/3d,7/10w-0.3pt,5/8h);
+endchar;
+
+newchar(17,0.63,"ss + n");
+matra(w,h);
+ds_(1/9w,9/19h,8/9w-0.6pt,(3/4-9/19)*h);
+na(1/4w,0,3/4w-0.9pt,3/8h,0.3);
+endchar;
+
+newchar(18,1.15,"ss + p");
+ds_(1/14w,10/20h,(9/20-1/15)*w,(3/4-10/20)*h);
+pa(1/2w,3/8h,1/2w-0.9pt,3/8h,1);
+pickup dflt_pen; draw (w-0.9pt,3/4h)..(w,3/4h);
+draw (0,3/4h)..(41/100w,3/4h);
+endchar;
+
+newchar(19,1.15,"ss + p + l");
+ds_(1/14w,10/20h,(9/20-1/15)*w,(3/4-10/20)*h);
+pa(1/2w,3/8h,1/2w-0.9pt,3/8h,1);
+la(57/100w,0,43/100w-0.9pt,3/8h,0);
+pickup dflt_pen; draw (w-0.9pt,3/4h)..(w,3/4h);
+draw (0,3/4h)..(41/100w,3/4h);
+endchar;
+
+newchar(20,1.02,"ss + ph");
+matra(w,h);
+pha(10/21w,0,11/21w-0.9pt,14/25h,0.38);
+ds_(1/11w,12/25h,2/5*w,(3/4-12/25)*h);
+endchar;
+
+newchar(21,0.63,"ss + b");
+matra(w,h);
+ds_(1/9w,9/19h,8/9w-0.6pt,(3/4-9/19)*h);
+ba(5/14w,0,9/14w-0.9pt,1/2h);
+endchar;
+
+newchar(22,0.77,"ss + m");
+matra(w,h);
+ds_(1/11w,9/19h,6/9w-0.2pt,(3/4-9/19)*h);
+ma(2/3w,0,1/3w-0.9pt,3/8h,1,(9/19-3/8)*h);
+endchar;
+
+newchar(23,0.63,"ss + l");
+matra(w,h);
+ds_(1/9w,9/19h,8/9w-0.6pt,(3/4-9/19)*h);
+la(1/5w,0,4/5w-0.9pt,3/8h,0.3);
+endchar;
+
+newchar(24,0.5,"h + N");
+matra(w,h);
+ha_(1/8w,1/8h,7/8w-0.4pt,(3/4-1/8)*h);
+mna(1/6w,-1/3d,5/6w-1.2pt,3/11h,0);
+endchar;
+
+newchar(31,0.65,"h + n");
+matra(w,h);
+ha_(1/12w,0,8/13*w,3/4h);
+shnur(18/30w,17/40h,12/30w-0.5pt,1/6h);
+endchar;
+
+newchar(76,0.75,"h + m");
+matra(w,h);
+ha_ma(1/10w,0,9/10w-0.9pt,3/4h);
+endchar;
+
+newchar(62,0.5,"h + b");
+matra(w,h);
+ha_(1/8w,1/8h,7/8w-0.4pt,(3/4-1/8)*h);
+ba(1/3w,-1/3d,3/7w,3/10h);
+endchar;
+
+newchar(125,0.5,"h + l");
+matra(w,h);
+ha_(1/8w,1/8h,7/8w-0.4pt,(3/4-1/8)*h);
+la(1/6w,-1/3d,5/6w-0.9pt,3/10h,-0.15);
+endchar;
+
+newchar(127,0.98,"rh + g");
+matra(11/20w,h);
+pickup dflt_pen; draw (w-0.9pt,3/4h)..(w,3/4h);
+Da(1/12w,0,(11/20-1/12)*w,3/4h);
+ga(21/40w,3/10h,19/40w-0.9pt,(3/4-3/10)*h,0.65);
+fill fullcircle scaled 1.2pt shifted (15/40w,-1/3d);
+endchar;
+
+%%% End of bnjuk.mf

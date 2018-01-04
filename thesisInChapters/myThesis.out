@@ -1,0 +1,119 @@
+\BOOKMARK [0][-]{Doc-Start}{Abstract}{}% 1
+\BOOKMARK [0][-]{section*.1}{Contents}{}% 2
+\BOOKMARK [0][-]{section*.2}{List of Figures}{}% 3
+\BOOKMARK [0][-]{section*.3}{List of Tables}{}% 4
+\BOOKMARK [0][-]{chapter.1}{Introduction}{}% 5
+\BOOKMARK [1][-]{section.1.1}{Motivation and Objectives}{chapter.1}% 6
+\BOOKMARK [1][-]{section.1.2}{Contributions from this Research}{chapter.1}% 7
+\BOOKMARK [2][-]{subsection.1.2.1}{Differential Fault Analysis in the Presence of a Nonce}{section.1.2}% 8
+\BOOKMARK [2][-]{subsection.1.2.2}{Symmetric Cryptanalysis of Keccak/SHA3}{section.1.2}% 9
+\BOOKMARK [2][-]{subsection.1.2.3}{Guess and Determine Cryptanalysis}{section.1.2}% 10
+\BOOKMARK [1][-]{section.1.3}{Organization of the Thesis}{chapter.1}% 11
+\BOOKMARK [0][-]{chapter.2}{Literature Survey}{}% 12
+\BOOKMARK [1][-]{section.2.1}{Introduction}{chapter.2}% 13
+\BOOKMARK [1][-]{section.2.2}{Hash Functions}{chapter.2}% 14
+\BOOKMARK [2][-]{subsection.2.2.1}{Security Notions of Hash Functions}{section.2.2}% 15
+\BOOKMARK [2][-]{subsection.2.2.2}{Evolution of Hash Functions}{section.2.2}% 16
+\BOOKMARK [2][-]{subsection.2.2.3}{Hashes under Attack}{section.2.2}% 17
+\BOOKMARK [2][-]{subsection.2.2.4}{Hash Function Design}{section.2.2}% 18
+\BOOKMARK [2][-]{subsection.2.2.5}{Description of SHA3}{section.2.2}% 19
+\BOOKMARK [1][-]{section.2.3}{Authenticated Encryption}{chapter.2}% 20
+\BOOKMARK [2][-]{subsection.2.3.1}{Authenticated Encryption by generic composition}{section.2.3}% 21
+\BOOKMARK [2][-]{subsection.2.3.2}{Evolution of Authenticated Encryption}{section.2.3}% 22
+\BOOKMARK [2][-]{subsection.2.3.3}{Attacks on AE schemes}{section.2.3}% 23
+\BOOKMARK [2][-]{subsection.2.3.4}{CAESAR Competition}{section.2.3}% 24
+\BOOKMARK [2][-]{subsection.2.3.5}{PAEQ}{section.2.3}% 25
+\BOOKMARK [2][-]{subsection.2.3.6}{PRIMATEs}{section.2.3}% 26
+\BOOKMARK [1][-]{section.2.4}{Fault Analysis}{chapter.2}% 27
+\BOOKMARK [2][-]{subsection.2.4.1}{Diagonal Fault Analysis}{section.2.4}% 28
+\BOOKMARK [-1][-]{part.1}{I Nonce-Sense: DFA in the Presence of a Nonce}{}% 29
+\BOOKMARK [0][-]{chapter.3}{Nonce-Misuse: Misusing Nonce-Reuse in Online AE}{part.1}% 30
+\BOOKMARK [1][-]{section.3.1}{Introduction}{chapter.3}% 31
+\BOOKMARK [1][-]{section.3.2}{Preliminaries}{chapter.3}% 32
+\BOOKMARK [2][-]{subsection.3.2.1}{The Design of PRIMATE}{section.3.2}% 33
+\BOOKMARK [2][-]{subsection.3.2.2}{Notations}{section.3.2}% 34
+\BOOKMARK [1][-]{section.3.3}{Misusing Nonce Reuse in Online AE}{chapter.3}% 35
+\BOOKMARK [2][-]{subsection.3.3.1}{Fault Diffusion in PRIMATE Permutation}{section.3.3}% 36
+\BOOKMARK [1][-]{section.3.4}{EscApe: An Efficient Diagonal Attack on APE}{chapter.3}% 37
+\BOOKMARK [2][-]{subsection.3.4.1}{The InBound Phase}{section.3.4}% 38
+\BOOKMARK [2][-]{subsection.3.4.2}{The OutBound Phase}{section.3.4}% 39
+\BOOKMARK [2][-]{subsection.3.4.3}{The Complete Attack}{section.3.4}% 40
+\BOOKMARK [1][-]{section.3.5}{Results}{chapter.3}% 41
+\BOOKMARK [2][-]{subsection.3.5.1}{A Discussion on the Size of K}{section.3.5}% 42
+\BOOKMARK [1][-]{section.3.6}{Conclusion}{chapter.3}% 43
+\BOOKMARK [0][-]{chapter.4}{Nonce-Bypass: Vulnerability of RUP Model}{part.1}% 44
+\BOOKMARK [1][-]{section.4.1}{Introduction}{chapter.4}% 45
+\BOOKMARK [1][-]{section.4.2}{Preliminaries}{chapter.4}% 46
+\BOOKMARK [2][-]{subsection.4.2.1}{The inverse PRIMATE permutation}{section.4.2}% 47
+\BOOKMARK [2][-]{subsection.4.2.2}{Notations}{section.4.2}% 48
+\BOOKMARK [1][-]{section.4.3}{RUP in the light of Side-Channels}{chapter.4}% 49
+\BOOKMARK [1][-]{section.4.4}{Analyzing APE Decryption in the Presence of Faults}{chapter.4}% 50
+\BOOKMARK [2][-]{subsection.4.4.1}{The Block Inversion Property}{section.4.4}% 51
+\BOOKMARK [2][-]{subsection.4.4.2}{Fault Diffusion in the Inverse PRIMATE Permutation}{section.4.4}% 52
+\BOOKMARK [2][-]{subsection.4.4.3}{The Bijection Lemma}{section.4.4}% 53
+\BOOKMARK [1][-]{section.4.5}{Scope: Differential Fault Analysis of APE Decryption}{chapter.4}% 54
+\BOOKMARK [2][-]{subsection.4.5.1}{The InBound Phase}{section.4.5}% 55
+\BOOKMARK [2][-]{subsection.4.5.2}{Noise Handling}{section.4.5}% 56
+\BOOKMARK [2][-]{subsection.4.5.3}{The OutBound Phase}{section.4.5}% 57
+\BOOKMARK [1][-]{section.4.6}{Experimental Results and Discussion}{chapter.4}% 58
+\BOOKMARK [1][-]{section.4.7}{A discussion on the Fault Invariants after -12 in R-12}{chapter.4}% 59
+\BOOKMARK [1][-]{section.4.8}{Conclusion}{chapter.4}% 60
+\BOOKMARK [1][-]{section.4.9}{A Sample Run of The Scope Attack}{chapter.4}% 61
+\BOOKMARK [0][-]{chapter.5}{Nonce-Independence: Introducing Faulty Analysis Using Internal Differentials}{part.1}% 62
+\BOOKMARK [1][-]{section.5.1}{Introduction}{chapter.5}% 63
+\BOOKMARK [1][-]{section.5.2}{The Design of PAEQ}{chapter.5}% 64
+\BOOKMARK [2][-]{subsection.5.2.1}{The Internal Permutation: AESQ}{section.5.2}% 65
+\BOOKMARK [2][-]{subsection.5.2.2}{Handling Partially Specified States/Substates}{section.5.2}% 66
+\BOOKMARK [1][-]{section.5.3}{Notations}{chapter.5}% 67
+\BOOKMARK [1][-]{section.5.4}{Internal Differential Fault Analysis}{chapter.5}% 68
+\BOOKMARK [1][-]{section.5.5}{An Internal Differential Distinguisher for 4-Round PAEQ}{chapter.5}% 69
+\BOOKMARK [1][-]{section.5.6}{The Fault Quartet}{chapter.5}% 70
+\BOOKMARK [1][-]{section.5.7}{EnCounter: Fault Analysis of PAEQ using Internal Differentials}{chapter.5}% 71
+\BOOKMARK [2][-]{subsection.5.7.1}{The Fault Model}{section.5.7}% 72
+\BOOKMARK [2][-]{subsection.5.7.2}{The InBound Phase}{section.5.7}% 73
+\BOOKMARK [2][-]{subsection.5.7.3}{The OutBound Phase}{section.5.7}% 74
+\BOOKMARK [2][-]{subsection.5.7.4}{The Complete Attack}{section.5.7}% 75
+\BOOKMARK [2][-]{subsection.5.7.5}{Complexity Analysis}{section.5.7}% 76
+\BOOKMARK [1][-]{section.5.8}{Experimental Results}{chapter.5}% 77
+\BOOKMARK [1][-]{section.5.9}{Conclusion}{chapter.5}% 78
+\BOOKMARK [-1][-]{part.2}{II Symmetric Cryptanalysis of Keccak/SHA-3}{}% 79
+\BOOKMARK [0][-]{chapter.6}{The Quartet Property of Keccak-f}{part.2}% 80
+\BOOKMARK [1][-]{section.6.1}{Introduction}{chapter.6}% 81
+\BOOKMARK [1][-]{section.6.2}{Notations}{chapter.6}% 82
+\BOOKMARK [1][-]{section.6.3}{The Notion of Self-Symmetry}{chapter.6}% 83
+\BOOKMARK [1][-]{section.6.4}{The Quartet Property}{chapter.6}% 84
+\BOOKMARK [2][-]{subsection.6.4.1}{The Kernel Strategy}{section.6.4}% 85
+\BOOKMARK [1][-]{section.6.5}{The Quartet Strategy}{chapter.6}% 86
+\BOOKMARK [2][-]{subsection.6.5.1}{Compositions with Other Strategies}{section.6.5}% 87
+\BOOKMARK [1][-]{section.6.6}{Experimental Data}{chapter.6}% 88
+\BOOKMARK [1][-]{section.6.7}{Conclusion}{chapter.6}% 89
+\BOOKMARK [0][-]{chapter.7}{Symmetric-Sum Distinguishers Against Round Reduced SHA3}{part.2}% 90
+\BOOKMARK [1][-]{section.7.1}{Introduction}{chapter.7}% 91
+\BOOKMARK [1][-]{section.7.2}{Notations}{chapter.7}% 92
+\BOOKMARK [1][-]{section.7.3}{An Experiment on Round-Reduced SHA3}{chapter.7}% 93
+\BOOKMARK [2][-]{subsection.7.3.1}{Results on 4-Round SHA3-512}{section.7.3}% 94
+\BOOKMARK [2][-]{subsection.7.3.2}{Interpretation of the Results}{section.7.3}% 95
+\BOOKMARK [1][-]{section.7.4}{The Operator: m-Fold Vectorial Derivatives}{chapter.7}% 96
+\BOOKMARK [1][-]{section.7.5}{Towards a round-constant independent function}{chapter.7}% 97
+\BOOKMARK [1][-]{section.7.6}{SymSum Distinguishers against SHA3}{chapter.7}% 98
+\BOOKMARK [2][-]{subsection.7.6.1}{Degrees of Freedom}{section.7.6}% 99
+\BOOKMARK [2][-]{subsection.7.6.2}{Comparison with ZeroSum}{section.7.6}% 100
+\BOOKMARK [1][-]{section.7.7}{Conclusion}{chapter.7}% 101
+\BOOKMARK [-1][-]{part.3}{III Guess and Determine Cryptanalysis}{}% 102
+\BOOKMARK [0][-]{chapter.8}{Practical Key-Recovery Attacks on Round-reduced PAEQ}{part.3}% 103
+\BOOKMARK [1][-]{section.8.1}{Introduction}{chapter.8}% 104
+\BOOKMARK [1][-]{section.8.2}{The Design of PAEQ}{chapter.8}% 105
+\BOOKMARK [1][-]{section.8.3}{Handling Partially Specified States/Sub-states}{chapter.8}% 106
+\BOOKMARK [1][-]{section.8.4}{Some Observations on PAEQ}{chapter.8}% 107
+\BOOKMARK [1][-]{section.8.5}{Gain 6 : Key Recovery Attack on PAEQ 6 = PPAEAESQ 6}{chapter.8}% 108
+\BOOKMARK [1][-]{section.8.6}{Gain 7 : Extending the attack to PAEQ 7 = PPAEAESQ 7}{chapter.8}% 109
+\BOOKMARK [1][-]{section.8.7}{Gain 8: A Guess-Invert-Guess attack on PAEQ 8 = PPAEAESQ8}{chapter.8}% 110
+\BOOKMARK [1][-]{section.8.8}{Complexity Analysis}{chapter.8}% 111
+\BOOKMARK [1][-]{section.8.9}{Discussion}{chapter.8}% 112
+\BOOKMARK [1][-]{section.8.10}{Conclusion}{chapter.8}% 113
+\BOOKMARK [1][-]{section.8.11}{A Sample Run of Gain 6 on paeq-80}{chapter.8}% 114
+\BOOKMARK [1][-]{section.8.12}{A Sample Run of Gain 7 on paeq-64}{chapter.8}% 115
+\BOOKMARK [1][-]{section.8.13}{A Sample Run of Gain 8 on paeq-64}{chapter.8}% 116
+\BOOKMARK [0][-]{chapter.9}{Conclusion and Future Scope}{part.3}% 117
+\BOOKMARK [0][-]{chapter.9}{Publications}{part.3}% 118
+\BOOKMARK [0][-]{section*.171}{Bibliography}{part.3}% 119

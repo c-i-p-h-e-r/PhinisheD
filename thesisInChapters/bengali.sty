@@ -1,0 +1,480 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Style file for Bengali fonts bnr10 and bnsl10
+% Created by: Abhijit Das (Barda) IISc Bangalore
+% Last modified: Nov 25 1998
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Copyright (C) 1998-2002 by Abhijit Das [ad_rab@yahoo.com]
+%
+% This file is part of BWTI.
+%
+% BWTI is free software; you can redistribute it and/or modify
+% it under the terms of the GNU General Public License as published by
+% the Free Software Foundation; either version 2 of the License, or
+% (at your option) any later version.
+%
+% BWTI is distributed in the hope that it will be useful,
+% but WITHOUT ANY WARRANTY; without even the implied warranty of
+% MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+% GNU General Public License for more details.
+%
+% You should have received a copy of the GNU General Public License
+% along with BWTI; if not, write to the Free Software
+% Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\catcode`@=11
+
+%%% define new Bengali font family
+\newfam\bnfam
+\newfam\bnslfam
+
+%%% non-slanted fonts
+\font\@bntiny=bnr10 scaled 694
+\font\@bnsmall=bnr10 scaled 833
+\font\@bnnormal=bnr10
+\font\@bnlarge=bnr10 scaled 1200
+\font\@bnLarge=bnr10 scaled 1440
+\font\@bnLARGE=bnr10 scaled 1728
+\font\@bnhuge=bnr10 scaled 2074
+\font\@bnHuge=bnr10 scaled 2488
+
+%%% slanted fonts
+\font\@bnsltiny=bnsl10 scaled 694
+\font\@bnslsmall=bnsl10 scaled 833
+\font\@bnslnormal=bnsl10
+\font\@bnsllarge=bnsl10 scaled 1200
+\font\@bnslLarge=bnsl10 scaled 1440
+\font\@bnslLARGE=bnsl10 scaled 1728
+\font\@bnslhuge=bnsl10 scaled 2074
+\font\@bnslHuge=bnsl10 scaled 2488
+
+% define the English Roman font
+\font\@ENGfont=cmr10
+
+%%% define the tag for slanted output
+\newif\if@bnslanted\@bnslantedfalse
+
+%%% Normal size (10 pt)
+\def\set@bnnormal{%
+\textfont\bnfam=\@bnnormal\scriptfont\bnfam=\@bnsmall\scriptscriptfont\bnfam=\@bntiny%
+\textfont\bnslfam=\@bnslnormal\scriptfont\bnslfam=\@bnslsmall\scriptscriptfont\bnslfam=\@bnsltiny%
+\def\sl{\@bnslantedtrue\fam=\bnslfam\@bnslnormal}%
+\def\nsl{\@bnslantedfalse\fam=\bnfam\@bnnormal}%
+\if@bnslanted\sl\else\nsl\fi}
+%%% large size
+\def\set@bnlarge{%
+\textfont\bnfam=\@bnlarge\scriptfont\bnfam=\@bnnormal\scriptscriptfont\bnfam=\@bnsmall%
+\textfont\bnslfam=\@bnsllarge\scriptfont\bnslfam=\@bnslnormal\scriptscriptfont\bnslfam=\@bnslsmall%
+\def\sl{\@bnslantedtrue\fam=\bnslfam\@bnsllarge}%
+\def\nsl{\@bnslantedfalse\fam=\bnfam\@bnlarge}%
+\if@bnslanted\sl\else\nsl\fi}
+%%% Large size
+\def\set@bnLarge{%
+\textfont\bnfam=\@bnLarge\scriptfont\bnfam=\@bnlarge\scriptscriptfont\bnfam=\@bnnormal%
+\textfont\bnslfam=\@bnslLarge\scriptfont\bnslfam=\@bnsllarge\scriptscriptfont\bnslfam=\@bnslnormal%
+\def\sl{\@bnslantedtrue\fam=\bnslfam\@bnslLarge}%
+\def\nsl{\@bnslantedfalse\fam=\bnfam\@bnLarge}%
+\if@bnslanted\sl\else\nsl\fi}
+%%% LARGE size
+\def\set@bnLARGE{%
+\textfont\bnfam=\@bnLARGE\scriptfont\bnfam=\@bnLarge\scriptscriptfont\bnfam=\@bnlarge%
+\textfont\bnslfam=\@bnslLARGE\scriptfont\bnslfam=\@bnslLarge\scriptscriptfont\bnslfam=\@bnsllarge%
+\def\sl{\@bnslantedtrue\fam=\bnslfam\@bnslLARGE}%
+\def\nsl{\@bnslantedfalse\fam=\bnfam\@bnLARGE}%
+\if@bnslanted\sl\else\nsl\fi}
+%%% huge size
+\def\set@bnhuge{%
+\textfont\bnfam=\@bnhuge\scriptfont\bnfam=\@bnLARGE\scriptscriptfont\bnfam=\@bnLarge%
+\textfont\bnslfam=\@bnslhuge\scriptfont\bnslfam=\@bnslLARGE\scriptscriptfont\bnslfam=\@bnslLarge%
+\def\sl{\@bnslantedtrue\fam=\bnslfam\@bnslhuge}%
+\def\nsl{\@bnslantedfalse\fam=\bnfam\@bnhuge}%
+\if@bnslanted\sl\else\nsl\fi}
+%%% Huge size
+\def\set@bnHuge{%
+\textfont\bnfam=\@bnHuge\scriptfont\bnfam=\@bnhuge\scriptscriptfont\bnfam=\@bnLARGE%
+\textfont\bnslfam=\@bnslHuge\scriptfont\bnslfam=\@bnslhuge\scriptscriptfont\bnslfam=\@bnslLARGE%
+\def\sl{\@bnslantedtrue\fam=\bnslfam\@bnslHuge}%
+\def\nsl{\@bnslantedfalse\fam=\bnfam\@bnHuge}%
+\if@bnslanted\sl\else\nsl\fi}
+%%% small size
+\def\set@bnsmall{%
+\textfont\bnfam=\@bnsmall\scriptfont\bnfam=\@bntiny\scriptscriptfont\bnfam=\@bntiny%
+\textfont\bnslfam=\@bnslsmall\scriptfont\bnslfam=\@bnsltiny\scriptscriptfont\bnslfam=\@bnsltiny%
+\def\sl{\@bnslantedtrue\fam=\bnslfam\@bnslsmall}%
+\def\nsl{\@bnslantedfalse\fam=\bnfam\@bnsmall}%
+\if@bnslanted\sl\else\nsl\fi}
+%%% tiny size
+\def\set@bntiny{%
+\textfont\bnfam=\@bntiny\scriptfont\bnfam=\@bntiny\scriptscriptfont\bnfam=\@bntiny%
+\textfont\bnslfam=\@bnsltiny\scriptfont\bnslfam=\@bnsltiny\scriptscriptfont\bnslfam=\@bnsltiny%
+\def\sl{\@bnslantedtrue\fam=\bnslfam\@bnsltiny}%
+\def\nsl{\@bnslantedfalse\fam=\bnfam\@bntiny}%
+\if@bnslanted\sl\else\nsl\fi}
+
+%%% vowel form definitions
+\def\vowelforms{\chardef\r=`\W\chardef\ri=`\W\def\ae{\char14A}}
+
+%%% define the vowels
+\def\vowels{%
+\chardef\a=97%
+\def\AE{\char97\char14A}%
+\def\aa{\char97\char`\A}\def\A{\char97\char`\A}%
+\chardef\i=01\chardef\I=02\chardef\ee=02\chardef\ii=02%
+\chardef\u=03\chardef\U=04\chardef\oo=04\chardef\oo=04%
+\chardef\R=05\chardef\Ri=05%
+\chardef\e=06\chardef\E="07\chardef\oi="07%
+\chardef\o=08\chardef\O=111\chardef\ou=111}
+
+%%% easy-to-use consonant definitions
+\def\consonants{%
+\chardef\kh=`\K\chardef\gh=`\G\chardef\una=`\q%
+\chardef\ch=`\c\chardef\chh=`\C\chardef\jh=`\J\chardef\ina=`\Q%
+\chardef\Th=`\Z\chardef\Dh=`\X%
+\chardef\th=`\z\chardef\dh=`\x%
+\chardef\ph=`\f\chardef\bh=`\v%
+\chardef\j=`\Y\chardef\sh=`\S%
+\chardef\ss=`\F\chardef\rr=`\R\chardef\rh=`\V%
+\chardef\t=`\B%
+\chardef\anuswar=`\M%
+\chardef\bisarga=`\H%
+\chardef\chandra=`\w}
+
+%%% Some special symbols
+\def\others{%
+\chardef\jf=14\chardef\jafala=14%
+\chardef\rf=15\chardef\rafala=15%
+\chardef\Ref=94\chardef\hasanta=95\chardef\hsn=95%
+\chardef\ru=25\chardef\rU=26\chardef\roo=26%
+\chardef\hu=27\chardef\hr=28\chardef\hri=28%
+\chardef\gu=29\chardef\shu=30\chardef\Su=30%
+\chardef\point=32\chardef\period=32\chardef\bucks=36\chardef\taka=36}
+
+%%% Conjunct consonants
+\def\juktakkhars{%
+\chardef\kk=128%
+\chardef\kT=129%
+\chardef\kt=130%
+\chardef\kb=131\chardef\kw=131%
+\chardef\km=132%
+\chardef\kr=133%
+\chardef\kl=134%
+\chardef\kF=135\chardef\x=135\chardef\kkh=135%
+\chardef\kFN=136\chardef\xN=136\chardef\kkhN=136%
+\chardef\kFm=137\chardef\xm=137\chardef\kkhm=137%
+\chardef\ks=138%
+\chardef\gdh=139\chardef\gx=139%
+\chardef\gn=140%
+\chardef\gb=141%
+\chardef\gm=142%
+\chardef\gl=143%
+\chardef\ghn=144\chardef\Gn=144%
+\chardef\ngk=145\chardef\qk=145%
+\chardef\ngkh=146\chardef\qkS=146%
+\chardef\nkh=147\chardef\qK=147%
+\chardef\ng=148\chardef\qg=148%
+\chardef\ngh=149\chardef\qG=149%
+\chardef\ngm=150\chardef\qm=150%
+\chardef\chch=151\chardef\cc=151%
+\chardef\chchh=152\chardef\cC=152%
+\chardef\chchhb=153\chardef\cCb=153\chardef\chchhw=153%
+\chardef\chn=154\chardef\cQ=154%
+\chardef\jj=155%
+\chardef\jjb=156\chardef\jjw=156%
+\chardef\jjh=157\chardef\jJ=157%
+\chardef\ggn=158\chardef\jQ=158%
+\chardef\jb=159\chardef\jw=159%
+\chardef\nch=80\chardef\Qc=80%
+\chardef\nchh=161\chardef\QC=161%
+\chardef\nj=162\chardef\Qj=162%
+\chardef\njh=163\chardef\QJ=163%
+\chardef\TT=164%
+\chardef\Tb=165\chardef\Tw=165%
+\chardef\DD=166%
+\chardef\NT=167%
+\chardef\NTh=168\chardef\NZ=168%
+\chardef\ND=169%
+\chardef\NN=170%
+\chardef\Nm=171%
+\chardef\tt=172%
+\chardef\ttb=173\chardef\ttw=173%
+\chardef\tth=174\chardef\tz=174%
+\chardef\tn=175%
+\chardef\tb=176\chardef\tw=176%
+\chardef\tm=177%
+\chardef\tr=178%
+\chardef\tru=179%
+\chardef\thb=38\chardef\zb=38\chardef\thw=38%
+\chardef\dg=180%
+\chardef\dgh=181\chardef\dG=181%
+\chardef\dd=182%
+\chardef\ddh=183\chardef\dx=183%
+\chardef\db=184\chardef\dw=184%
+\chardef\dv=185\chardef\dbh=185%
+\chardef\dvr=186\chardef\dbhr=186%
+\chardef\dm=187%
+\chardef\dhn=188\chardef\xn=188%
+\chardef\dhb=189\chardef\xb=189\chardef\dhw=189%
+\chardef\nT=190%
+\chardef\nD=191%
+\chardef\nt=192%
+\chardef\ntu=193%
+\chardef\ntb=194\chardef\ntw=194%
+\chardef\ntr=195%
+\chardef\nth=196\chardef\nz=196%
+\chardef\nd=197%
+\chardef\ndb=64\chardef\ndw=64%
+\chardef\ndh=198\chardef\nx=198%
+\chardef\nn=199%
+\chardef\nb=200\chardef\nw=200%
+\chardef\nm=201%
+\chardef\ns=202%
+\chardef\pT=203%
+\chardef\pt=204%
+\chardef\pn=205%
+\chardef\pp=206%
+\chardef\pl=207%
+\chardef\ps=208%
+\chardef\phl=209\chardef\fl=209%
+\chardef\bj=210%
+\chardef\bd=211%
+\chardef\bdh=212\chardef\bx=212%
+\chardef\bb=213%
+\chardef\bl=214%
+\chardef\bhr=215\chardef\vr=215%
+\chardef\bhl=216\chardef\vl=216%
+\chardef\mn=217%
+\chardef\mp=218%
+\chardef\mph=219\chardef\mf=219%
+\chardef\mb=220%
+\chardef\mbh=221\chardef\mv=221%
+\chardef\mbhr=222\chardef\mvr=222%
+\chardef\mm=223%
+\chardef\ml=224%
+\chardef\lk=225%
+\chardef\lg=226%
+\chardef\lgu=227%
+\chardef\lT=228%
+\chardef\lD=229%
+\chardef\lp=230%
+\chardef\lb=231\chardef\lw=231%
+\chardef\lm=232%
+\chardef\ll=233%
+\chardef\shch=234\chardef\Sc=234%
+\chardef\shchh=235\chardef\SC=235%
+\chardef\shn=236\chardef\Sn=236%
+\chardef\shm=237\chardef\Sm=237%
+\chardef\shl=238\chardef\Sl=238%
+\chardef\shb=239\chardef\Sb=239\chardef\shw=239%
+\chardef\ssk=240\chardef\Fk=240%
+\chardef\sskr=241\chardef\Fkr=241%
+\chardef\ssT=242\chardef\FT=242%
+\chardef\ssTh=243\chardef\FZ=243%
+\chardef\ssN=244\chardef\FN=244%
+\chardef\ssp=245\chardef\Fp=245%
+\chardef\ssph=246\chardef\Ff=246%
+\chardef\ssm=247\chardef\Fm=247%
+\chardef\sk=248%
+\chardef\skr=249%
+\chardef\skl=250%
+\chardef\skh=251\chardef\sK=251%
+\chardef\sT=252%
+\chardef\st=253%
+\chardef\stu=254%
+\chardef\str=255%
+\chardef\sth=16\chardef\sz=16%
+\chardef\sn=17%
+\chardef\sp=18%
+\chardef\spl=19%
+\chardef\sph=20\chardef\sf=20%
+\chardef\sb=21\chardef\sw=21%
+\chardef\sm=22%
+\chardef\dsl=23%
+\chardef\hN=24%
+\chardef\hn=31%
+\chardef\hm=76%
+\chardef\hb=62\chardef\hw=62%
+\chardef\hl=125%
+\chardef\rrg=127\chardef\Rg=127}
+
+%%% define the bengali font \bn
+\def\bn{%
+\let\ENG\@ENGfont\vowels\vowelforms\consonants\others\juktakkhars
+\let\tiny\set@bntiny\let\small\set@bnsmall\let\large\set@bnlarge
+\let\Large\set@bnLarge\let\LARGE\set@bnLARGE\let\huge\set@bnhuge
+\let\Huge\set@bnHuge\let\normalsize\set@bnnormal
+\normalsize}
+
+%%% define bold style
+\newdimen\bnboxwd
+\newbox\bnboldbox
+%%% \bnbold should be used with \normalsize and \large
+\def\bnbold#1{%
+\setbox\bnboldbox=\hbox{#1}%
+\bnboxwd=\wd\bnboldbox%
+\advance\bnboxwd by 0.3pt%
+\hbox to \bnboxwd{%
+\raise .15pt \rlap{#1}%
+\raise .05pt \rlap{#1}%
+\lower .05pt \rlap{#1}%
+\lower .15pt \rlap{#1}%
+\kern .1pt%
+\raise .15pt \rlap{#1}%
+\raise .05pt \rlap{#1}%
+\lower .05pt \rlap{#1}%
+\lower .15pt \rlap{#1}%
+\kern .1pt%
+\raise .15pt \rlap{#1}%
+\raise .05pt \rlap{#1}%
+\lower .05pt \rlap{#1}%
+\lower .15pt \rlap{#1}%
+\kern .1pt%
+\raise .15pt \rlap{#1}%
+\raise .05pt \rlap{#1}%
+\lower .05pt \rlap{#1}%
+\lower .15pt \rlap{#1}%
+\hfill}}
+%%% \bnBold should be used with \Large and \LARGE
+\def\bnBold#1{%
+\setbox\bnboldbox=\hbox{#1}%
+\bnboxwd=\wd\bnboldbox%
+\advance\bnboxwd by 0.5pt%
+\hbox to \bnboxwd{%
+\raise .25pt \rlap{#1}%
+\raise .15pt \rlap{#1}%
+\raise .05pt \rlap{#1}%
+\lower .05pt \rlap{#1}%
+\lower .15pt \rlap{#1}%
+\lower .25pt \rlap{#1}%
+\kern .1pt%
+\raise .25pt \rlap{#1}%
+\raise .15pt \rlap{#1}%
+\raise .05pt \rlap{#1}%
+\lower .05pt \rlap{#1}%
+\lower .15pt \rlap{#1}%
+\lower .25pt \rlap{#1}%
+\kern .1pt%
+\raise .25pt \rlap{#1}%
+\raise .15pt \rlap{#1}%
+\raise .05pt \rlap{#1}%
+\lower .05pt \rlap{#1}%
+\lower .15pt \rlap{#1}%
+\lower .25pt \rlap{#1}%
+\kern .1pt%
+\raise .25pt \rlap{#1}%
+\raise .15pt \rlap{#1}%
+\raise .05pt \rlap{#1}%
+\lower .05pt \rlap{#1}%
+\lower .15pt \rlap{#1}%
+\lower .25pt \rlap{#1}%
+\kern .1pt%
+\raise .25pt \rlap{#1}%
+\raise .15pt \rlap{#1}%
+\raise .05pt \rlap{#1}%
+\lower .05pt \rlap{#1}%
+\lower .15pt \rlap{#1}%
+\lower .25pt \rlap{#1}%
+\kern .1pt%
+\raise .25pt \rlap{#1}%
+\raise .15pt \rlap{#1}%
+\raise .05pt \rlap{#1}%
+\lower .05pt \rlap{#1}%
+\lower .15pt \rlap{#1}%
+\lower .25pt \rlap{#1}%
+\hfill}}
+%%% \bnBOLD should be used with \huge and \Huge
+\def\bnBOLD#1{%
+\setbox\bnboldbox=\hbox{#1}%
+\bnboxwd=\wd\bnboldbox%
+\advance\bnboxwd by 0.7pt%
+\hbox to \bnboxwd{%
+\raise .35pt \rlap{#1}%
+\raise .25pt \rlap{#1}%
+\raise .15pt \rlap{#1}%
+\raise .05pt \rlap{#1}%
+\lower .05pt \rlap{#1}%
+\lower .15pt \rlap{#1}%
+\lower .25pt \rlap{#1}%
+\lower .35pt \rlap{#1}%
+\kern .1pt%
+\raise .35pt \rlap{#1}%
+\raise .25pt \rlap{#1}%
+\raise .15pt \rlap{#1}%
+\raise .05pt \rlap{#1}%
+\lower .05pt \rlap{#1}%
+\lower .15pt \rlap{#1}%
+\lower .25pt \rlap{#1}%
+\lower .35pt \rlap{#1}%
+\kern .1pt%
+\raise .35pt \rlap{#1}%
+\raise .25pt \rlap{#1}%
+\raise .15pt \rlap{#1}%
+\raise .05pt \rlap{#1}%
+\lower .05pt \rlap{#1}%
+\lower .15pt \rlap{#1}%
+\lower .25pt \rlap{#1}%
+\lower .35pt \rlap{#1}%
+\kern .1pt%
+\raise .35pt \rlap{#1}%
+\raise .25pt \rlap{#1}%
+\raise .15pt \rlap{#1}%
+\raise .05pt \rlap{#1}%
+\lower .05pt \rlap{#1}%
+\lower .15pt \rlap{#1}%
+\lower .25pt \rlap{#1}%
+\lower .35pt \rlap{#1}%
+\kern .1pt%
+\raise .35pt \rlap{#1}%
+\raise .25pt \rlap{#1}%
+\raise .15pt \rlap{#1}%
+\raise .05pt \rlap{#1}%
+\lower .05pt \rlap{#1}%
+\lower .15pt \rlap{#1}%
+\lower .25pt \rlap{#1}%
+\lower .35pt \rlap{#1}%
+\kern .1pt%
+\raise .35pt \rlap{#1}%
+\raise .25pt \rlap{#1}%
+\raise .15pt \rlap{#1}%
+\raise .05pt \rlap{#1}%
+\lower .05pt \rlap{#1}%
+\lower .15pt \rlap{#1}%
+\lower .25pt \rlap{#1}%
+\lower .35pt \rlap{#1}%
+\kern .1pt%
+\raise .35pt \rlap{#1}%
+\raise .25pt \rlap{#1}%
+\raise .15pt \rlap{#1}%
+\raise .05pt \rlap{#1}%
+\lower .05pt \rlap{#1}%
+\lower .15pt \rlap{#1}%
+\lower .25pt \rlap{#1}%
+\lower .35pt \rlap{#1}%
+\kern .1pt%
+\raise .35pt \rlap{#1}%
+\raise .25pt \rlap{#1}%
+\raise .15pt \rlap{#1}%
+\raise .05pt \rlap{#1}%
+\lower .05pt \rlap{#1}%
+\lower .15pt \rlap{#1}%
+\lower .25pt \rlap{#1}%
+\lower .35pt \rlap{#1}%
+\hfill}}
+
+%%% Define headings
+\def\lbnh#1{\par\medskip\leftline{\bnbold{\bn\large#1}}\smallskip\par\noindent\ignorespaces}
+\def\Lbnh#1{\par\bigskip\leftline{\bnBold{\bn\LARGE#1}}\medskip\par\noindent\ignorespaces}
+\def\LBNH#1{\par\bigskip\leftline{\bnBOLD{\bn\Huge#1}}\medskip\par\noindent\ignorespaces}
+\def\cbnh#1{\par\medskip\centerline{\bnbold{\bn\large#1}}\smallskip\par\noindent\ignorespaces}
+\def\Cbnh#1{\par\bigskip\centerline{\bnBold{\bn\LARGE#1}}\medskip\par\noindent\ignorespaces}
+\def\CBNH#1{\par\bigskip\centerline{\bnBOLD{\bn\Huge#1}}\medskip\par\noindent\ignorespaces}
+\def\rbnh#1{\par\medskip\rightline{\bnbold{\bn\large#1}}\smallskip\par\noindent\ignorespaces}
+\def\Rbnh#1{\par\bigskip\rightline{\bnBold{\bn\LARGE#1}}\medskip\par\noindent\ignorespaces}
+\def\RBNH#1{\par\bigskip\rightline{\bnBOLD{\bn\Huge#1}}\medskip\par\noindent\ignorespaces}
+
+\catcode`@=12
+
+%%% Prevent TeX from hyphenating Bengali words
+\tolerance=7500
+\pretolerance=7500
+\hyphenpenalty=10000
+
+%%% End of bengali.sty

@@ -1,0 +1,92 @@
+
+                     BENGALI WRITER TeX INTERFACE
+                            Version 3.0.1
+
+
+This is the README file for the package bwti. This package consists of
+fonts for the Bengali alphabet written in METAFONT. You can use these
+fonts in your TeX or LaTeX documents. A style file for easier access
+to symbols is also provided.
+
+
+List of files
+-------------
+-rw-r--r--    1 barda    barda         907 Sep  1 22:58 INSTALL
+-rw-r--r--    1 barda    barda       12394 Sep  1 22:17 LICENSE
+-rw-r--r--    1 barda    barda        3116 Sep  1 22:59 README
+
+doc:
+total 400
+-rw-r--r--    1 barda    barda      354122 Sep  1 22:42 manual.ps
+-rw-r--r--    1 barda    barda       48214 Sep  1 22:38 manual.tex
+
+src:
+total 136
+-rw-r--r--    1 barda    barda       20671 Sep  1 22:52 bnbanjon.mf
+-rw-r--r--    1 barda    barda        4499 Sep  1 22:52 bndigit.mf
+-rw-r--r--    1 barda    barda       25926 Sep  1 22:52 bnjuk.mf
+-rw-r--r--    1 barda    barda        4039 Sep  1 22:52 bnkaar.mf
+-rw-r--r--    1 barda    barda        5372 Sep  1 22:52 bnlig.mf
+-rw-r--r--    1 barda    barda        2699 Sep  1 22:52 bnligtbl.mf
+-rw-r--r--    1 barda    barda       25154 Sep  1 22:52 bnmacro.mf
+-rw-r--r--    1 barda    barda        1290 Sep  1 22:52 bn.mf
+-rw-r--r--    1 barda    barda        2055 Sep  1 22:52 bnmisc.mf
+-rw-r--r--    1 barda    barda        8137 Sep  1 22:52 bnpunct.mf
+-rw-r--r--    1 barda    barda        1655 Sep  1 22:52 bnr10.mf
+-rw-r--r--    1 barda    barda        1703 Sep  1 22:52 bnsl10.mf
+-rw-r--r--    1 barda    barda        7685 Sep  1 22:52 bnswar.mf
+
+sty:
+total 16
+-rw-r--r--    1 barda    barda       14488 Sep  1 22:56 bengali.sty
+
+tfm:
+total 8
+-rw-r--r--    1 barda    barda        1520 Nov 28  1998 bnr10.tfm
+-rw-r--r--    1 barda    barda        1520 Nov 28  1998 bnsl10.tfm
+
+
+Installation
+------------
+
+Print the manual (manual.ps) in the doc directory and follow the
+steps stated there.
+
+
+Version Info
+------------
+The current version of bwti is 3.0.1. This version is released on
+Sep 01, 2002.
+
+
+Address for Correspondence
+--------------------------
+For comments and suggestion contact the author at :
+
+Abhijit Das
+Department of Mathematics
+Indian Institute of Technology
+Kanpur 208 016
+INDIA
+e-mail : ad_rab@yahoo.com
+URL    : http://in.geocities.com/ad_rab/
+
+------------------------------------------------------------------------------
+
+Copyright (C) 1998-2002 by Abhijit Das [ad_rab@yahoo.com]
+
+This file is part of BWTI.
+
+BWTI is free software; you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation; either version 2 of the License, or
+(at your option) any later version.
+
+BWTI is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with BWTI; if not, write to the Free Software
+Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA

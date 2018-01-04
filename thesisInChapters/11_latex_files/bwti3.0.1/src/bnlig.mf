@@ -1,0 +1,133 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% bnlig.mf: METAFONT file that defines some special ligatures
+% Created by: Abhijit Das (Barda) IISc Bangalore
+% Last modified: Jul 24 1997
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Copyright (C) 1998-2002 by Abhijit Das [ad_rab@yahoo.com]
+%
+% This file is part of BWTI.
+%
+% BWTI is free software; you can redistribute it and/or modify
+% it under the terms of the GNU General Public License as published by
+% the Free Software Foundation; either version 2 of the License, or
+% (at your option) any later version.
+%
+% BWTI is distributed in the hope that it will be useful,
+% but WITHOUT ANY WARRANTY; without even the implied warranty of
+% MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+% GNU General Public License for more details.
+%
+% You should have received a copy of the GNU General Public License
+% along with BWTI; if not, write to the Free Software
+% Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+beginchar(25,0.75stwd#,stht#,stdp#); "ra + u";
+numeric wd; wd = 12/20w + 0.9pt;
+pickup pencircle scaled penth#;
+z1 = (0,3/4h); z2=(w,3/4h);
+draw z1..z2;
+z5 = (wd-0.9pt,13/20h);
+z5r = z5 + (0,penth#/2); z5l = z5 - (0,penth#/2);
+z6 = (1/6wd,8/21h);
+numeric len; len = 1/2(penth#/(sqrt 2));
+z6l = z6 + (len,-len); z6r = z6 - (len,-len);
+penstroke z5e{z6-z5 rotated -8}..z6e;
+bot z4 = (wd-0.9pt,0);
+draw z6{dir -20}..z4;
+top z3 = (wd-0.9pt,3/4h);
+draw z3..z4;
+fill fullcircle scaled 0.9pt shifted (9/20wd,2/21h);
+z1' = (12/20w,2/5h); z2' = (w-0.8pt,47/100h); z3' = (16/20w,3/5h);
+pickup pencircle scaled penth#;
+draw z1'{dir -60}..{up}z2'{up}..{left}z3';
+fill fullcircle scaled 1.3pt shifted (z3' + (-0.1pt,-0.46pt));
+endchar;
+
+beginchar(26,0.70stwd#,stht#,stdp#); "ra + U";
+numeric wd; wd = 13/20w + 0.9pt;
+pickup pencircle scaled penth#;
+z1 = (0,3/4h); z2=(w,3/4h);
+draw z1..z2;
+z5 = (wd-0.9pt,13/20h);
+z5r = z5 + (0,penth#/2); z5l = z5 - (0,penth#/2);
+z6 = (1/6wd,8/21h);
+numeric len; len = 1/2(penth#/(sqrt 2));
+z6l = z6 + (len,-len); z6r = z6 - (len,-len);
+penstroke z5e{z6-z5 rotated -8}..z6e;
+bot z4 = (wd-0.9pt,0);
+draw z6{dir -20}..z4;
+top z3 = (wd-0.9pt,3/4h);
+draw z3..z4;
+fill fullcircle scaled 0.9pt shifted (9/20wd,2/21h);
+z1' = (13/20w,1/2h) + (0.02pt,0); z2' = (16/20w,11/20h);
+z3' = (w-0.9pt,1/2h); z4' = (w-0.8pt,1/20h);
+pickup pencircle xscaled 0.5pt yscaled 0.3pt rotated -30;
+draw z1'..tension 4..z2'..tension 4..z3'{down}..tension 4..{dir -30}z4';
+endchar;
+
+beginchar(27,0.56stwd#,stht#,stdp#); "ha + u";
+pickup pencircle scaled penth#;
+z1 = (0,3/4h); z2=(w,3/4h);
+draw z1..z2;
+z3 = (1/6w,1/2h); z3' = (37/100w,13/20h);
+z4 = (3/5w,1/2h); z4' = (74/100w,13/20h); z5 = (6/7w,1/2h);
+lft z6 = (1/7w,9/32h); z7 = (w,-1/3d);
+pickup pencircle xscaled 0.6pt yscaled 0.3pt rotated -45;
+draw z3{dir 100}..{right}z3'{right}..{dir -60}z4{dir 60}..
+     {dir 45}z4'{dir -35}..{down}z5{down}..{dir 160}z6;
+pickup pencircle scaled 0.35pt;
+draw z6{dir -30}..{dir -45}z7;
+fill fullcircle scaled 1.3pt shifted (z3 + (0.43pt,0.05pt));
+endchar;
+
+beginchar(28,0.67stwd#,stht#,stdp#); "ha + ri-kar";
+pickup pencircle scaled penth#;
+z1 = (0,3/4h); z2=(w,3/4h);
+draw z1..z2;
+numeric wd; wd = 14/18w;
+z3 = (3/10wd,3/4h); z4 = (1/3wd,3/5h); z5 = (5/6wd,1/2h);
+lft z6 = (1/8wd,5/16h); z7 = (wd,-1/3d);
+pickup pencircle xscaled 0.6pt yscaled 0.3pt rotated -45;
+draw z4{dir 30}..{down}z5{down}..{dir 150}z6;
+pickup pencircle scaled 0.3pt;
+draw z3{dir -20}..{dir -75}(z4 + (0.5pt,0));
+pickup pencircle scaled 0.35pt;
+draw z6{dir -30}..{dir -45}z7;
+fill fullcircle xscaled 1.5pt yscaled 1pt rotated 30 shifted (z4 + (0,-0.20pt));
+z1' = (13/20w,1/2h) + (0.02pt,0); z2' = (16/20w,11/20h);
+z3' = (w-0.9pt,1/2h); z4' = (w-0.8pt,0);
+pickup pencircle xscaled 0.5pt yscaled 0.3pt rotated -30;
+draw z1'..tension 4..z2'..tension 4..z3'{down}..tension 4..{dir -45}z4';
+endchar;
+
+beginchar(29,0.70stwd#,stht#,stdp#); "ga + u";
+z1 = (7/10w,3/5h); z2 = (74/100w,76/100h);
+z4 = (19/25w,8/20h); z5 = (7/8w,12/50h);
+z6 = (24/40w,1/18h); z8 = (1/10w,13/20h); z7 = (9/50w,1/3h);
+pickup pencircle xscaled 0.3pt yscaled 0.6pt rotated 30;
+draw z1--z2{dir -60}..{dir -135}z4
+     {dir -30}..{down}z5{down}..{left}z6{left}..z7..z8;
+fill fullcircle scaled 1.4pt shifted (z4 + (-0.37pt,0));
+z2' = (9/20w,3/4h); z3' = (9/40w,12/20h);
+z4' = (18/40w,11/20h); z5' = (7/20w,8/20h);
+draw z1{dir 120}..{left}z2'{left}..{down}z3'{dir 30}..{down}z4'{down}..z5';
+endchar;
+
+beginchar(30,0.72stwd#,stht#,stdp#); "sha + u";
+z1 = (7/10w,3/5h); z2 = (74/100w,76/100h);
+z4 = (19/25w,8/20h); z5 = (7/8w,12/50h);
+z6 = (24/40w,1/18h); z8 = (1/10w,13/20h); z7 = (9/50w,1/3h);
+pickup pencircle xscaled 0.3pt yscaled 0.6pt rotated 30;
+draw z1--z2{dir -60}..{dir -135}z4
+     {dir -30}..{down}z5{down}..{left}z6{left}..z7..z8;
+fill fullcircle scaled 1.4pt shifted (z4 + (-0.37pt,0));
+z4' = (1/10w,3/4h); z5' = (6/16w,20/31h);
+z6' = (13/25w,3/4h);
+pickup pencircle xscaled 0.3pt yscaled 0.6pt rotated 30;
+draw z4'{right}..{dir -60}z5'{dir 60}..{right}z6'{right}..{dir -60}z1;
+fill fullcircle xscaled 1.2pt yscaled 2.0pt rotated -45 shifted (z5' + (-0.50pt,-0.62pt));
+fill fullcircle xscaled 1.2pt yscaled 2.0pt rotated  45 shifted (z5' + (0.50pt,-0.62pt));
+endchar;
+
+%%% End of bnlig.mf

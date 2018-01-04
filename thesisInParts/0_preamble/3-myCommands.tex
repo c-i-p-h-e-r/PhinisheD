@@ -1,0 +1,71 @@
+% Custom environmemts
+\newtheorem{theorem}{Theorem}
+
+\newtheorem{lemma}{Lemma}[chapter]
+%\newcommand{\lemmaautorefname}{Lemma}
+\newtheorem{mydef}{Definition}[chapter]
+%\newcommand{\mydefautorefname}{Definition} %For autoref name extraction
+
+\newtheorem{thm}{Theorem}[chapter] % reset theorem numbering for each chapter
+
+%Redefining the default qed symbol to a black square
+\renewcommand{\qedsymbol}{$\blacksquare$}
+
+%For autoref name extraction for Subfigures
+\renewcommand\thesubfigure{(\alph{subfigure})}
+\newcommand{\subfigureautorefname}{\figureautorefname}
+
+%For parenthesis around sub-table caption 
+\renewcommand{\thesubtable}{(\alph{subtable})}
+
+\newcommand{\algorithmautorefname}{Algorithm} %For autoref name extraction
+\renewcommand{\chapterautorefname}{Chapter} %For autoref name extraction
+\renewcommand{\sectionautorefname}{Section} %For autoref name extraction
+
+
+% Construct to restate a previous figure from a different chapter without including it to the list of figures
+\newcommand{\repeatcaption}[2]{%
+	\renewcommand{\thefigure}{\ref{#1}}%
+	\captionsetup{list=no}%
+	\caption{#2 (repeated from page \pageref{#1})}%
+}
+
+%To scale math equations
+\newcommand*{\Scale}[2][4]{\scalebox{#1}{$#2$}}%
+
+
+%Declaring a customized leftarrow with undertext feature
+\makeatletter
+\newcommand\myxleftarrow[2][]{\ext@arrow 0099{\longleftrightarrowfill@}{#1}{#2}}
+\def\longleftrightarrowfill@{\arrowfill@\leftarrow\relbar\relbar}
+\makeatother
+
+%For appendix
+\newcolumntype{C}{>{\centering\arraybackslash}m{0.2cm}}
+
+%Definning Custom Colors
+\colorlet{lightorange}{orange!50}
+\sethlcolor{lightorange}
+\colorlet{mygray}{gray!58!}
+
+
+%Disable todo notes by macro redefinition
+%\renewcommand{todo}[2][]{}
+
+\makeatletter
+\renewcommand{\@todonotes@drawMarginNoteWithLine}{%
+	\begin{tikzpicture}[remember picture, overlay, baseline=-0.75ex]%
+	\node [coordinate] (inText) {};%
+	\end{tikzpicture}%
+	\marginnote[{% Draw note in left margin
+		\@todonotes@drawMarginNote%
+		\@todonotes@drawLineToLeftMargin%
+	}]{% Draw note in right margin
+	\@todonotes@drawMarginNote%
+	\@todonotes@drawLineToRightMargin%
+}%
+}
+\makeatother
+
+\setlength{\marginparwidth}{2.5cm}
+

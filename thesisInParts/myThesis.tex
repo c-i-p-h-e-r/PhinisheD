@@ -1,0 +1,92 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%    PhD Thesis Template                     %
+%    IIT KGP (Unofficial)                    %
+%    Author: Dhiman Saha                     %
+%    Thanks to stackoverflow for helping     %
+%    to bring some ideas to life.            %
+%                                            %
+%    Queries:                                %
+%         crypto(at)dhimans(dot)in           %
+%         saha(dot)dhiman(@)gmail(dot)com   %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass[12pt,twoside,a4paper]{memoir}
+
+\checkandfixthelayout
+
+\setlength{\oddsidemargin}{1.8cm}
+\setlength{\evensidemargin}{0.5cm}
+
+
+\input{0_preamble/preamble.tex}
+
+\chapterstyle{veelo}
+
+\begin{document}
+
+\frontmatter
+
+\pagenumbering{roman} 
+
+\input{1_front_matter/titlepagefile}
+
+\input{1_front_matter/dedication}
+
+\input{1_front_matter/approval}
+
+\input{1_front_matter/certif_guide}
+
+\input{1_front_matter/acknows}
+
+\input{1_front_matter/declaration}
+
+\input{1_front_matter/list_abbrs}
+
+\input{1_front_matter/abstract}
+
+\cleardoublepage
+{\sffamily
+\tableofcontents 
+\cleardoublepage
+}
+
+\backrefsetup{disable} %To remove backref to lists in bibliography
+\listoffigures \cleardoublepage
+\listoftables \cleardoublepage
+\backrefsetup{enable} %Enabling backref 
+
+\mainmatter
+\pagenumbering{arabic} 
+\include{3_introduction/intro}
+
+\input{4_lit_survey/litSurvey.tex}
+
+\input{5_contributory_part/contri-part.tex}
+
+\addtocontents{toc}{\noindent\protect\hrulefill\protect\leavevmode\par}
+
+\input{6_contributory_part/contri-part.tex}
+
+\addtocontents{toc}{\noindent\protect\hrulefill\protect\leavevmode\par}
+
+\input{7_contributory_part/contri-part.tex}
+
+\addtocontents{toc}{\noindent\protect\hrulefill\protect\leavevmode\par}
+
+\textbf{\bookmarksetup{startatroot}} %For fixing hierarchy in bookmark
+
+\input{8_conclusion/conclu_future}
+
+\backmatter
+
+\input{9_back_matter/pubs.tex}
+
+\input{9_back_matter/other_pubs}
+
+\input{9_back_matter/about_me}
+
+
+\bibliographystyle{alpha}
+\bibliography{10_bibliography/myThesis}
+ 
+\end{document}

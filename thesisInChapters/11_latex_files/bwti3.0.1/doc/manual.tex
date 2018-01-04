@@ -1,0 +1,929 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% manual.tex
+% Reference manual for bwti (LaTeX source)
+% Current version for bwti is 3.0
+% Created by: Abhijit Das (Barda) IISc Bangalore
+% Last modified: Nov 28 1998
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\documentstyle[twoside,11pt]{article}
+\documentstyle[twoside,11pt,times]{article}
+\textheight = 9.6in
+\textwidth = 6.5in
+\topmargin = -0.5in
+\oddsidemargin = 0.0in
+\evensidemargin = -0.3in
+\parskip 0.1in
+\pagestyle{myheadings}
+\markboth{\sl Manual for the \tt bwti \sl package}{\sl Author: Abhijit Das (Barda)}
+\raggedbottom
+
+\input bengali.sty
+
+\def\bwti{{\tt bwti}}
+\def\METAFONT{{\sf METAFONT}}
+\def\newsect#1{\bigskip\pagebreak[2]\par\noindent{\LARGE\sf #1}\hfill\nopagebreak\medskip\nopagebreak\break\nopagebreak}
+\def\bs{\char`\\}
+
+\begin{document}
+\thispagestyle{plain}
+\centerline{\huge \bf Manual for the {\LARGE\tt bwti} package}\medskip
+\centerline{\LARGE \bf Author: \sc Abhijit Das (Barda)}\bigskip
+\hrule\bigskip
+
+\noindent
+Welcome to the \bwti\ package. \bwti\ stands for ``Bengali Writer
+\TeX\ Interface''.\footnote{This name comes from the fact that
+I designed this as an extension of my previous endeavor named
+``Bengali writer''. Point your web browser at
+{\tt http://144.16.67.96/\char`\~barda/bengali} for details.}
+This package is intended to help you typeset
+in \TeX\ or \LaTeX\ using a Bengali font. This package consists of
+\METAFONT\ files that define the Bengali characters and a style
+file that defines several easy-to-use rules for typesetting using
+these font files. This manual explains how to install the
+\bwti\ package in your machine and how to use the style file for
+typesetting in Bengali.
+
+\newsect{How to install \bwti}
+First uncompress the file and retrieve the components from the archive\\
+{\tt \%}gunzip bwti.tar.gz\\
+{\tt \%}tar xvf bwti.tar\\
+(If you do not have {\tt gunzip}, get this software (free) from GNU.)
+You will see that four new directories have been created. The
+{\tt src} directory contains the \METAFONT\ source files. Put all these
+\METAFONT\ files in a place where your \TeX\ or \LaTeX\ program will search for
+\METAFONT\ source files. A typical example for a unix machine is
+{\tt /usr/lib/texmf/fonts/tmp/src}. You should have permission to write in this
+directory. Otherwise consult your system administrator. After you install
+the source files you may put the files in the {\tt tfm} directory
+in an appropriate place where your system searches for {\tt tfm} (\TeX\ font
+metric) files,
+for example, in {\tt /usr/lib/texmf/fonts/tmp/tfm} (Note that this is not
+a must). This completes the installation
+of the \METAFONT\ files.
+Note that the {\tt pk} files are not provided. Your system should automatically create
+these files when you view your \TeX\ or \LaTeX\ documents that contain the above
+fonts.
+
+The directory {\tt sty} contains a style file
+named {\tt bengali.sty} that you should include in
+your document where you want to include Bengali texts. You may do this by
+a simple {\tt \char`\\input} command. Alternatively you may put
+this style file in a directory where \LaTeX\ looks for style files and then
+include the file as \\ 
+{\tt \char`\\documentstyle\char`\[10pt,bengali\char`\]\char`\{article\char`\}}.
+
+Finally the directory {\tt doc} contains a reference manual for the \bwti\
+package. Try compiling the manual using \LaTeX. If it
+compiles without any error message (neglect a few overfull hbox or vbox
+warnings), view it and if you get the results as
+you find in the file {\tt manual.ps},
+your installation is complete.
+
+\bigskip
+The rest of this manual is devoted to a discussion on how you can use
+the file {\tt bengali.sty} for typesetting in Bengali. However you can
+completely avoid using this style file if you know the exact ASCII
+mappings for all the Bengali characters namely vowels, consonants, vowel
+forms, conjunct consonants and so on (See the tables at pages 7 and 8).
+This is however inconvenient in that
+in many cases this mapping is counter-intuitive
+(particularly in the case of conjunct consonants). {\tt bengali.sty},
+on the other hand, gives you a high-level view for treating
+different characters uniformly. More specifically, {\tt bengali.sty}
+defines several commands to typeset the Bengali characters, that ``sound''
+like the original characters when pronounced. Also
+{\tt bengali.sty} provides simple commands for changing the font size.
+Let us take a simple example. Suppose you want to typeset the Bengali
+word {\bn \sh\kt}. Without using the {\tt bengali.sty} file, you may do
+this as follows:
+\begin{verbatim}
+\font\myfont=bnr10
+{\myfont S\char130}
+\end{verbatim}
+The letter {\bn S} is defined in the file {\tt bnr10.mf} as the
+letter ``S'' and the conjunct consonant {\bn \kt} is defined
+as the letter with ASCII value 130. On the other hand, if you use
+{\tt bengali.sty}, you may simply typeset this as
+{\tt \{\char`\\bn \char`\\sh\char`\\kt\}} or as
+{\tt \{\char`\\bn S\char`\\kt\}}.
+
+Note however that you still have to remember a few mappings, particularly
+those for the vowels and consonants. In this manual you will get a complete
+listing of all these mappings, that is, what to type to get the desired
+characters. A caution: using {\tt bengali.sty} may leave you
+lost in a dense forest of backslashes and awkward space commands. We will discuss
+these topics later. It's worth noting here only that there is no
+straightforward and easy way of typesetting in an Indian language using
+a system that understands only the ASCII type of character encoding.
+{\tt bengali.sty} is designed as
+a compromise (more technically, as a transliteration scheme) between them.
+
+\newsect{The {\tt \char`\\bn} environment\footnote{Don't take the
+word ``environment'' in the \LaTeX\ sense. I could have have defined a
+\LaTeX\ environment called {\tt bn}, but all that is too \LaTeX nical.
+\TeX\ users might get angry!! I want to make {\tt bengali.sty} work the
+same way for \TeX\ and \LaTeX\ users.}}
+{\tt bengali.sty} essentially provides the typeface changing command
+{\tt \char`\\bn} with a few (actually, a lot)
+macro definitions active inside the environment. Start typesetting
+in Bengali by typing ``{\tt \char`\{\char`\\bn}''.\footnote{You may
+omit the opening brace, but in that case you can never return to
+typesetting English texts.
+Inside the {\tt \bs bn} environment you may use the command {\tt \bs ENG} for
+typesetting only in 10pt roman.}
+This sets the font to the Bengali font of the {\tt bwti} package in
+10pt. Note that whatever fontsize you define in your {\tt \bs documentstyle}
+command (for \LaTeX\ users), the default fontsize for {\tt \bs bn} is
+{\em always} 10pt. You may however change the font-size by a command like
+{\tt \bs large} or {\tt \bs small}. We will discuss this later.
+After you typeset your Bengali text, close {\tt \bs bn}'s scope
+(more correctly, the local group) by typing ``\}''. This leaves you in
+the environment that was active before the {\tt \bs bn} command.
+
+In what follows we will assume that the {\tt \bs bn} environment is active
+and discuss what you can precisely do (and what you can not) in this
+environment.
+
+\newsect{Changing font size}
+The following font-sizes are provided.\footnote{This convention is
+similar to that provided by \LaTeX. However the font sizes are close to
+but not exactly the same as defined in \LaTeX. Note that the sizes
+{\tt \bs footnotesize} and {\tt \bs scriptsize} are not defined.}
+\begin{verbatim}
+\normalsize     \large       \small
+                \Large       \tiny
+                \LARGE
+                \huge
+                \Huge
+\end{verbatim}
+These sizes are essentially the 10pt font magnified by
+{\tt \bs magstep}$^{\tt n}$ for ${\tt n} = 0,1,2,3,4,5,-1,-2$, where
+{\tt \bs magstep} is 1.2. To see how to use these commands, let us take a
+simple example.
+
+\centerline{\bn sA {\large er {\Large gA {\LARGE mA  pA} \dh A} in} sA}
+
+\noindent
+This can be typeset by:
+\begin{verbatim}
+sA {\large er {\Large gA {\LARGE mA  pA} \dh A} in} sA
+\end{verbatim}
+Note carefully the scope of each definition. Each opening brace defines a new
+local group and when it closes, the local group that was active before the
+opening brace takes over. Note also that the same output can be obtained by:
+\begin{verbatim}
+sA \large er \Large gA \LARGE mA  pA \Large \dh A \large in\normalsize\ sA
+\end{verbatim}
+
+\newsect{Getting slanted output}
+Slanted output can be obtained by the {\tt \bs sl} command. The {\tt \bs sl} command
+does not change the font size. You can change the font size
+inside a ``slanted'' environment
+by a command defined described in the previous section. Thus
+{\tt \{\bs bn \bs sl \bs LARGE srgm\}} and {\tt \{\bs bn \bs LARGE \bs sl srgm\}}
+both has the same effect, namely : {\bn \sl \LARGE srgm}. You can change
+from the slanted style to the normal style by the {\tt \bs nsl} command. For
+example {\tt \{\bs bn \bs Large \bs sl sr \bs nsl gm\}} outputs
+{\bn \Large \sl sr \nsl gm}.
+
+\newsect{Getting bold output}
+No boldface fonts are defined. However, you may use the commands
+{\tt\bs bnbold},{\tt\bs bnBold} and {\tt\bs bnBOLD}
+defined in {\tt bengali.sty} to typeset text that
+{\em looks like} one typeset in boldface.
+Each of them takes one argument
+and prints multiple copies\footnote{{\tt\bs bnbold} puts 16 copies,
+{\tt\bs bnBold} 36 copies and {\tt\bs bnBOLD} 64 copies.} of the argument.
+You should use different commands for different font sizes. The
+recommended usage is tabulated below.
+
+\begin{tabular}{cc}
+\bf Command& \bf Font size\\
+{\tt\bs bnbold}& {\tt\bs normalsize},{\tt\bs large}\\
+{\tt\bs bnBold}& {\tt\bs Large},{\tt\bs LARGE}\\
+{\tt\bs bnBOLD}& {\tt\bs huge},{\tt\bs Huge}\\
+\end{tabular}
+
+None of these commands is suitable for font sizes {\tt\bs small} and
+{\tt\bs tiny}. Indeed you are recommended not to use them at
+{\tt\bs normalsize} also. These commands are suitable for printing
+headers at larger font sizes. See the section titled ``Sectioning''.
+Another caution. The output of {\tt\bs bnbold} etc is set in an
+{\tt\bs hbox} and hence {\em can not} span over multiple lines.
+
+One final note. These bold-making commands are active outside the
+{\tt\bs bn} environment also. Therefore, you may use them to typeset
+English texts. For example, compare
+\bnBold{\Large ABCD} obtained by {\tt\bs bnBold} with {\Large\bf ABCD}
+obtained by {\tt\bs bf}.
+
+\newsect{The alphabet}
+The Bengali alphabet is defined in the \METAFONT\ files provided. The file
+{\tt bengali.sty} defines how you can access the letters. A complete
+listing of all these definitions can be found later in this manual.
+Here it is worth mentioning a few general rules. The Bengali alphabet
+consists of the following primitives: vowels ({\bn \a, \aa} etc.),
+vowel forms ({\bn i\ ,\ I} etc.), consonants ({\bn k, K} etc.),
+conjunct consonants ({\bn \kk, \nchh} etc.) and a few other special
+symbols (like hasanta, ref etc.).
+All vowel forms and consonants
+can be printed by a single character. For example, {\bn i\ } is obtained by
+typing {\tt i} and {\bn k} is obtained by typing {\tt k}. Some of the
+consonants can also be printed by special commands. {\bn F}, for example,
+can be printed either by {\tt F} or by {\tt \bs ss}. The vowels
+like {\bn \A} or {\bn \i} can be produced by a backslash followed
+by the code for the corresponding vowel forms ({\tt \bs A} or {\tt \bs i} etc.).
+\footnote{This may seem rather counter-intuitive. A crude estimate tells that
+the vowel forms are used 5 to 10 times more often than the bare vowels.
+So this convention at least saves you some typing.}
+You get the numbers {\bn 1234}$\cdots$ by simply typing 1234$\cdots$.
+Special symbols like {\bn \jafala\hspace*{1em} \rafala\ \Ref} can be produced by commands
+{\tt \bs jafala \bs rafala \bs Ref} etc. Finally all conjunct consonants
+are typeset by special commands which in most cases consist of the codes
+of the component consonants concatenated in the order in which the
+component consonants occur in the conjunct consonant. For example, {\tt k} and
+{\tt t} outputs {\bn k} and {\bn t} respectively and {\tt \bs kt} outputs {\bn \kt}.
+The examples given later will help you understand all
+these subtleties. You will nevertheless have to memorize the mapping tables
+(or at least some parts of them) and once this is done (or if you keep
+this manual just beside your computer keyboard), utilizing all the features
+of the {\tt bwti} package should be easy.
+
+\newsect{A note on spacing}
+Suppose you want to typeset {\bn \e k}. You read from the mapping tables
+that the codes for {\bn \e} and {\bn k} are respectively
+{\tt \bs e} and {\tt k}. If you now write {\tt \bs ek} and
+compile it, your system will halt with an error message
+{\tt Undefined control sequence}. This is because the command {\tt \bs ek}
+is not defined in the {\tt \bs bn} environment. You should type
+{\tt \bs e k} instead to get the desired result. You need not worry about
+the extra space you provide, because this space tells \TeX\ that {\tt \bs e}
+is a command and this is followed by {\tt k}. Any number of spaces will
+in fact have the same effect in this regard. If you really want to avoid
+the space (may be for the sake of clarity), you may type
+{\tt \{\bs e\}k} to get the same output.
+
+So far so good !! But what will you do when you do really want the space?
+For example, suppose that you want to write {\bn du\i\ itn}.
+If you write {\tt du\bs i itn}, you will get
+{\bn du\i itn}. In this case you should explicitly produce the
+inter-word spacing by typing {\tt  du\bs i\bs\ itn}.
+Note that backslash followed by a space tells \TeX\ to typeset an
+inter-word spacing. If you have doubts, consult the \TeX\ or \LaTeX\
+manual for clarification. Again you may avoid using the
+spaces and space-commands by typing
+{\tt du\{\bs i\} itn}.
+
+One last comment. Note that {\bn e} is typeset {\em before} the consonant
+whose sound it modifies, whereas {\bn A} is typeset {\em after} the
+consonant. Thus you get {\bn epn} by typing {\tt epn}, whereas
+{\tt pen} prints {\bn pen} though it
+tallies with the English pronunciation.
+
+All these may seem quite confusing (and embarrassing) to you. But as I claimed
+earlier, it is not an easy task to teach \TeX\ an Indian language. We will
+discuss about ligature tables and some other related issues in a later section.
+
+\newsect{The {\tt \bs ENG} command}
+The {\tt \bs ENG} command can be used to typeset English text in
+10pt roman font. You can not change the font size and style in this
+environment. Get out of the {\tt \bs bn} environment and use
+\TeX's commands to typeset English texts. The {\tt \bs rm} command
+works similarly except that it adjusts to the font size that was active
+before the {\tt \bs bn} command.
+
+\newsect{Footnotes}
+The {\tt \bs footnote} command works differently in \TeX\ and \LaTeX.
+\TeX\ prints the footnote in the current font, whereas \LaTeX\ prints
+the footnote in a roman font of predefined size. You must invoke the
+{\tt \bs bn} command within the argument of {\tt \bs footnote} for
+printing Bengali footnotes if you use \LaTeX.
+
+\newsect{Sectioning}
+You may have serious
+problems if you use the sectioning commands provided by \LaTeX\
+inside the {\tt \bs bn} environment (or the {\tt \bs bn} command inside
+the sectioning command argument). This problem can be
+bypassed by redefining the sectioning commands. {\tt bengali.sty} provides
+you with nine pre-defined heading commands, each of which takes one input and
+prints it in a {\em single line}
+using {\tt\bs bnbold}, {\tt\bs bnBold} or {\tt\bs bnBOLD}.
+The commands also specify how you should justify your headings.
+These commands are
+
+\begin{tabular}{ll}
+\multicolumn{1}{c}{\bf Commands}& \multicolumn{1}{c}{\bf Justification}\\\hline
+{\tt\bs lbnh}, {\tt\bs Lbnh}, {\tt\bs LBNH}& left-justified heading\\
+{\tt\bs cbnh}, {\tt\bs Cbnh}, {\tt\bs CBNH}& centered heading\\
+{\tt\bs rbnh}, {\tt\bs Rbnh}, {\tt\bs RBNH}& right-justified heading\\
+\end{tabular}
+\hfill
+\begin{tabular}{ll}
+\multicolumn{1}{c}{\bf Commands}& \multicolumn{1}{c}{\bf Size}\\\hline
+{\tt\bs lbnh}, {\tt\bs cbnh}, {\tt\bs rbnh}& {\tt\bs large}\\
+{\tt\bs Lbnh}, {\tt\bs Cbnh}, {\tt\bs Rbnh}& {\tt\bs LARGE}\\
+{\tt\bs LBNH}, {\tt\bs CBNH}, {\tt\bs RBNH}& {\tt\bs Huge}\\
+\end{tabular}\hspace*{\parindent}
+
+Note that none of these commands takes a multi-line argument. In addition,
+they {\em do not} provide any automatic numbering facility. If many people
+use \bwti\ and think that this is a limitation, I will fix it in a later
+version.
+
+\newsect{Mathematical formulas}
+Mathematical formulas are to be typeset in the {\tt \bs bn} environment
+exactly the way you do it outside. It is possible to
+include Bengali text inside a mathematical formula, but with some effort.
+If you really want to know how, try it out yourself as an {\em easy}
+exercise. The point is that it is not very useful in practice. Here are
+two examples for you.
+$$\bn 23+\left[4-{(5-k^{\log(\mu\pm g_T)}_1)\over
+                         \sqrt{\kh\div\hbox{\bn\nchh}}}\right]$$
+$$23+\left[4-{(5-
+  \hbox{\bn k}^{\log(\mu\pm\hbox{\bn\small g}_{\hbox{\bn\tiny T}})}_1)
+  \over\sqrt{\hbox{\bn\kh}\div\hbox{\bn\nchh}}}\right]$$
+And this is how they are typeset:
+\begin{verbatim}
+$$\bn 23+\left[4-{(5-k^{\log(\mu\pm g_T)}_1)\over
+                         \sqrt{\kh\div\hbox{\bn\nchh}}}\right]$$
+$$23+\left[4-{(5-
+  \hbox{\bn k}^{\log(\mu\pm\hbox{\bn\small g}_{\hbox{\bn\tiny T}})}_1)
+  \over\sqrt{\hbox{\bn\kh}\div\hbox{\bn\nchh}}}\right]$$
+\end{verbatim}
+
+\newsect{Ligatures}
+I think it's not a lucrative option to introduce ligatures for
+the Bengali alphabet (say, in particular, for conjunct consonants).
+Firstly, if we want to define characters corresponding to every consonant-%
+vowel combination (for example, for {\tt ka}, {\tt kA}, {\tt ki}, {\tt kI}
+and so on, so that {\tt pen} typesets {\bn epn}), the number of
+characters in the alphabet increases enormously. It is always
+preferable to work with as few primitives as possible. Secondly,
+ligatures like {\tt sh} for {\bn \sh} are often confusing. For example,
+if you define {\bn s} by {\tt s} and {\bn h} by {\tt h} (this is certainly
+the most intuitive choice), then it would be rather inconvenient
+to write {\bn sh} because {\tt sh} will always produce {\bn \sh}. In
+this case you will have to type {\tt s\{\}h} to get {\bn sh}. This
+probably complicates things more than the convenience it is expected
+to produce. \bwti, on the other hand, provides a few ligatures when
+there is very little or no chance of confusion (for example, {\tt e}
+produces {\bn e}, whereas {\tt ee} gives {\bn\ ee} -- you may not have
+a situation where you want to typeset two successive {\bn e}'s)
+or when it is absolutely necessary (for example, {\bn h + \R} does not
+look like {\bn h{}\r} but like {\bn h\r}). Here goes a listing of all
+ligatures provided by \bwti.
+
+\halign{&\quad\bn#\hfil\cr
+\noalign{\smallskip\noindent\bf Vowel forms\smallskip}
+{\ENG a + a = A}&{\ENG  e + e = I}&{\ENG  i + i = I}&{\ENG  o + o = U}&{\ENG  u + u = U}&{\ENG  o + i = E}&{\ENG  o + u = O}\cr
+\noalign{\smallskip\noindent\bf Special consonat-vowel combinations\smallskip}
+g + u = gu& r + u = ru& r + U = rU& S + u = Su& h + u = hu& h + W = hW\cr
+\noalign{\smallskip\noindent\bf Special conjunct consonants\smallskip}
+k + \ \rf\ = k\rf& t + \ \rf\  = t\rf& {\tr\ + u = t\rf u}& {\dv\ + \ \rf\ = \dv\rf}& {\nt\ + u = \nt u}& {\nt\ + \ \rf\  = \nt\rf}& v + \ \rf\  = v\rf\cr
+{\mv\ + \ \rf\ = \mvr}& {\lg\ + u = \lg u}& {\ssk\ + \ \rf\ = \ssk\rf}& {\sk\ + \ \rf\ = \sk\rf}& {\st\ + u = \st u}& {\st\ + \ \rf\ = \st\rf}\cr
+\noalign{\smallskip\noindent\bf Punctuation symbols\smallskip}
+` + ` = ``& ' + ' = ''& - + - = --& -- + - = ---& . + . = ..\cr
+}
+
+\newsect{What {\tt bwti} does not provide}
+It's now time to concentrate on what you can not do with \bwti.
+The font provided by \bwti\ is a light-weight font. You may have
+unsatisfactory results with this font at a size smaller than 10pt.
+You are recommended to use the {\tt \bs small} and in particular the
+{\tt \bs tiny} fontsizes as seldom as possible.  \bwti\ does not provide
+a boldface font (extended or nonextended) for the Bengali alphabet.
+(See the section ``Getting bold output''.)
+On the other hand, italics, fixed width (tt) and sans serif typestyles are not well
+defined in Bengali typesetting.
+
+Kerning information are absent in any of the \METAFONT\ files. This
+is however not something that can be ignored. Sorry, I am not a professional
+font-designer, nor does this package have anything to do with my work in my
+institute. I have very little idea how typesetting in Bengali is actually done.
+Any kerning or related decision has to be taken rather intuitively or
+empirically. I didn't do it. If you are not comfortable with certain
+inter-letter spacing, you change it by \TeX's {\tt \bs kern} command.
+
+The Bengali vowel {\tt Li} is not defined. This character is almost never used
+in Bengali. If you have an esoteric situation where you really want to print
+it, do this with the Bengali digit {\bn 9}. While defining the conjunct
+consonants I tried to be as exhaustive as possible. Every conjunct
+consonant listed in {\bn ibd\jf AsAgr}'s {\bn bN\Ref pir\ch y}
+has been defined. A few other conjunct consonants most of which are
+used in foreign words are also defined. Possibility of omissions can not
+however be completely ruled out. If you find any, please bring that to
+my notice.
+
+\newsect{Example 1}
+Suppose you want to typeset Joule's law of heating (in the old form where
+the unit of heat is calorie).
+{\bn
+\Lbnh{juelr sUt\rf}
+\e kiT pirbAhIet \u\t pAidt taaepr pirmAN ($H$) \u haaet p\rf baaiht
+tiR\t\ ($i$)-\e r bg\Ref, pirbAhIr erA\dh\ ($R$) \e b\anuswar\
+tiR\t\ p\rf bAehr smy ($t$)-\e r guNfelr siht smaanupaaitk.
+\a\th\Ref aa\t,
+$$H = {\rm J}i^2Rt$$
+e\j\kh aaen {\rm J} \e kiT \dh\rf ubk. {\ENG J} {\sl juelr \dh\rf ubk}
+naaem piri\ch t.
+}
+
+\noindent
+Type the following to get it.
+\begin{verbatim}
+{\bn
+\Lbnh{juelr sUt\rf}
+\e kiT pirbAhIet \u\t pAidt taaepr pirmAN ($H$) \u haaet p\rf baaiht
+tiR\t\ ($i$)-\e r bg\Ref, pirbAhIr erA\dh\ ($R$) \e b\anuswar\
+tiR\t\ p\rf bAehr smy ($t$)-\e r guNfelr siht smaanupaaitk.
+\a\th\Ref aa\t,
+$$H = {\rm J}i^2Rt$$
+e\j\kh aaen {\rm J} \e kiT \dh\rf ubk. {\ENG J} {\sl juelr \dh\rf ubk}
+naaem piri\ch t.
+}
+\end{verbatim}
+
+\newsect{The font files}
+The following tables list the coding of the Bengali alphabet. The file
+{\tt bnr10.mf} defines the complete Bengali alphabet, and
+{\tt bnsl10.mf} defines the slanted version.
+To get the ASCII code for a particular character just add the headings
+of the row and the column to which the character belongs. For example,
+the consonant {\bn \chh} is defined in file {\tt bnr10.mf} and is assigned
+the ASCII value $64 + 3 = 67$ (which is the value for ``C'' in the ASCII
+roman alphabet).
+
+\def\showfont#1{%
+\centerline{\vbox{\offinterlineskip
+\halign{\strut\hfil\bf## && \vrule\enskip\hfil{\newfont{\char##}}\hfil\enskip\cr
+&\multispan{16}\hfil#1\hfil\cr
+\noalign{\smallskip}
+& \omit\bf\hfil0\hfil& \omit\bf\hfil1\hfil& \omit\bf\hfil2\hfil& \omit\bf\hfil3\hfil
+& \omit\bf\hfil4\hfil& \omit\bf\hfil5\hfil& \omit\bf\hfil6\hfil& \omit\bf\hfil7\hfil
+& \omit\bf\hfil8\hfil& \omit\bf\hfil9\hfil& \omit\bf\hfil10\hfil& \omit\bf\hfil11\hfil
+& \omit\bf\hfil12\hfil& \omit\bf\hfil13\hfil& \omit\bf\hfil14\hfil& \omit\bf\hfil15\hfil\cr
+\omit\hfil& \multispan{16}\hrulefill\cr
+0& 0& 1& 2& 3& 4& 5& 6& 7& 8& 9& 10& 11& 12& 13& 14& \omit\vrule\enspace\hfil\newfont\char15\hfil\enspace\vrule\cr
+\omit\hfil& \multispan{16}\hrulefill\cr
+16& 16& 17& 18& 19& 20& 21& 22& 23& 24& 25& 26& 27& 28& 29& 30& \omit\vrule\enspace\hfil\newfont\char31\hfil\enspace\vrule\cr
+\omit\hfil& \multispan{16}\hrulefill\cr
+32& 32& 33& 34& 35& 36& 37& 38& 39& 40& 41& 42& 43& 44& 45& 46& \omit\vrule\enspace\hfil\newfont\char47\hfil\enspace\vrule\cr
+\omit\hfil& \multispan{16}\hrulefill\cr
+48& 48& 49& 50& 51& 52& 53& 54& 55& 56& 57& 58& 59& 60& 61& 62& \omit\vrule\enspace\hfil\newfont\char63\hfil\enspace\vrule\cr
+\omit\hfil& \multispan{16}\hrulefill\cr
+64& 64& 65& 66& 67& 68& 69& 70& 71& 72& 73& 74& 75& 76& 77& 78& \omit\vrule\enspace\hfil\newfont\char79\hfil\enspace\vrule\cr
+\omit\hfil& \multispan{16}\hrulefill\cr
+80& 80& 81& 82& 83& 84& 85& 86& 87& 88& 89& 90& 91& 92& 93& 94& \omit\vrule\enspace\hfil\newfont\char95\hfil\enspace\vrule\cr
+\omit\hfil& \multispan{16}\hrulefill\cr
+96& 96& 97& 98& 99& 100& 101& 102& 103& 104& 105& 106& 107& 108& 109& 110& \omit\vrule\enspace\hfil\newfont\char111\hfil\enspace\vrule\cr
+\omit\hfil& \multispan{16}\hrulefill\cr
+112& 112& 113& 114& 115& 116& 117& 118& 119& 120& 121& 122& 123& 124& 125& 126& \omit\vrule\enspace\hfil\newfont\char127\hfil\enspace\vrule\cr
+\omit\hfil& \multispan{16}\hrulefill\cr
+128& 128& 129& 130& 131& 132& 133& 134& 135& 136& 137& 138& 139& 140& 141& 142& \omit\vrule\enspace\hfil\newfont\char143\hfil\enspace\vrule\cr
+\omit\hfil& \multispan{16}\hrulefill\cr
+144& 144& 145& 146& 147& 148& 149& 150& 151& 152& 153& 154& 155& 156& 157& 158& \omit\vrule\enspace\hfil\newfont\char159\hfil\enspace\vrule\cr
+\omit\hfil& \multispan{16}\hrulefill\cr
+160& 160& 161& 162& 163& 164& 165& 166& 167& 168& 169& 170& 171& 172& 173& 174& \omit\vrule\enspace\hfil\newfont\char175\hfil\enspace\vrule\cr
+\omit\hfil& \multispan{16}\hrulefill\cr
+176& 176& 177& 178& 179& 180& 181& 182& 183& 184& 185& 186& 187& 188& 189& 190& \omit\vrule\enspace\hfil\newfont\char191\hfil\enspace\vrule\cr
+\omit\hfil& \multispan{16}\hrulefill\cr
+192& 192& 193& 194& 195& 196& 197& 198& 199& 200& 201& 202& 203& 204& 205& 206& \omit\vrule\enspace\hfil\newfont\char207\hfil\enspace\vrule\cr
+\omit\hfil& \multispan{16}\hrulefill\cr
+208& 208& 209& 210& 211& 212& 213& 214& 215& 216& 217& 218& 219& 220& 221& 222& \omit\vrule\enspace\hfil\newfont\char223\hfil\enspace\vrule\cr
+\omit\hfil& \multispan{16}\hrulefill\cr
+224& 224& 225& 226& 227& 228& 229& 230& 231& 232& 233& 234& 235& 236& 237& 238& \omit\vrule\enspace\hfil\newfont\char239\hfil\enspace\vrule\cr
+\omit\hfil& \multispan{16}\hrulefill\cr
+240& 240& 241& 242& 243& 244& 245& 246& 247& 248& 249& 250& 251& 252& 253& 254& \omit\vrule\enspace\hfil\newfont\char255\hfil\enspace\vrule\cr
+\omit\hfil& \multispan{16}\hrulefill\cr
+}}}}
+
+\def\showboldfont#1{%
+\centerline{\vbox{\offinterlineskip
+\halign{\strut\hfil\bf## && \vrule\enskip\hfil\bn\bnbold{\char##}\hfil\enskip\cr
+&\multispan{16}\hfil#1\hfil\cr
+\noalign{\smallskip}
+& \omit\bf\hfil0\hfil& \omit\bf\hfil1\hfil& \omit\bf\hfil2\hfil& \omit\bf\hfil3\hfil
+& \omit\bf\hfil4\hfil& \omit\bf\hfil5\hfil& \omit\bf\hfil6\hfil& \omit\bf\hfil7\hfil
+& \omit\bf\hfil8\hfil& \omit\bf\hfil9\hfil& \omit\bf\hfil10\hfil& \omit\bf\hfil11\hfil
+& \omit\bf\hfil12\hfil& \omit\bf\hfil13\hfil& \omit\bf\hfil14\hfil& \omit\bf\hfil15\hfil\cr
+\omit\hfil& \multispan{16}\hrulefill\cr
+0& 0& 1& 2& 3& 4& 5& 6& 7& 8& 9& 10& 11& 12& 13& 14& \omit\vrule\enspace\hfil\bn\bnbold{\char15}\hfil\enspace\vrule\cr
+\omit\hfil& \multispan{16}\hrulefill\cr
+16& 16& 17& 18& 19& 20& 21& 22& 23& 24& 25& 26& 27& 28& 29& 30& \omit\vrule\enspace\hfil\bn\bnbold{\char31}\hfil\enspace\vrule\cr
+\omit\hfil& \multispan{16}\hrulefill\cr
+32& 32& 33& 34& 35& 36& 37& 38& 39& 40& 41& 42& 43& 44& 45& 46& \omit\vrule\enspace\hfil\bn\bnbold{\char47}\hfil\enspace\vrule\cr
+\omit\hfil& \multispan{16}\hrulefill\cr
+48& 48& 49& 50& 51& 52& 53& 54& 55& 56& 57& 58& 59& 60& 61& 62& \omit\vrule\enspace\hfil\bn\bnbold{\char63}\hfil\enspace\vrule\cr
+\omit\hfil& \multispan{16}\hrulefill\cr
+64& 64& 65& 66& 67& 68& 69& 70& 71& 72& 73& 74& 75& 76& 77& 78& \omit\vrule\enspace\hfil\bn\bnbold{\char79}\hfil\enspace\vrule\cr
+\omit\hfil& \multispan{16}\hrulefill\cr
+80& 80& 81& 82& 83& 84& 85& 86& 87& 88& 89& 90& 91& 92& 93& 94& \omit\vrule\enspace\hfil\bn\bnbold{\char95}\hfil\enspace\vrule\cr
+\omit\hfil& \multispan{16}\hrulefill\cr
+96& 96& 97& 98& 99& 100& 101& 102& 103& 104& 105& 106& 107& 108& 109& 110& \omit\vrule\enspace\hfil\bn\bnbold{\char111}\hfil\enspace\vrule\cr
+\omit\hfil& \multispan{16}\hrulefill\cr
+112& 112& 113& 114& 115& 116& 117& 118& 119& 120& 121& 122& 123& 124& 125& 126& \omit\vrule\enspace\hfil\bn\bnbold{\char127}\hfil\enspace\vrule\cr
+\omit\hfil& \multispan{16}\hrulefill\cr
+128& 128& 129& 130& 131& 132& 133& 134& 135& 136& 137& 138& 139& 140& 141& 142& \omit\vrule\enspace\hfil\bn\bnbold{\char143}\hfil\enspace\vrule\cr
+\omit\hfil& \multispan{16}\hrulefill\cr
+144& 144& 145& 146& 147& 148& 149& 150& 151& 152& 153& 154& 155& 156& 157& 158& \omit\vrule\enspace\hfil\bn\bnbold{\char159}\hfil\enspace\vrule\cr
+\omit\hfil& \multispan{16}\hrulefill\cr
+160& 160& 161& 162& 163& 164& 165& 166& 167& 168& 169& 170& 171& 172& 173& 174& \omit\vrule\enspace\hfil\bn\bnbold{\char175}\hfil\enspace\vrule\cr
+\omit\hfil& \multispan{16}\hrulefill\cr
+176& 176& 177& 178& 179& 180& 181& 182& 183& 184& 185& 186& 187& 188& 189& 190& \omit\vrule\enspace\hfil\bn\bnbold{\char191}\hfil\enspace\vrule\cr
+\omit\hfil& \multispan{16}\hrulefill\cr
+192& 192& 193& 194& 195& 196& 197& 198& 199& 200& 201& 202& 203& 204& 205& 206& \omit\vrule\enspace\hfil\bn\bnbold{\char207}\hfil\enspace\vrule\cr
+\omit\hfil& \multispan{16}\hrulefill\cr
+208& 208& 209& 210& 211& 212& 213& 214& 215& 216& 217& 218& 219& 220& 221& 222& \omit\vrule\enspace\hfil\bn\bnbold{\char223}\hfil\enspace\vrule\cr
+\omit\hfil& \multispan{16}\hrulefill\cr
+224& 224& 225& 226& 227& 228& 229& 230& 231& 232& 233& 234& 235& 236& 237& 238& \omit\vrule\enspace\hfil\bn\bnbold{\char239}\hfil\enspace\vrule\cr
+\omit\hfil& \multispan{16}\hrulefill\cr
+240& 240& 241& 242& 243& 244& 245& 246& 247& 248& 249& 250& 251& 252& 253& 254& \omit\vrule\enspace\hfil\bn\bnbold{\char255}\hfil\enspace\vrule\cr
+\omit\hfil& \multispan{16}\hrulefill\cr
+}}}}
+
+\mbox{}
+\vfill
+\def\newfont{\bn}
+\showfont{\Large{\tt bnr10.mf}: The unslanted alphabet}
+
+\vfill
+\def\newfont{\bn\sl}
+\showfont{\Large{\tt bnsl10.mf}: The slanted alphabet}
+\vfill
+\newpage
+
+\mbox{}
+\vfill
+\showboldfont{\Large{\tt\bs bnbold} version of {\tt bnr10.mf}}
+\vfill
+\newpage
+
+\newsect{Encoding of vowels and vowel forms}
+\centerline{\begin{tabular}[t]{cccc}
+vowel& code& vowel form& code\\\hline
+{\bn \a}& {\tt \bs a} or {\tt a}& no sign&\\
+{\bn \aa}& {\tt \bs A} or {\tt \bs aa} or {\tt aA}& {\bn aa}& {\tt A} or {\tt aa}\\
+{\bn \AE}& {\tt \bs AE}& {\bn \ae}& {\tt\bs ae}\\
+{\bn \i}& {\tt \bs i}& {\bn i}& {\tt i}\\
+{\bn \I}& {\tt \bs I} or {\tt \bs ee} or {\tt\bs ii}& {\bn ee}& {\tt I} or {\tt ee} or {\tt ii}\\
+{\bn \u}& {\tt \bs u}& {\bn u}& {\tt u}\\
+\hline
+\end{tabular}
+\hfil
+\begin{tabular}[t]{cccc}
+vowel& code& vowel form& code\\\hline
+{\bn \U}& {\tt \bs U} or {\tt \bs oo} or {\tt\bs uu}& {\bn oo}& {\tt U} or {\tt oo} or {\tt uu}\\
+{\bn \R}& {\tt \bs R} or {\tt \bs Ri}& {\bn \r}& {\tt \bs r} or {\tt \bs ri} or {\tt W}\\
+%{\bn 9}& {\tt 9}&&\\
+{\bn \e}& {\tt \bs e}& {\bn e}& {\tt e}\\
+{\bn \oi}& {\tt \bs E} or {\tt \bs oi}& {\bn E}& {\tt E} or {\tt oi}\\
+{\bn \o}& {\tt \bs o}& no sign&\\
+{\bn \ou}& {\tt \bs O} or {\tt \bs ou} or {\tt o}& {\bn O}& {\tt O} or {\tt ou}\\
+\hline
+\end{tabular}}
+
+\newsect{Encoding of consonants}
+\centerline{\begin{tabular}{cc|cc|cc|cc|cc}
+cons. & code & cons. & code & cons. & code & cons. & code & cons. & code \\ \hline
+{\bn k} & {\tt k} & {\bn \kh} & {\tt K} or {\tt \bs kh}&
+          {\bn g} & {\tt g} & {\bn G} & {\tt G} or {\tt \bs gh} &
+          {\bn \una} & {\tt q} or {\tt \bs una} \\
+{\bn c} & {\tt c} or {\tt \bs ch} & {\bn \chh} & {\tt C} or {\tt \bs chh} &
+          {\bn j} & {\tt j} & {\bn J} & {\tt J} or {\tt \bs jh} &
+          {\bn Q} & {\tt Q} or {\tt \bs ina} \\
+{\bn T} & {\tt T} & {\bn Z} & {\tt Z} or {\tt \bs Th} &
+          {\bn D} & {\tt D} & {\bn X} & {\tt X} or {\tt \bs Dh} &
+          {\bn N} & {\tt N}\\
+{\bn t} & {\tt t} & {\bn z} & {\tt z} or {\tt \bs th} &
+          {\bn d} & {\tt d} & {\bn x} & {\tt x} or {\tt \bs dh} &
+          {\bn n} & {\tt n}\\
+{\bn p} & {\tt p} & {\bn f} & {\tt f} or {\tt \bs ph} &
+          {\bn b} & {\tt b} & {\bn \bh} & {\tt v} or {\tt \bs bh} &
+          {\bn m} & {\tt m}\\
+{\bn Y} & {\tt Y} or {\tt \bs j} & {\bn r} & {\tt r} &
+          {\bn l} & {\tt l} & {\bn b} & {\tt b} &
+          {\bn S} & {\tt S} or {\tt \bs sh} \\
+{\bn F} & {\tt F} or {\tt \bs ss} & {\bn s} & {\tt s} &
+          {\bn h} & {\tt h} & {\bn \rr} & {\tt R} or {\tt \bs rr} &
+          {\bn \rh} & {\tt V} or {\tt \bs rh} \\
+{\bn y} & {\tt y} & {\bn B} & {\tt B} or {\tt \bs t} &
+          {\bn M} & {\tt M} or {\tt \bs anuswar} & {\bn H} & {\tt H} or {\tt \bs bisarga} &
+          {\bn w} & {\tt w} or {\tt \bs chandra}\\
+\hline
+\end{tabular}}
+
+\newsect{Some special symbols}
+\begin{tabular}{cc|cc}
+symbol & command & symbol & command \\ \hline
+{\bn\gu} & {\tt gu} or {\tt\bs gu} & {\bn\ru} & {\tt ru} or {\tt\bs ru} \\
+{\bn\rU} & {\tt rU} or {\tt\bs rU} or {\tt\bs roo} & {\bn \sh u} & {\tt \bs sh u} or {\tt\bs shu}\\
+{\bn\hu} & {\tt hu} or {\tt\bs hu} & {\bn\hri} & {\tt h\bs r} or {\tt\bs hr} or {\tt\bs hri}\\
+{\bn \jf} & {\tt \bs jf} or {\tt \bs jafala} &
+     {\bn \rf} & {\tt \bs rf} or {\tt \bs rafala}\\
+{\bn \Ref} & {\tt \bs Ref}\footnotemark & {\bn \hasanta} & {\tt \bs hasanta} or {\tt\bs hsn}\\
+{\bn \bucks} & {\tt \bs bucks} or {\tt\bs taka} &
+     {\bn \period} & {\tt \bs period} or {\tt\bs point} \\
+{\bn ..} & {\tt ..} & & \\
+\hline
+\end{tabular}
+\footnotetext{{\tt\bs ref} is a \LaTeX\ command.}
+
+\noindent {\bf Note: } The vowel forms {\bn i , e, E} are to be put
+before the consonant; the others are to be put after the consonant.
+{\bn \o}-kar is produced by putting {\bn e}, the consonant and
+then {\bn aa}. The same holds for {\bn e ou}. Ligature table is
+used for the combinations {\tt aa, ee, ii, oo, uu, oi} and {\tt ou}. Similarly,
+{\tt gu} prints {\bn gu} and not {\bn g{}u}. To get {\bn g{}u}, type
+{\tt g\{\}u}. {\bn rU} is produced by {\tt rU}, whereas
+{\tt roo} gives {\bn roo}. Finally, note that \hbox{\bn \jafala,\ \
+\rafala, \Ref} and {\bn\ \hasanta} must all be typed after the
+character to which they belong.
+
+\newsect{Encoding of conjunct consonants}
+The following conjunct consonants ({\bn \j u\kt aa\kkh r'}s) are defined.
+These are the most common ones used in Bengali. The following
+tables list for each conjunct consonant the component consonants,
+the encoding and an example of
+the conjunct consonant. In case a conjunct consonant has more than
+one encoding, these codes are separated by commas. Conjunct consonants
+having a ``jafala'', ``rafala'' or ``Ref'' are not listed. They can
+be typeset by the commands {\tt \bs jafala, \bs rafala} etc. as described
+in the last table. However, special combinations like {\bn \bhr} (which
+is not the same as {\bn \bh{}\rf}) are treated separately and are found in
+the following tables. (Also look at the section ``Ligatures''.)
+\vfill \break
+\centerline{\begin{tabular}[t]{cccl}\hline &&& \\
+{\bn k + k} & {\bn \kk} & {\tt \bs kk} & {\bn i\dh\kk aar} \\
+{\bn k + T} & {\bn \kT} & {\tt \bs kT} & {\bn \a e\kT aapaas}\\
+{\bn k + t} & {\bn \kt} & {\tt \bs kt} & {\bn Daa\kt aar}\\
+{\bn k + b} & {\bn \kw} & {\tt \bs kb,\bs kw} & {\bn p\kb}\\
+{\bn k + m} & {\bn \km} & {\tt \bs km} & {\bn rui\km NI}\\
+{\bn k + r} & {\bn \kr} & {\tt \bs kr} & {\bn b\kr}\\
+{\bn k + l} & {\bn \kl} & {\tt \bs kl} & {\bn \kl Ib}\\
+{\bn k + F} & {\bn \x} & {\tt \bs kF,\bs x,\bs kkh} & {\bn r\x A}\\
+{\bn k + F + N} & {\bn \kkhN} & {\tt \bs kFN,\bs xN,\bs kkhN} & {\bn tee\xN}\\
+{\bn k + F + m} & {\bn \kFm} & {\tt \bs kFm,\bs xm,\bs kkhm} & {\bn l\xm I}\\
+{\bn k + s} & {\bn \ks} & {\tt \bs ks} & {\bn ir\ks A}\\
+{\bn g + x} & {\bn \gdh} & {\tt \bs gdh,\bs gx} & {\bn mu\gdh}\\
+{\bn g + n} & {\bn \gn} & {\tt \bs gn} & {\bn \a i\gn}\\
+{\bn g + b} & {\bn \gb} & {\tt \bs gb} & {\bn idi\gb jy}\\
+{\bn g + m} & {\bn \gm} & {\tt \bs gm} & {\bn \j u\gm}\\
+{\bn g + l} & {\bn \gl} & {\tt \bs gl} & {\bn \gl Ain}\\
+{\bn G + n} & {\bn \ghn} & {\tt \bs ghn,\bs Gn} & {\bn ib\Gn}\\
+{\bn q + k} & {\bn \ngk} & {\tt \bs ngk,\bs qk} & {\bn Si\qk t}\\
+{\bn q + k + F} & {\bn \ngkh} & {\tt \bs ngkh,\bs qkS} & {\bn \A kaa\qkS A}\\
+{\bn q + K} & {\bn \nkh} & {\tt \bs nkh,\bs qK} & {\bn \sh\nkh}\\
+{\bn q + g} & {\bn \ng} & {\tt \bs ng,\bs qg} & {\bn b\jf aa\ng}\\
+{\bn q + G} & {\bn \ngh} & {\tt \bs ngh,\bs qG} & {\bn s\qG}\\
+{\bn q + m} & {\bn \ngm} & {\tt \bs ngm,\bs qm} & {\bn baa\qm y}\\
+{\bn c + c} & {\bn \cc} & {\tt \bs chch,\bs cc} & {\bn saa\cc aa}\\
+{\bn c + C} & {\bn \chchh} & {\tt \bs chchh,\bs cC} & {\bn baa\chchh aa}\\
+{\bn c + C + b} & {\bn \chchhb} & {\tt \bs chchhb,\bs chchhw,\bs cCb} & {\bn \u\chchhw aas}\\
+{\bn c + Q} & {\bn \chn} & {\tt \bs chn,\bs cQ} & {\bn YA\chn A}\\
+{\bn j + j} & {\bn \jj} & {\tt \bs jj} & {\bn l\jj aa}\\
+{\bn j + j + b} & {\bn \jjb} & {\tt \bs jjb,\bs jjw} & {\bn \u\jjw l}\\
+{\bn j + J} & {\bn \jjh} & {\tt \bs jjh,\bs jJ} & {\bn ku\jJ iTkaa}\\
+{\bn j + Q} & {\bn \ggn} & {\tt \bs ggn,\bs jQ} & {\bn ib\ggn aan}\\
+{\bn j + b} & {\bn \jb} & {\tt \bs jb,\bs jw} & {\bn \jb aalaa}\\
+{\bn Q + c} & {\bn \nch} & {\tt \bs nch,\bs Qc} & {\bn m\Qc}\\
+{\bn Q + C} & {\bn \nchh} & {\tt \bs nchh,\bs QC} & {\bn laa\QC nA}\\
+{\bn Q + j} & {\bn \nj} & {\tt \bs nj,\bs Qj} & {\bn g\Qj}\\
+{\bn Q + J} & {\bn \njh} & {\tt \bs njh,\bs QJ} & {\bn J\QJ A}\\
+{\bn T + T} & {\bn \TT} & {\tt \bs TT} & {\bn \a\TT aailkA}\\
+{\bn T + b} & {\bn \Tb} & {\tt \bs Tb,\bs Tw} & {\bn K\Tb aa}\\
+{\bn D + D} & {\bn \DD} & {\tt \bs DD} & {\bn \u\DD een}\\
+{\bn N + T} & {\bn \NT} & {\tt \bs NT} & {\bn k\NT ikt}\\
+{\bn N + Z} & {\bn \NTh} & {\tt \bs NTh,\bs NZ} & {\bn l\NZ n}\\
+{\bn N + D} & {\bn \ND} & {\tt \bs ND} & {\bn g\ND aar}\\
+{\bn N + N} & {\bn \NN} & {\tt \bs NN} & {\bn ibF\NN}\\
+{\bn N + m} & {\bn \Nm} & {\tt \bs Nm} & {\bn ihr\Nm y}\\
+{\bn t + t} & {\bn \tt} & {\tt \bs tt} & {\bn \u\tt aal}\\
+{\bn t + t + b} & {\bn \ttb} & {\tt \bs ttb,\bs ttw} & {\bn t\ttb}\\
+{\bn t + z} & {\bn \tth} & {\tt \bs tth,\bs tz} & {\bn \a\shb\tz}\\
+{\bn t + n} & {\bn \tn} & {\tt \bs tn} & {\bn r\tn}\\
+{\bn t + b} & {\bn \tb} & {\tt \bs tb,\bs tw} & {\bn \tb rA}\\
+&&& \\\hline
+\end{tabular}
+\hfill
+\begin{tabular}[t]{cccl}\hline &&& \\
+{\bn t + m} & {\bn \tm} & {\tt \bs tm} & {\bn \aa\tm A}\\
+{\bn t + r} & {\bn \tr} & {\tt \bs tr} & {\bn sb\Ref\tr}\\
+{\bn t + r + \u} & {\bn \tru} & {\tt \bs tru} & {\bn \tru iT}\\
+{\bn z + b}& {\bn \bn \thb}& {\tt\bs thb,\bs thw,\bs zb}& {\bn p\ri\thw I}\\
+{\bn d + g} & {\bn \dg} & {\tt \bs dg} & {\bn \u\dg AtA}\\
+{\bn d + G} & {\bn \dgh} & {\tt \bs dgh,\bs dG} & {\bn \u\dG ATn}\\
+{\bn d + d} & {\bn \dd} & {\tt \bs dd} & {\bn brA\dd}\\
+{\bn d + x} & {\bn \ddh} & {\tt \bs ddh,\bs dx} & {\bn \u\dx Ar}\\
+{\bn d + b} & {\bn \db} & {\tt \bs db,\bs dw} & {\bn \db eep}\\
+{\bn d + v} & {\bn \dv} & {\tt \bs dv,\bs dbh} & {\bn s\dbh aab}\\
+{\bn d + v + r} & {\bn \dvr} & {\tt \bs dvr,\bs dbhr} & {\bn \u\dbhr aa\nt}\\
+{\bn d + m} & {\bn \dm} & {\tt \bs dm} & {\bn p\dm}\\
+{\bn x + n} & {\bn \dhn} & {\tt \bs dhn,\bs xn} & {\bn g\r\xn}\\
+{\bn x + b} & {\bn \dhb} & {\tt \bs dhb,\bs dhw,\bs xb} & {\bn \xb jaa}\\
+{\bn n + T} & {\bn \nT} & {\tt \bs nT} & {\bn \A\nT Ak\Ref iTkA}\\
+{\bn n + D} & {\bn \nD} & {\tt \bs nD} & {\bn b\jf A\nD}\\
+{\bn n + t} & {\bn \nt} & {\tt \bs nt} & {\bn \a i\nt m}\\
+{\bn n + t + \u} & {\bn \ntu} & {\tt \bs ntu} & {\bn j\ntu}\\
+{\bn n + t + b} & {\bn \ntb} & {\tt \bs ntb,\bs ntw} & {\bn sA\ntb nA}\\
+{\bn n + t + r} & {\bn \ntr} & {\tt \bs ntr} & {\bn Y\ntr}\\
+{\bn n + z} & {\bn \nth} & {\tt \bs nth,\tt nz} & {\bn m\nz r}\\
+{\bn n + d} & {\bn \nd} & {\tt \bs nd} & {\bn b\nd I}\\
+{\bn n + d + b} & {\bn \ndb} & {\tt \bs ndb,\bs ndw} & {\bn\dw\ndw}\\
+{\bn n + x} & {\bn \ndh} & {\tt \bs ndh,\bs nx} & {\bn g\nx}\\
+{\bn n + n} & {\bn \nn} & {\tt \bs nn} & {\bn \a\nn}\\
+{\bn n + b} & {\bn \nb} & {\tt \bs nb,\bs nw} & {\bn sm\nb y}\\
+{\bn n + m} & {\bn \nm} & {\tt \bs nm} & {\bn j\nm}\\
+{\bn n + s} & {\bn \ns} & {\tt \bs ns} & {\bn es\ns}\\
+{\bn p + T} & {\bn \pT} & {\tt \bs pT} & {\bn ike\pT}\\
+{\bn p + t} & {\bn \pt} & {\tt \bs pt} & {\bn s\pt Ah}\\
+{\bn p + n} & {\bn \pn} & {\tt \bs pn} & {\bn \sb\pn}\\
+{\bn p + p} & {\bn \pp} & {\tt \bs pp} & {\bn \dh aa\pp aa}\\
+{\bn p + l} & {\bn \pl} & {\tt \bs pl} & {\bn \pl Abn}\\
+{\bn p + s} & {\bn \ps} & {\tt \bs ps} & {\bn \a vI\ps A}\\
+{\bn f + l} & {\bn \phl} & {\tt \bs phl,\bs fl} & {\bn i\fl paar}\\
+{\bn b + j} & {\bn \bj} & {\tt \bs bj} & {\bn ku\bj}\\
+{\bn b + d} & {\bn \bd} & {\tt \bs bd} & {\bn \sh\bd}\\
+{\bn b + x} & {\bn \bdh} & {\tt \bs bdh,\bs bx} & {\bn \aa r\bx}\\
+{\bn b + b} & {\bn \bb} & {\tt \bs bb} & {\bn maat\bb r}\\
+{\bn b + l} & {\bn \bl} & {\tt \bs bl} & {\bn \bl iT\anuswar}\\
+{\bn v + r} & {\bn \bhr} & {\tt \bs bhr,\bs vr} & {\bn \vr m}\\
+{\bn v + l} & {\bn \bhl} & {\tt \bs bhl,\bs vl} & {\bn \vl Aidimr}\\
+{\bn m + n} & {\bn \mn} & {\tt \bs mn} & {\bn in\mn}\\
+{\bn m + p} & {\bn \mp} & {\tt \bs mp} & {\bn k\mp}\\
+{\bn m + f} & {\bn \mph} & {\tt \bs mph,\bs mf} & {\bn l\mf}\\
+{\bn m + b} & {\bn \mb} & {\tt \bs mb} & {\bn \a\mb l}\\
+{\bn m + v} & {\bn \mbh} & {\tt \bs mbh, \bs mv} & {\bn d\mv}\\
+{\bn m + v + r} & {\bn \mbhr} & {\tt \bs mbhr,\bs mvr} & {\bn s\mvr m}\\
+{\bn m + m} & {\bn \mm} & {\tt \bs mm} & {\bn \A hA\mm k}\\
+&&& \\\hline
+\end{tabular}}
+
+\noindent
+\centerline{\begin{tabular}[t]{cccl}\hline &&& \\
+{\bn m + l} & {\bn \ml} & {\tt \bs ml} & {\bn \ml aan}\\
+{\bn l + k} & {\bn \lk} & {\tt \bs lk} & {\bn b\lk l}\\
+{\bn l + g} & {\bn \lg} & {\tt \bs lg} & {\bn b\lg A}\\
+{\bn l + g + \u} & {\bn \lgu} & {\tt \bs lgu} & {\bn fA\lgu n}\\
+{\bn l + T} & {\bn \lT} & {\tt \bs lT} & {\bn p\lT n}\\
+{\bn l + D} & {\bn \lD} & {\tt \bs lD} & {\bn ehA\lD aar}\\
+{\bn l + p} & {\bn \lp} & {\tt \bs lp} & {\bn k\lp nA}\\
+{\bn l + b} & {\bn \lb} & {\tt \bs lb,\bs lw} & {\bn ib\lb}\\
+{\bn l + m} & {\bn \lm} & {\tt \bs lm} & {\bn gu\lm}\\
+{\bn l + l} & {\bn \ll} & {\tt \bs ll} & {\bn p\rf\ph u\ll}\\
+{\bn S + c} & {\bn \shch} & {\tt \bs shch,\bs Sc} & {\bn pun\Sc}\\
+{\bn S + C} & {\bn \shchh} & {\tt \bs shchh,\bs SC} & {\bn iSre\SC d}\\
+{\bn S + n} & {\bn \shn} & {\tt \bs shn,\bs Sn} & {\bn p\rafala\Sn}\\
+{\bn S + m} & {\bn \shm} & {\tt \bs shm,\bs Sm} & {\bn ri\Sm}\\
+{\bn S + l} & {\bn \shl} & {\tt \bs shl,\bs Sl} & {\bn \Sl aa\gh aa}\\
+{\bn S + b} & {\bn \shb} & {\tt \bs shb,\bs shw,\bs Sb} & {\bn \Sb aapd}\\
+{\bn F + k} & {\bn \ssk} & {\tt \bs ssk,\bs Fk} & {\bn pir\Fk aar}\\
+{\bn F + k + r} & {\bn \sskr} & {\tt \bs sskr,\bs Fkr} & {\bn in\Fkr mN}\\
+{\bn F + T} & {\bn \ssT} & {\tt \bs ssT,\bs FT} & {\bn k\FT}\\
+{\bn F + Z} & {\bn \ssTh} & {\tt \bs ssTh,\bs FZ} & {\bn in\FZ ur}\\
+{\bn F + N} & {\bn \ssN} & {\tt \bs ssN,\bs FN} & {\bn \u\FN}\\
+{\bn F + p} & {\bn \ssp} & {\tt \bs ssp,\bs Fp} & {\bn bA\Fp}\\
+{\bn F + f} & {\bn \ssph} & {\tt \bs ssph,\bs Ff} & {\bn in\Ff l}\\
+&&& \\\hline
+\end{tabular}
+\hfill
+\begin{tabular}[t]{cccl}\hline &&& \\
+{\bn F + m} & {\bn \ssm} & {\tt \bs ssm,\bs Fm} & {\bn vI\Fm}\\
+{\bn s + k} & {\bn \sk} & {\tt \bs sk} & {\bn pur\sk\r t}\\
+{\bn s + k + r} & {\bn \skr} & {\tt \bs skr} & {\bn \skr een}\\
+{\bn s + k + l} & {\bn \skl} & {\tt \bs skl} & {\bn e\skl raa}\\
+{\bn s + K} & {\bn \skh} & {\tt \bs skh,\bs sK} & {\bn \sK ln}\\
+{\bn s + T} & {\bn \sT} & {\tt \bs sT} & {\bn \sT pAr}\\
+{\bn s + t} & {\bn \st} & {\tt \bs st} & {\bn \a\st}\\
+{\bn s + t + \u} & {\bn \stu} & {\tt \bs stu} & {\bn b\stu}\\
+{\bn s + t + r} & {\bn \str} & {\tt \bs str} & {\bn oi\str N}\\
+{\bn s + z} & {\bn \sth} & {\tt \bs sth,\bs sz} & {\bn \u pi\sz t}\\
+{\bn s + n} & {\bn \sn} & {\tt \bs sn} & {\bn \sn aan}\\
+{\bn s + p} & {\bn \sp} & {\tt \bs sp} & {\bn pr\sp r}\\
+{\bn s + p + l} & {\bn \spl} & {\tt \bs spl} & {\bn i\spl T}\\
+{\bn s + f} & {\bn \sph} & {\tt \bs sph,\bs sf} & {\bn \A\sf aaln}\\
+{\bn s + b} & {\bn \sb} & {\tt \bs sb,\bs sw} & {\bn \sb ed\sh}\\
+{\bn s + m} & {\bn \sm} & {\tt \bs sm} & {\bn \sm rN}\\
+{\bn s + l} & {\bn \dsl} & {\tt \bs dsl} & {\bn i\dsl p}\\
+{\bn h + N} & {\bn \hN} & {\tt \bs hN} & {\bn apraa\hN}\\
+{\bn h + n} & {\bn \hn} & {\tt \bs hn} & {\bn ici\hn t}\\
+{\bn h + m} & {\bn \hm} & {\tt \bs hm} & {\bn b\rf\hm aa}\\
+{\bn h + b} & {\bn \hb} & {\tt \bs hb,\bs hw} & {\bn \A\hb aan}\\
+{\bn h + l} & {\bn \hl} & {\tt \bs hl} & {\bn \A\hl aad}\\
+{\bn R + g} & {\bn \rrg} & {\tt \bs rrg,\bs Rg} & {\bn \kh\Rg}\\
+&&& \\\hline
+\end{tabular}}
+
+\vfill
+
+\newsect{Example 2}
+\begin{tabular}{p{3in}p{3in}}
+\noindent {\bf The input:}
+\begin{verbatim}
+{\bn
+\begin{verse}
+{\Large rbI\nd\rf nA\th\ \Th aakur}\\
+{\large \sl geetibtaan}\\
+\medskip
+baaej kruN suer haay dooer \\
+tb \ch rNtl\ch ui\mb t pA\nth bINA.\\
+\e\ mm paa\nth i\ch t c\nch l \\
+jaain naa kee \u e\dd e\sh.. \\
+\j UzIg\ndh\ \a SA\nt\ smIer \\
+xaay \u tlaa \u\chchhb Aes, \\
+etmin ic\tt\ \u daasI er \\
+indaaruN ibe\cC edr inSIez.. \\
+\end{verse}
+}
+\end{verbatim}
+&
+\noindent {\bf The output:}
+{\bn
+\begin{verse}
+{\Large rbI\nd\rf nA\th\ \Th aakur}\\
+{\large \sl geetibtaan}\\
+\medskip
+baaej kruN suer haay dooer \\
+tb \ch rNtl\ch ui\mb t pA\nth bINA.\\
+\e\ mm paa\nth i\ch t c\nch l \\
+jaain naa kee \u e\dd e\sh.. \\
+\j UzIg\ndh\ \a SA\nt\ smIer \\
+xaay \u tlaa \u\chchhb Aes, \\
+etmin ic\tt\ \u daasI er \\
+indaaruN ibe\cC edr inSIez.. \\
+\end{verse}
+}
+\\
+\end{tabular}
+
+\newpage
+\newsect{Changes from older versions}
+In version 1.0 of \bwti, the Bengali alphabet was distributed among
+different \METAFONT\ files. More specifically, the basic alphabet
+(vowels, vowel forms, consonants, digits and punctuation symbols)
+was defined in a \METAFONT\ source, while the conjunct consonants
+were distributed among two different \METAFONT\ files.
+
+After that I counted that the total number of glyphs turns out to be
+less than 256. So I accumulated all the characters in a single font
+file. Version 2.0 of \bwti\ is thus born. This change makes the Bengali
+fonts more portable and helps better conversion to other formats.
+In addition to the change in the font source, the style file is also
+improved:
+\begin{itemize}
+\item The Bengali font is given a font family number so that one can
+use them in math mode also. 
+\item Commands are provided that allow one to write text that looks like
+one typeset in boldface. ({\tt\bs bnbold, \bs bnBold} and {\tt\bs bnBOLD}).
+\item Easy-to-use commands for typesetting headers of different sizes are
+provided ({\tt\bs lbnh, \bs cbnh, \bs rbnh} etc.).
+\end{itemize}
+
+After that I was able to convert the fonts to some other formats (BDF,
+GSF etc.). Some of these formats have some inhibited positions where one
+should not define a glyph. As a result I had to change the encodings for
+fonts in these other formats. This made the original font incompatible with
+the converted ones. To restore compatiblity, version 3.0 of \bwti\ is
+designed. Please note that the character encoding in \bwti\ 3.0 is a little
+bit different from that in \bwti\ 2.0. This means that older files may
+give erroneous outputs when compiled under version 3.0. I deeply regret
+any inconvenience due to that. In addition to this change in encoding,
+two new conjuncts are added and shapes of some of the old characters are
+modified (beautified, perhaps) a little. Finally, like most other computer
+modern fonts, all the digits have been designed to be of equal width.
+
+Sorry for these rapid drastic changes. Hope to stabilize soon!!
+
+\newsect{Address for correspondence}
+I am here for your doubts, comments, suggestions and
+criticisms. Feel free to communicate~---
+
+\noindent
+Dr.~Abhijit Das\\
+Department of Mathematics\\
+Indian Institute of Technology, Kanpur 208 016, INDIA\\
+e-mail: {\tt ad\_rab\char`\@yahoo.com}\\
+URL: {\tt http://in.geocities.com/ad\_rab/}
+
+\newsect{Copyright information}
+Copyright 1997--2002 by the author Abhijit Das {\tt[ad\_rab@yahoo.com]}
+
+\noindent
+{\tt bwti} is free software; you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation; either version 2 of the License, or
+(at your option) any later version.
+
+\noindent
+{\tt bwti} is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+\noindent
+You should have received a copy of the GNU General Public License
+along with {\tt bwti}; if not, write to the Free Software
+Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+\end{document}
+
+%%% End of manual.tex

@@ -1,0 +1,40 @@
+%Defining shortcut symbols 
+%Custom font-size command definitions
+\newcommand\baselineSkipFactor {1.2}
+\newcommand{\fSize}[1]{\fontsize{#1}{\baselineSkipFactor#1}\selectfont }
+
+
+% parameters for \tcolorbox
+\tcbset{beamer, drop shadow southwest,sharp corners,coltitle=black,colbacktitle=gray!20, halign title=flush left,titlerule=1mm, }
+
+% new itemize environment to look 
+\newenvironment{myitemize}{%
+	\begin{itemize}}{\end{itemize}}
+
+\tcolorboxenvironment{myitemize}{blanker,
+	before skip=6pt,after skip=6pt,
+	borderline west={2mm}{0pt}{black}}
+
+
+
+%%%%%% For Generating Dummy Figures/Tables %%%%%%%
+%%%%%% Can be safely ignored %%%%%%%%%
+\def\dummyfig{
+	\begin{figure}[!t]
+		\centering
+		\adjustbox{margin=1em,width=\textwidth,set height=4cm,set depth=4cm,frame,center}
+		{A Dummy Figure}
+		\caption{Dummy Figure}
+		\label{fig:dummy}
+	\end{figure}
+	}
+	
+\def\dummytab{
+	\begin{table}[!t]
+		\centering
+		\adjustbox{margin=1em,width=\textwidth,set height=4cm,set depth=4cm,frame,center}
+		{A Dummy Table}
+		\caption{Dummy Table}
+		\label{fig:dummy}
+	\end{table}
+}

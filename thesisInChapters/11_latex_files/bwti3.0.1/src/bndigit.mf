@@ -1,0 +1,104 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% bndigit.mf: METAFONT file that defines the Bengali digits  
+% Created by: Abhijit Das (Barda) IISc Bangalore
+% Last modified: Nov 24 1998
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Copyright (C) 1998-2002 by Abhijit Das [ad_rab@yahoo.com]
+%
+% This file is part of BWTI.
+%
+% BWTI is free software; you can redistribute it and/or modify
+% it under the terms of the GNU General Public License as published by
+% the Free Software Foundation; either version 2 of the License, or
+% (at your option) any later version.
+%
+% BWTI is distributed in the hope that it will be useful,
+% but WITHOUT ANY WARRANTY; without even the implied warranty of
+% MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+% GNU General Public License for more details.
+%
+% You should have received a copy of the GNU General Public License
+% along with BWTI; if not, write to the Free Software
+% Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+beginchar("0",0.54stwd#,stht#,stdp#); "The number 0";
+z1 = (1/2w,12/31h+19/50w); z2 = (1/2w,12/31h-19/50w);
+pickup pencircle xscaled 0.3pt yscaled 0.6pt rotated 30;
+draw z1..z2..cycle;
+endchar;
+
+beginchar("1",0.54stwd#,stht#,stdp#); "The number 1";
+z1 = (1/4w,3/4h); z2 = (3/4w,3/8h); z3 = (5/6w,1/4h); z4 = (5/10w,1/15h);
+pickup pencircle xscaled 0.3pt yscaled 0.6pt rotated 30;
+draw z1{dir -135}..z2..{down}z3{down}..{dir -170}z4;
+fill fullcircle xscaled 2.0pt yscaled 1.3pt rotated 10 shifted (z4 + (-0.04pt,0.39pt));
+endchar;
+
+beginchar("2",0.54stwd#,stht#,stdp#); "The number 2";
+z1 = (1/4w,3/4h); z2 = (5/9w,11/24h); z3 = (3/4w,21/41h);
+z4 = (1/5w,1/3h); z5 = (9/10w,-d/5);
+pickup pencircle xscaled 0.6pt yscaled 0.3pt;
+draw z1{dir -135}..tension 2..{dir -45}z3{dir -45}..{dir 160}z4;
+z4l + (0.1pt,-0.35pt) = z4r - (0.1pt,-0.38pt) = z4 - (0.30pt,-0.04pt);
+z5l - (0.20pt,0) = z5r + (0.20pt,0) = z5;
+penstroke z4e{dir -30}..{dir -45}z5e;
+endchar;
+
+beginchar("3",0.54stwd#,stht#,stdp#); "The number 3";
+z3 = (1/2w,47/90h); lft z4 = (8/9w,6/19h);
+z5 = (3/5w,1/10h); rt z6 = (1/10w,25/40h); z7 = (1/5w,1/3h);
+pickup pencircle xscaled 0.3pt yscaled 0.6pt;
+draw z3{dir 28}..{down}z4{down}..{left}z5{left}..z7..z6;
+fill fullcircle scaled 1.5pt shifted (z3 + (0.24pt,-0.44pt));
+endchar;
+
+beginchar("4",0.54stwd#,stht#,stdp#); "The number 4";
+z1 = (1/2w,3/4h); z2 = (1/6w,9/16h); z3 = (1/2w,3/8h);
+z4 = (5/6w,3/16h); z5 = (1/2w,0); z6 = (1/6w,3/16h); z7 = (5/6w,9/16h);
+pickup pencircle xscaled 0.6pt yscaled 0.3pt rotated 45;
+draw z1..z2..z3..z4..z5..z6..z3..z7..cycle;
+endchar;
+
+beginchar("5",0.54stwd#,stht#,stdp#); "The number 5";
+z1 = (1/2w,3/4h); z2 = (1/5w,1/9h); z3 = (3/4w,0); z4 = (9/10w,11/20h);
+pickup pencircle xscaled 0.3pt yscaled 0.6pt rotated 45;
+draw z1{dir -145}..{dir -50}z2{dir -50}..{right}z3{dir 150}..
+{dir 30}z4{left}..{up}z1;
+endchar;
+
+beginchar("6",0.54stwd#,stht#,stdp#); "The number 6";
+top z3 = (7/20w,28/40h); z4 = (1/2w,9/23h); z5 = (11/20w,15/40h);
+z6 = (41/50w,20/40h); lft z7 = (9/10w,5/16h);
+z8 = (22/40w,1/12h); z9 = (1/10w,12/19h); z10 = (9/50w,1/3h);
+pickup pencircle xscaled 0.3pt yscaled 0.6pt;
+draw z3{dir -10}..tension 1.2..{dir -70}z4..z5{dir 15}
+     ..{dir 45}z6{dir -60}..{down}z7{down}..{left}z8{left}..z10..z9;
+endchar;
+
+beginchar("7",0.54stwd#,stht#,stdp#); "The number 7";
+z1 = (3/4w,10/21h); z2 = (1/5w,1/2h); z3 = (1/2w,3/4h); z4 = (6/7w,0);
+pickup pencircle xscaled 0.3pt yscaled 0.6pt rotated 45;
+draw z1{left}..tension 1.4..{dir 135}z2{dir 135}..tension 1.4..
+{right}z3{right}..z1..tension 2.2..{dir -15}z4;
+endchar;
+
+beginchar("8",0.54stwd#,stht#,stdp#); "The number 8";
+z1 = (1/10w,3/4h); z2 = (1/6w,3/7h); z3 = (1/6w,1/6h);
+z4 = (1/4w,1/16h); z5 = (13/20w,17/42h); z6 = (9/10w,1/2h);
+pickup pencircle xscaled 0.4pt yscaled 0.5pt;
+draw z1{right}..tension 2.2..{down}z2--z3{down}..z4{right}..
+{up}z5{dir 135}..tension 2..{dir -135}z2;
+pickup pencircle xscaled 0 yscaled 0.5pt rotated 30;
+draw z5{dir 75}..{dir 75}z6;
+endchar;
+
+beginchar("9",0.54stwd#,stht#,stdp#); "The number 9";
+z1 = (1/6w,3/4h); z2 = (7/8w,1/5h); z3 = (2/3w,0);
+z4 = (23/60w,1/4h); z5 = (1/6w,1/10h);
+pickup pencircle xscaled 0.6pt yscaled 0.3pt rotated 45;
+draw z1{down}..{down}z2{down}..{dir -165}z3{up}..{left}z4{left}..{dir -75}z5;
+fill fullcircle scaled 1.2pt shifted (z5 + (0.39pt,-0.1pt));
+endchar;
+
+%%% End of bndigit.mf
